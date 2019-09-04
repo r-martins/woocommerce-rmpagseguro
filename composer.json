@@ -1,13 +1,18 @@
 {
-	"name": "claudiosanches/woocommerce-pagseguro",
-	"description": "Includes PagSeguro as a payment gateway to WooCommerce.",
-	"homepage": "https://github.com/claudiosanches/woocommerce-pagseguro",
+	"name": "ricardomartins/woocommerce-rmpagseguro",
+	"description": "Adiciona PagSeguro como meio de pagamento (com desconto nas taxas oficiais).",
+	"homepage": "https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html",
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
 	"authors": [
 		{
 			"name": "Claudio Sanches",
 			"homepage": "https://claudiosanches.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Ricardo Martins",
+			"homepage": "https://ricardomartins.net.br/",
 			"role": "Developer"
 		}
 	],

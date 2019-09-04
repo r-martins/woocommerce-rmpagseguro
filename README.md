@@ -1,14 +1,19 @@
-# WooCommerce PagSeguro #
-**Contributors:** [claudiosanches](https://profiles.wordpress.org/claudiosanches), [Gabriel Reguly](https://profiles.wordpress.org/Gabriel Reguly)  
+# WooCommerce PagSeguro (com Descontos) #
+**Official Website:** http://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
+ 
+**Contributors:** [claudiosanches](https://profiles.wordpress.org/claudiosanches), [Gabriel Reguly](https://profiles.wordpress.org/Gabriel Reguly)
+**Modified by:** [Ricardo Martins](https://ricardomartins.net.br)  
 **Donate link:** https://claudiosanches.com/doacoes/  
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
-**Tested up to:** 4.9  
-**Stable tag:** 2.13.0  
+**Tested up to:** 5.2.2  
+**Stable tag:** 3.0.0
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Adds PagSeguro gateway to the WooCommerce plugin
+Adds PagSeguro gateway to the WooCommerce plugin with discount on PagSeguro Taxes.
+
+Adiciona o PagSeguro como meio de pagamento e dá descontos nas taxas oficiais. 
 
 ## Description ##
 

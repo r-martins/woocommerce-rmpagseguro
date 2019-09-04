@@ -4,6 +4,7 @@
  *
  * @package WooCommerce_PagSeguro/Classes/API
  * @version 2.12.0
+ * Arquivo modificado por Ricardo Martins em 4 de Setembro de 2019 (GPLv2)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -46,7 +47,8 @@ class WC_PagSeguro_API {
 	 * @return string.
 	 */
 	protected function get_checkout_url() {
-		return 'https://ws.' . $this->get_environment() . 'pagseguro.uol.com.br/v2/checkout';
+		//modified by Ricardo Martins
+		return 'https://ws.ricardomartins.net.br/pspro/v6/wspagseguro/v2/checkout';
 	}
 
 	/**
@@ -66,7 +68,8 @@ class WC_PagSeguro_API {
 	 * @return string.
 	 */
 	protected function get_payment_url( $token ) {
-		return 'https://' . $this->get_environment() . 'pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $token;
+		//modified by Ricardo Martins
+		return 'https://ws.ricardomartins.net.br/pspro/v6/wspagseguro/v2/checkout/payment.html?code=' . $token;
 	}
 
 	/**
@@ -75,7 +78,7 @@ class WC_PagSeguro_API {
 	 * @return string.
 	 */
 	protected function get_transactions_url() {
-		return 'https://ws.' . $this->get_environment() . 'pagseguro.uol.com.br/v2/transactions';
+		return 'https://ws.ricardomartins.net.br/pspro/v6/wspagseguro/v2/transactions';
 	}
 
 	/**
@@ -473,7 +476,7 @@ class WC_PagSeguro_API {
 	 *
 	 * @return string
 	 */
-	protected function get_checkout_xml( $order, $posted ) {
+	protected function get_checkout_xml( $order, $posted, $render = true ) {
 		$data    = $this->get_order_items( $order );
 		$ship_to = isset( $posted['ship_to_different_address'] ) ? true : false;
 
@@ -507,18 +510,63 @@ class WC_PagSeguro_API {
 		// Filter the XML.
 		$xml = apply_filters( 'woocommerce_pagseguro_checkout_xml', $xml, $order );
 
+		if (!$render){
+			return $xml;
+		}
 		return $xml->render();
 	}
 
+	protected function get_checkout_post($order, $posted) {
+		$xml = $this->get_checkout_xml($order, $posted, false);
+
+		$post = array(
+			'currency' => (string)$xml->currency,
+			'maxUses' => (string)$xml->maxUses,
+			'maxAge' => (string)$xml->maxAge,
+			'notificationURL' => (string)$xml->notificationURL,
+			'reference' => (string)$xml->reference,
+			'senderAreaCode' => (string)$xml->sender->phone->areaCode,
+			'public_key' => (string)$this->gateway->settings['public_key'],
+			'senderPhone' => (string)$xml->sender->phone->number,
+			'senderName' => (string)$xml->sender->name,
+			'shippingType' => (string)$xml->shipping->type,
+			'shippingCost' => (string)$xml->shipping->cost,
+			'shippingAddressCountry' => (string)$xml->shipping->address->country,
+			'shippingAddressStreet' => (string)$xml->shipping->address->street,
+			'shippingAddressNumber' => (string)$xml->shipping->address->number,
+			'shippingAddressComplement' => (string)$xml->shipping->address->complement,
+			'shippingAddressDistrict' => (string)$xml->shipping->address->district,
+			'shippingAddressCity' => (string)$xml->shipping->address->city,
+			'shippingAddressPostalCode' => (string)$xml->shipping->address->postalCode,
+			'shippingAddressState' => (string)$xml->shipping->address->state,
+		);
+		foreach($xml->items as $item) {
+			$post['itemId' . (string)$item->item->id] = (string)$item->item->id;
+			$post['itemDescription' . (string)$item->item->id] = (string)$item->item->description;
+			$post['itemAmount' . (string)$item->item->id] = (string)$item->item->amount;
+			$post['itemQuantity' . (string)$item->item->id] = (string)$item->item->quantity;
+		}
+
+		switch ((string)$xml->sender->documents->document->type){
+			case 'CNPJ':
+				$post['senderCNPJ'] = (string)$xml->sender->documents->document->value;
+			case 'CPF':
+			default:
+				$post['senderCPF'] = (string)$xml->sender->documents->document->value;
+		}
+
+		return $post;
+
+	}
 	/**
 	 * Get the direct payment xml.
 	 *
 	 * @param WC_Order $order Order data.
 	 * @param array    $posted Posted data.
 	 *
-	 * @return string
+	 * @return string|WC_PagSeguro_XML
 	 */
-	protected function get_payment_xml( $order, $posted ) {
+	protected function get_payment_xml( $order, $posted, $render=true ) {
 		$data    = $this->get_order_items( $order );
 		$ship_to = isset( $posted['ship_to_different_address'] ) ? true : false;
 		$method  = isset( $posted['pagseguro_payment_method'] ) ? $this->get_payment_method( $posted['pagseguro_payment_method'] ) : '';
@@ -574,7 +622,88 @@ class WC_PagSeguro_API {
 		// Filter the XML.
 		$xml = apply_filters( 'woocommerce_pagseguro_payment_xml', $xml, $order );
 
+		if (!$render){
+			return $xml;
+		}
 		return $xml->render();
+	}
+
+	/**
+	 * Get the direct payment POST params.
+	 *
+	 * @author Ricardo Martins <pagseguro-transparente@ricardomartins.net.br>
+	 * @param WC_Order $order Order data.
+	 * @param array    $posted Posted data.
+	 *
+	 * @return array
+	 */
+	protected function get_payment_post( $order, $posted ) {
+		$xml = $this->get_payment_xml($order, $posted, false);
+
+		$post = array(
+			'currency' => (string)$xml->currency,
+			'paymentMethod' => (string)$xml->method,
+			'paymentMode' => (string)$xml->mode,
+			'notificationUrl' => (string)$xml->notificationURL,
+			'senderEmail' => (string)$xml->sender->email,
+			'senderHash' => (string)$xml->sender->hash,
+			'senderAreaCode' => (string)$xml->sender->phone->areaCode,
+			'public_key' => (string)$this->gateway->settings['public_key'],
+			'senderPhone' => (string)$xml->sender->phone->number,
+			'senderName' => (string)$xml->sender->name,
+			'shippingType' => (string)$xml->shipping->type,
+			'shippingCost' => (string)$xml->shipping->cost,
+			'shippingAddressCountry' => (string)$xml->shipping->address->country,
+			'shippingAddressStreet' => (string)$xml->shipping->address->street,
+			'shippingAddressNumber' => (string)$xml->shipping->address->number,
+			'shippingAddressComplement' => (string)$xml->shipping->address->complement,
+			'shippingAddressDistrict' => (string)$xml->shipping->address->district,
+			'shippingAddressCity' => (string)$xml->shipping->address->city,
+			'shippingAddressPostalCode' => (string)$xml->shipping->address->postalCode,
+			'shippingAddressState' => (string)$xml->shipping->address->state,
+		);
+		foreach($xml->items as $item) {
+			$post['itemId' . (string)$item->item->id] = (string)$item->item->id;
+			$post['itemDescription' . (string)$item->item->id] = (string)$item->item->description;
+			$post['itemAmount' . (string)$item->item->id] = (string)$item->item->amount;
+			$post['itemQuantity' . (string)$item->item->id] = (string)$item->item->quantity;
+		}
+
+		switch ((string)$xml->sender->documents->document->type){
+			case 'CNPJ':
+				$post['senderCNPJ'] = (string)$xml->sender->documents->document->value;
+			case 'CPF':
+			default:
+				$post['senderCPF'] = (string)$xml->sender->documents->document->value;
+		}
+
+		if (isset($xml->bank)) {
+			$post['bankName'] = (string)$xml->bank->name;
+		}
+
+		if (isset($xml->creditCard)) {
+			$post['installmentQuantity'] = (string)$xml->creditCard->installment->quantity;
+			$post['installmentValue'] = (string)$xml->creditCard->installment->value;
+			$post['creditCardToken'] = (string)$xml->creditCard->token;
+			$post['creditCardHolderName'] = (string)$xml->creditCard->holder->name;
+			$post['creditCardHolderCPF'] = (string)$xml->creditCard->holder->documents->document->value;
+			$post['creditCardHolderBirthDate'] = (string)$xml->creditCard->holder->birthDate;
+			$post['creditCardHolderAreaCode'] = (string)$xml->creditCard->holder->phone->areaCode;
+			$post['creditCardHolderPhone'] = (string)$xml->creditCard->holder->phone->number;
+
+			//billing address
+			$post['billingAddressStreet'] = (string)$xml->creditCard->billingAddress->street;
+			$post['billingAddressNumber'] = (string)$xml->creditCard->billingAddress->number;
+			$post['billingAddressComplement'] = (string)$xml->creditCard->billingAddress->complement;
+			$post['billingAddressDistrict'] = (string)$xml->creditCard->billingAddress->district;
+			$post['billingAddressCity'] = (string)$xml->creditCard->billingAddress->city;
+			$post['billingAddressState'] = (string)$xml->creditCard->billingAddress->state;
+			$post['billingAddressCountry'] = (string)$xml->creditCard->billingAddress->country;
+			$post['billingAddressPostalCode'] = (string)$xml->creditCard->billingAddress->postalCode;
+
+		}
+
+		return $post;
 	}
 
 	/**
@@ -587,14 +716,14 @@ class WC_PagSeguro_API {
 	 */
 	public function do_checkout_request( $order, $posted ) {
 		// Sets the xml.
-		$xml = $this->get_checkout_xml( $order, $posted );
+		$xml = $this->get_checkout_post( $order, $posted );
 
 		if ( 'yes' == $this->gateway->debug ) {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting token for order ' . $order->get_order_number() . ' with the following data: ' . $xml );
 		}
 
 		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_checkout_url() );
-		$response = $this->do_request( $url, 'POST', $xml, array( 'Content-Type' => 'application/xml;charset=UTF-8' ) );
+		$response = $this->do_request( $url, 'POST', $xml, array( 'Content-Type' => 'application/x-www-form-urlencoded; charset=ISO-8859-1' ) );
 
 		if ( is_wp_error( $response ) ) {
 			if ( 'yes' == $this->gateway->debug ) {
@@ -692,14 +821,15 @@ class WC_PagSeguro_API {
 		}
 
 		// Sets the xml.
-		$xml = $this->get_payment_xml( $order, $posted );
+		$posted['public_key'] = $this->gateway->settings['public_key'];
+		$xml = $this->get_payment_post( $order, $posted );
 
 		if ( 'yes' == $this->gateway->debug ) {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting direct payment for order ' . $order->get_order_number() . ' with the following data: ' . $xml );
 		}
 
 		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_transactions_url() );
-		$response = $this->do_request( $url, 'POST', $xml, array( 'Content-Type' => 'application/xml;charset=UTF-8' ) );
+		$response = $this->do_request( $url, 'POST', $xml, array( 'Content-Type' => 'application/x-www-form-urlencoded; charset=ISO-8859-1' ) );
 
 		if ( is_wp_error( $response ) ) {
 			if ( 'yes' == $this->gateway->debug ) {

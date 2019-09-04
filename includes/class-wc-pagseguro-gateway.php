@@ -4,6 +4,7 @@
  *
  * @package WooCommerce_PagSeguro/Classes/Gateway
  * @version 2.13.0
+ * Arquivo modificado por Ricardo Martins em 4 de Setembro de 2019 (GPLv2)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,6 +37,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$this->description       = $this->get_option( 'description' );
 		$this->email             = $this->get_option( 'email' );
 		$this->token             = $this->get_option( 'token' );
+		$this->public_key        = $this->get_option( 'public_key' ); //added by Ricardo Martins
 		$this->sandbox_email     = $this->get_option( 'sandbox_email' );
 		$this->sandbox_token     = $this->get_option( 'sandbox_token' );
 		$this->method            = $this->get_option( 'method', 'direct' );
@@ -213,12 +215,14 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 					'transparent' => __( 'Transparent Checkout', 'woocommerce-pagseguro' ),
 				),
 			),
+			//modified by Ricardo Martins
 			'sandbox'              => array(
 				'title'       => __( 'PagSeguro Sandbox', 'woocommerce-pagseguro' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Enable PagSeguro Sandbox', 'woocommerce-pagseguro' ),
+				'label'       => __( 'Enable PagSeguro Sandbox (KEEP IT DISABLED)', 'woocommerce-pagseguro' ),
 				'desc_tip'    => true,
 				'default'     => 'no',
+
 				'description' => __( 'PagSeguro Sandbox can be used to test the payments.', 'woocommerce-pagseguro' ),
 			),
 			'email'                => array(
@@ -233,6 +237,14 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'type'        => 'text',
 				/* translators: %s: link to PagSeguro settings */
 				'description' => sprintf( __( 'Please enter your PagSeguro token. This is needed to process the payment and notifications. Is possible generate a new token %s.', 'woocommerce-pagseguro' ), '<a href="https://pagseguro.uol.com.br/integracao/token-de-seguranca.jhtml">' . __( 'here', 'woocommerce-pagseguro' ) . '</a>' ),
+				'default'     => '',
+			),
+			//modified by Ricardo Martins
+			'public_key'                => array(
+				'title'       => __( 'PagSeguro App Key', 'woocommerce-pagseguro' ),
+				'type'        => 'text',
+				/* translators: %s: link to PagSeguro settings */
+				'description' => sprintf( __( 'To get your app key, authorize the app. %s to authorize it (it\'s free).', 'woocommerce-pagseguro' ), '<a href="https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html" target="_blank">' . __( 'Click here', 'woocommerce-pagseguro' ) . '</a>' ),
 				'default'     => '',
 			),
 			'sandbox_email'        => array(
