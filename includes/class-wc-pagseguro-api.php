@@ -69,7 +69,7 @@ class WC_PagSeguro_API {
 	 */
 	protected function get_payment_url( $token ) {
 		//modified by Ricardo Martins
-		return 'https://ws.ricardomartins.net.br/pspro/v6/wspagseguro/v2/checkout/payment.html?code=' . $token;
+		return 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $token;
 	}
 
 	/**
