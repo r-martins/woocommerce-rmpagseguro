@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:          WooCommerce PagSeguro
+ * Plugin Name:          PagSeguro RM
  * Plugin URI:           https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
  * Description:          Adiciona PagSeguro como meio de pagamento (com desconto nas taxas oficiais).
  * Author:               Ricardo Martins (inspired on Claudio Sanches' PagSeguro project)
  * Author URI:           http://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
- * Version:              3.0.1
+ * Version:              3.1.0
  * License:              GPLv3 or later
- * Text Domain:          woocommerce-pagseguro
+ * Text Domain:          pagseguro-rm
  * Domain Path:          /languages
  * WC requires at least: 3.0.0
  * WC tested up to:      3.7.0

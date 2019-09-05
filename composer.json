@@ -1,6 +1,6 @@
 {
 	"name": "ricardomartins/woocommerce-rmpagseguro",
-	"description": "Adiciona PagSeguro como meio de pagamento (com desconto nas taxas oficiais).",
+	"description": "Adiciona PagSeguro como meio de pagamento no Wordpress(com desconto nas taxas oficiais).",
 	"homepage": "https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html",
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
@@ -18,8 +18,9 @@
 	],
 	"support": {
 		"forum": "https://wordpress.org/support/plugin/woocommerce-pagseguro",
-		"issues": "https://github.com/claudiosanches/woocommerce-pagseguro/issues/",
-		"source": "https://github.com/claudiosanches/woocommerce-pagseguro"
+		"issues": "https://github.com/r-martins/woocommerce-rmpagseguro/issues/",
+		"source": "https://github.com/r-martins/woocommerce-rmpagseguro",
+		"docs": "https://pagsegurotransparente.zendesk.com/hc/pt-br"
 	},
 	"require": {
 		"claudiosanches/wp-git-hooks": "*"
