@@ -2,7 +2,7 @@
 **Official Website:** http://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
  
 **Contributors:** [claudiosanches](https://profiles.wordpress.org/claudiosanches), [Gabriel Reguly](https://profiles.wordpress.org/Gabriel Reguly)
-**Modified by:** [Ricardo Martins](https://ricardomartins.net.br)  
+**Modified by:** [martins56](https://profiles.wordpress.org/martins56)  
 **Donate link:** https://claudiosanches.com/doacoes/  
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
