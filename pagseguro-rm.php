@@ -27,6 +27,7 @@
  * <https://www.gnu.org/licenses/gpl-3.0.txt>.
  *
  * @package WooCommerce_PagSeguro
+ * Forked from Original Plugin by Claudio Sanches (https://github.com/claudiosanches/woocommerce-pagseguro)
  * Arquivo modificado por Ricardo Martins em 4 de Setembro de 2019 (GPLv2)
  */
 
