@@ -1,4 +1,4 @@
-# WooCommerce PagSeguro (com Descontos) #
+# Módulo PagSeguro para WooCommerce - Ricardo Martins (com descontos) #
 **Official Website:** http://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
  
 **Contributors:** [claudiosanches](https://profiles.wordpress.org/claudiosanches), [Gabriel Reguly](https://profiles.wordpress.org/Gabriel Reguly)
