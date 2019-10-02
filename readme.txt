@@ -1,4 +1,4 @@
-=== WooCommerce PagSeguro ===
+=== Módulo PagSeguro ===
 Contributors: claudiosanches, Gabriel Reguly
 Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment

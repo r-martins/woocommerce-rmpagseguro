@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:          Módulo PagSeguro para WooCommerce - Ricardo Martins (com descontos)
+ * Plugin Name:          Módulo PagSeguro - Ricardo Martins (com descontos)
  * Plugin URI:           https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
  * Description:          Adiciona PagSeguro como meio de pagamento (com desconto nas taxas oficiais).
  * Author:               Ricardo Martins (inspired on Claudio Sanches' PagSeguro project)

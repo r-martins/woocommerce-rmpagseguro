@@ -807,7 +807,9 @@ class WC_PagSeguro_API {
 	 * @return array
 	 */
 	public function do_payment_request( $order, $posted ) {
-		$payment_method = isset( $posted['pagseguro_payment_method'] ) ? $posted['pagseguro_payment_method'] : '';
+		$payment_method = isset($posted['pagseguro_payment_method']) ? sanitize_text_field(
+			$posted['pagseguro_payment_method']
+		) : '';
 
 		/**
 		 * Validate if has selected a payment method.
