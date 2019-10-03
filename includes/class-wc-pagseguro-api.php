@@ -170,6 +170,7 @@ class WC_PagSeguro_API {
 	 * @return string
 	 */
 	public function get_payment_method_name( $value ) {
+		$value = (int)$value;
 		$credit = __( 'Credit Card %s', 'woocommerce-pagseguro' );
 		$ticket = __( 'Billet %s', 'woocommerce-pagseguro' );
 		$debit  = __( 'Bank Transfer %s', 'woocommerce-pagseguro' );
