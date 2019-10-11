@@ -272,6 +272,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 
 ## Changelog ##
 
+### 3.1.0 - 2019/10/03 ###
+
+* Adicionado suporte ao modelo de aplicações (Por Ricardo Martins) e descontos nas taxas do PagSeguro
+
 ### 2.13.1 - 2018/08/03 ###
 
 * Corrigido alerta do PHP sobre variável inexistente.
