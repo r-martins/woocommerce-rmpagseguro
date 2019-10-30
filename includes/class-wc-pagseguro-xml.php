@@ -267,7 +267,7 @@ class WC_PagSeguro_XML extends SimpleXMLElement {
 			$address->addChild( 'country', 'BRA' );
 		}
 
-		$shipping->addChild( 'cost', $shipping_cost );
+		$shipping->addChild( 'cost', number_format($shipping_cost, 2, '.', '') );
 	}
 
 	/**

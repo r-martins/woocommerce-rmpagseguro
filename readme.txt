@@ -255,11 +255,15 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 
 == Changelog ==
 
+= 3.2.1 - 30/10/2019 =
+
+* Corrige problema com finalização de pedido quando valor do frete é zero.
+
 = 3.2.0 - 30/10/2019 =
 
 * Agora o link para pagamento de boleto/tef aparece na página de sucesso
 * Melhoria no esquema de tradução (espera-se que o marketplace agora exiba que o módulo é traduzido para o portugues)
-* Correção nos logs que não exibiam os parâmetros sendo enviados ao pagseguro (mostrava 'Array')
+* Correção nos logs que não exibiam o parâmetros sendo enviados ao pagseguro (mostrava 'Array')
 
 = 3.x - 09/2019 =
 

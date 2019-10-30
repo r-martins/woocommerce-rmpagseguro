@@ -7,7 +7,7 @@
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
 **Tested up to:** 5.2.4  
-**Stable tag:** 3.2.0
+**Stable tag:** 3.2.1
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -25,15 +25,15 @@ Please notice that WooCommerce must be installed and active.
 
 ### Contribute ###
 
-You can contribute to the source code in our [GitHub](https://github.com/claudiosmweb/woocommerce-pagseguro) page.
+You can contribute to the source code in our [GitHub](https://github.com/r-martins/woocommerce-rmpagseguro/) page.
 
 ### Descrição em Português: ###
 
 Adicione o PagSeguro como método de pagamento em sua loja WooCommerce.
 
-[PagSeguro](https://pagseguro.uol.com.br/) é um método de pagamento brasileiro desenvolvido pela UOL.
+[PagSeguro](https://pagseguro.uol.com.br/) é um serviço de pagamento brasileiro desenvolvido pela UOL.
 
-O plugin WooCommerce PagSeguro foi desenvolvido sem nenhum incentivo do PagSeguro ou da UOL. Nenhum dos desenvolvedores deste plugin possuem vínculos com estas duas empresas.
+O plugin WooCommerce PagSeguro foi originalmente desenvolvido sem nenhum incentivo do PagSeguro ou da UOL por Claudio Sanches e outros colaboradores. Nenhum dos desenvolvedores deste plugin possuem vínculos com estas duas empresas.
 
 Este plugin foi desenvolvido a partir da [documentação oficial do PagSeguro](https://pagseguro.uol.com.br/v2/guia-de-integracao/visao-geral.html) e utiliza a última versão da API de pagamentos.
 
@@ -43,7 +43,13 @@ Estão disponíveis as seguintes modalidades de pagamento:
 - **Lightbox:** Uma janela do PagSeguro é aberta na finalização para o cliente fazer o pagamento.
 - **Transparente:** O cliente faz o pagamento direto no seu site sem precisar ir ao site do PagSeguro.
 
-Além que é possível utilizar o novo [sandbox do PagSeguro](https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html).
+
+### Descontos nas taxas ###
+
+Graças a uma parceria com o PagSeguro, as transações realizadas por este módulo, possuem [condições especiais junto ao PagSeguro](https://r-martins.github.io/PagSeguro-Magento-Transparente/pro/app.html).
+
+Você não paga nada a mais por isso e ainda ajuda este e [outros projetos](https://pagsegurotransparente.zendesk.com/hc/pt-br/articles/208158763).
+
 
 ### Compatibilidade ###
 
@@ -53,7 +59,7 @@ Este plugin também é compatível com o [WooCommerce Extra Checkout Fields for 
 
 ### Instalação ###
 
-Confira o nosso guia de instalação e configuração do PagSeguro na aba [Installation](http://wordpress.org/plugins/woocommerce-pagseguro/installation/).
+Confira o nosso guia de instalação e configuração do PagSeguro na aba [Installation](https://wordpress.org/plugins/woo-pagseguro-rm/#installation).
 
 ### Integração ###
 
@@ -66,13 +72,15 @@ Este plugin funciona perfeitamente em conjunto com:
 
 Você pode esclarecer suas dúvidas usando:
 
-* A nossa sessão de [FAQ](http://wordpress.org/plugins/woocommerce-pagseguro/faq/).
-* Utilizando o nosso [fórum no Github](https://github.com/claudiosmweb/woocommerce-pagseguro).
-* Criando um tópico no [fórum de ajuda do WordPress](http://wordpress.org/support/plugin/woocommerce-pagseguro).
+* A nossa sessão de [FAQ](http://wordpress.org/plugins/woo-pagseguro-rm/faq/).
+* Acessando a [Central de Ajuda](https://pagsegurotransparente.zendesk.com/hc/pt-br)
+* [Abrindo um chamado](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new) gratuitamente *caso não encontre sua resposta nos canais acima*
+
+Dica: O suporte é uma cortesia que presto em meu tempo livre. Todos os chamados serão respondidos. Tempo médio de retorno é de 48 horas. Quanto melhor detalhar seu problema e como reproduzi-lo, mais fácil conseguiremos resolvê-lo.
 
 ### Colaborar ###
 
-Você pode contribuir com código-fonte em nossa página no [GitHub](https://github.com/claudiosmweb/woocommerce-pagseguro).
+Você pode contribuir com código-fonte em nossa página no [GitHub](https://github.com/r-martins/woocommerce-rmpagseguro/).
 
 ### Agradecimentos ###
 
@@ -81,8 +89,9 @@ Você pode contribuir com código-fonte em nossa página no [GitHub](https://git
 ## Installation ##
 
 * Upload plugin files to your plugins folder, or install using WordPress built-in Add New Plugin installer;
-* Activate the plugin;
-* Navigate to WooCommerce -> Settings -> Payment Gateways, choose PagSeguro and fill in your PagSeguro Email and Token.
+* Activate the plugin (Módulo PagSeguro - Ricardo Martins (com descontos);
+* Navigate to WooCommerce -> Settings -> Payment Gateways, choose PagSeguro and fill in your PagSeguro Email, Token and App Key.
+* To get your app key, authorize your store [here](https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html). 
 
 ### Instalação e configuração em Português: ###
 
@@ -93,7 +102,9 @@ Você pode contribuir com código-fonte em nossa página no [GitHub](https://git
 
 ### Requerimentos: ###
 
-É necessário possuir uma conta no [PagSeguro](http://pagseguro.uol.com.br/) e ter instalado o [WooCommerce](http://wordpress.org/plugins/woocommerce/).
+* É necessário possuir uma conta no [PagSeguro](http://pagseguro.uol.com.br/) do tipo Vendedor ou Empresarial;
+* Ter instalado o [WooCommerce](http://wordpress.org/plugins/woocommerce/)
+* Ter [autorizado a Aplicação em sua conta PagSeguro](https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html)  
 
 ### Configurações no PagSeguro: ###
 
@@ -143,7 +154,7 @@ Pronto, sua loja já pode receber pagamentos pelo PagSeguro.
 ### What is needed to use this plugin? ###
 
 * WooCommerce version 3.0 or latter installed and active.
-* Only one account on [PagSeguro](http://pagseguro.uol.com.br/ "PagSeguro").
+* Only one account on [PagSeguro](http://pagseguro.uol.com.br/ "PagSeguro") (Seller or Business).
 
 ### FAQ em Português: ###
 
@@ -156,7 +167,25 @@ Este plugin esta licenciado como GPL.
 * Ter instalado o plugin WooCommerce 3.0 ou mais recente.
 * Possuir uma conta no PagSeguro.
 * Gerar um token de segurança no PagSeguro.
+* [Autorizar a aplicação](https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html) a realizar ações de pagamento na sua conta PagSeguro (app key).
 * Desativar a opção "Pagamento via Formulário HTML" em integrações na página do PagSeguro.
+
+### Como funcionam esses descontos? ###
+
+Em 2014 um módulo para Magento foi criado por Ricardo Martins. Pouco depois, uma parceria foi firmada entre eu (Ricardo) e o PagSeguro a fim de dar descontos para os lojistas e ao mesmo tempo sustentar o projeto e o suporte.
+
+Como o número de lojas cresceu, foi possível reduzir as taxas do PagSeguro que também realiza um repasse para este projeto.
+
+Agora trouxe este modelo para usuários do Wordpress e aproveitei o excelente trabalho realizado pelo Claudio Sanches para tornar isso possível mais rapidamente.
+
+
+### Tenho uma taxa negociada junto ao PagSeguro. Posso usar o módulo? ###
+
+Ao usar este módulo, você passará a pagar as [taxas exibidas no site](https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html) conforme sua escolha.
+
+Somente transações realizadas com este módulo usarão estas taxas.
+
+Se você tem taxas mais baixas negociadas que estas negociadas junto ao PagSeguro, recomendo que use o [módulo original do Claudio Sanches](http://wordpress.org/plugins/woocommerce-pagseguro/). 
 
 ### PagSeguro recebe pagamentos de quais países? ###
 
@@ -203,7 +232,7 @@ Note que caso você esteja utilizando a opção de **sandbox** é necessário us
 
 Se você tem certeza que o Token e Login estão corretos você deve acessar a página "WooCommerce > Status do Sistema" e verificar se **fsockopen** e **cURL** estão ativos. É necessário procurar ajuda do seu provedor de hospedagem caso você tenha o **fsockopen** e/ou o **cURL** desativados.
 
-Para quem estiver utilizando o **Checkout Transparente** é obrigatório o uso do plugin [WooCommerce Extra Checkout Fields for Brazil](http://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil/) para enviar o CPF ao PagSeguro, caso o contrário será impossível de finalizar o pedido, veja no [guia de instalação](http://wordpress.org/plugins/woocommerce-pagseguro/installation/) como fazer isso.
+Para quem estiver utilizando o **Checkout Transparente** é obrigatório o uso do plugin [WooCommerce Extra Checkout Fields for Brazil](http://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil/) para enviar o CPF ao PagSeguro, caso o contrário será impossível de finalizar o pedido, veja no [guia de instalação](http://wordpress.org/plugins/woo-pagseguro-rm/#installation) como fazer isso.
 
 Por último é possível ativar a opção de **Log de depuração** nas configurações do plugin e tentar novamente fechar um pedido (você deve tentar fechar um pedido para que o log será gerado e o erro gravado nele).
 Com o log é possível saber exatamente o que esta dando de errado com a sua instalação.
@@ -235,7 +264,9 @@ Note que é necessário aprovação do PagSeguro para utilizar o Checkout Transp
 
 ### Funciona com o Sandbox do PagSeguro? ###
 
-Sim, funciona e basta você ativar isso nas opções do plugin, além de configurar o seu [e-mail e token de testes](https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html)".
+Não. Somente o módulo original do Claudio Sanches suporta o modo Sandbox.
+
+No entanto, você pode fazer testes reais e solicitar o reembolso. Minha sugestão é que crie um cupom de desconto e faça pedidos de valores baixos para evitar estourar seu limite do cartão. ;)
 
 ### O total do pedido no WooCommerce é diferente do enviado para o PagSeguro, como eu resolvo isso? ###
 
@@ -247,7 +278,8 @@ Não é necessário configurar qualquer URL para "Notificação de transação" 
 
 ### Mais dúvidas relacionadas ao funcionamento do plugin? ###
 
-Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra um tópico no fórum do plugin](https://wordpress.org/support/plugin/woocommerce-pagseguro#postform) com o link arquivo de log (ative ele nas opções do plugin e tente fazer uma compra, depois vá até WooCommerce > Status do Sistema, selecione o log do *pagseguro* e copie os dados, depois crie um link usando o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com)), desta forma fica mais rápido para fazer o diagnóstico.
+Por favor, caso você tenha algum problema com o funcionamento do plugin, busque informações na [Central de Ajuda](https://pagsegurotransparente.zendesk.com/hc/pt-br/).
+Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new) detalhando suas configurações, anexando arquivos de logs, e qualquer outra informação que julgue relevante para resolver seu problema. 
 
 ## Screenshots ##
 
@@ -271,6 +303,17 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 
 
 ## Changelog ##
+
+= 3.2.1 - 30/10/2019 =
+
+* Corrige problema com finalização de pedido quando valor do frete é zero.
+
+= 3.2.0 - 30/10/2019 =
+
+* Agora o link para pagamento de boleto/tef aparece na página de sucesso
+* Melhoria no esquema de tradução (espera-se que o marketplace agora exiba que o módulo é traduzido para o portugues)
+* Correção nos logs que não exibiam o parâmetros sendo enviados ao pagseguro (mostrava 'Array')
+
 
 ### 3.1.0 - 2019/10/03 ###
 
