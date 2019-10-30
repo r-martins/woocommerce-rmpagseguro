@@ -48,7 +48,7 @@ class WC_PagSeguro {
 	 * Load the plugin text domain for translation.
 	 */
 	public static function load_plugin_textdomain() {
-		load_plugin_textdomain( 'woocommerce-pagseguro', false, dirname( plugin_basename( WC_PAGSEGURO_PLUGIN_FILE ) ) . '/languages/' );
+		load_plugin_textdomain( 'woo-pagseguro-rm', false, dirname( plugin_basename( WC_PAGSEGURO_PLUGIN_FILE ) ) . '/languages/' );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class WC_PagSeguro {
 	 */
 	public static function plugin_action_links( $links ) {
 		$plugin_links   = array();
-		$plugin_links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=pagseguro' ) ) . '">' . __( 'Settings', 'woocommerce-pagseguro' ) . '</a>';
+		$plugin_links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=pagseguro' ) ) . '">' . __( 'Settings', 'woo-pagseguro-rm' ) . '</a>';
 
 		return array_merge( $plugin_links, $links );
 	}

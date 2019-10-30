@@ -12,6 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="error inline">
-	<p><strong><?php _e( 'PagSeguro Disabled', 'woocommerce-pagseguro' ); ?></strong>: <?php _e( 'You should inform your email address.', 'woocommerce-pagseguro' ); ?>
+	<p><strong><?php _e( 'PagSeguro Disabled', 'woo-pagseguro-rm' ); ?></strong>: <?php _e( 'You should inform your email address.', 'woo-pagseguro-rm' ); ?>
 	</p>
 </div>

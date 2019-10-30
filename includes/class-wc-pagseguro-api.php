@@ -151,15 +151,15 @@ class WC_PagSeguro_API {
 	 */
 	public function get_payment_name_by_type( $value ) {
 		$types = array(
-			1 => __( 'Credit Card', 'woocommerce-pagseguro' ),
-			2 => __( 'Billet', 'woocommerce-pagseguro' ),
-			3 => __( 'Bank Transfer', 'woocommerce-pagseguro' ),
-			4 => __( 'PagSeguro credit', 'woocommerce-pagseguro' ),
-			5 => __( 'Oi Paggo', 'woocommerce-pagseguro' ),
-			7 => __( 'Account deposit', 'woocommerce-pagseguro' ),
+			1 => __( 'Credit Card', 'woo-pagseguro-rm' ),
+			2 => __( 'Billet', 'woo-pagseguro-rm' ),
+			3 => __( 'Bank Transfer', 'woo-pagseguro-rm' ),
+			4 => __( 'PagSeguro credit', 'woo-pagseguro-rm' ),
+			5 => __( 'Oi Paggo', 'woo-pagseguro-rm' ),
+			7 => __( 'Account deposit', 'woo-pagseguro-rm' ),
 		);
 
-		return isset( $types[ $value ] ) ? $types[ $value ] : __( 'Unknown', 'woocommerce-pagseguro' );
+		return isset( $types[ $value ] ) ? $types[ $value ] : __( 'Unknown', 'woo-pagseguro-rm' );
 	}
 
 	/**
@@ -171,9 +171,9 @@ class WC_PagSeguro_API {
 	 */
 	public function get_payment_method_name( $value ) {
 		$value = (int)$value;
-		$credit = __( 'Credit Card %s', 'woocommerce-pagseguro' );
-		$ticket = __( 'Billet %s', 'woocommerce-pagseguro' );
-		$debit  = __( 'Bank Transfer %s', 'woocommerce-pagseguro' );
+		$credit = __( 'Credit Card %s', 'woo-pagseguro-rm' );
+		$ticket = __( 'Billet %s', 'woo-pagseguro-rm' );
+		$debit  = __( 'Bank Transfer %s', 'woo-pagseguro-rm' );
 
 		$methods = array(
 			101 => sprintf( $credit, 'Visa' ),
@@ -204,12 +204,12 @@ class WC_PagSeguro_API {
 			305 => sprintf( $debit, 'Real' ),
 			306 => sprintf( $debit, 'Banrisul' ),
 			307 => sprintf( $debit, 'HSBC' ),
-			401 => __( 'PagSeguro credit', 'woocommerce-pagseguro' ),
-			501 => __( 'Oi Paggo', 'woocommerce-pagseguro' ),
-			701 => __( 'Account deposit', 'woocommerce-pagseguro' ),
+			401 => __( 'PagSeguro credit', 'woo-pagseguro-rm' ),
+			501 => __( 'Oi Paggo', 'woo-pagseguro-rm' ),
+			701 => __( 'Account deposit', 'woo-pagseguro-rm' ),
 		);
 
-		return isset( $methods[ $value ] ) ? $methods[ $value ] : __( 'Unknown', 'woocommerce-pagseguro' );
+		return isset( $methods[ $value ] ) ? $methods[ $value ] : __( 'Unknown', 'woo-pagseguro-rm' );
 	}
 
 	/**
@@ -240,38 +240,38 @@ class WC_PagSeguro_API {
 		$code = (string) $code;
 
 		$messages = array(
-			'11013' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woocommerce-pagseguro' ),
-			'11014' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woocommerce-pagseguro' ),
-			'53018' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woocommerce-pagseguro' ),
-			'53019' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woocommerce-pagseguro' ),
-			'53020' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woocommerce-pagseguro' ),
-			'53021' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woocommerce-pagseguro' ),
-			'11017' => __( 'Please enter with a valid zip code number.', 'woocommerce-pagseguro' ),
-			'53022' => __( 'Please enter with a valid zip code number.', 'woocommerce-pagseguro' ),
-			'53023' => __( 'Please enter with a valid zip code number.', 'woocommerce-pagseguro' ),
-			'53053' => __( 'Please enter with a valid zip code number.', 'woocommerce-pagseguro' ),
-			'53054' => __( 'Please enter with a valid zip code number.', 'woocommerce-pagseguro' ),
-			'11164' => __( 'Please enter with a valid CPF number.', 'woocommerce-pagseguro' ),
+			'11013' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woo-pagseguro-rm' ),
+			'11014' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woo-pagseguro-rm' ),
+			'53018' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woo-pagseguro-rm' ),
+			'53019' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woo-pagseguro-rm' ),
+			'53020' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woo-pagseguro-rm' ),
+			'53021' => __( 'Please enter with a valid phone number with DDD. Example: (11) 5555-5555.', 'woo-pagseguro-rm' ),
+			'11017' => __( 'Please enter with a valid zip code number.', 'woo-pagseguro-rm' ),
+			'53022' => __( 'Please enter with a valid zip code number.', 'woo-pagseguro-rm' ),
+			'53023' => __( 'Please enter with a valid zip code number.', 'woo-pagseguro-rm' ),
+			'53053' => __( 'Please enter with a valid zip code number.', 'woo-pagseguro-rm' ),
+			'53054' => __( 'Please enter with a valid zip code number.', 'woo-pagseguro-rm' ),
+			'11164' => __( 'Please enter with a valid CPF number.', 'woo-pagseguro-rm' ),
 			'53110' => '',
-			'53111' => __( 'Please select a bank to make payment by bank transfer.', 'woocommerce-pagseguro' ),
-			'53045' => __( 'Credit card holder CPF is required.', 'woocommerce-pagseguro' ),
-			'53047' => __( 'Credit card holder birthdate is required.', 'woocommerce-pagseguro' ),
-			'53042' => __( 'Credit card holder name is required.', 'woocommerce-pagseguro' ),
-			'53049' => __( 'Credit card holder phone is required.', 'woocommerce-pagseguro' ),
-			'53051' => __( 'Credit card holder phone is required.', 'woocommerce-pagseguro' ),
-			'11020' => __( 'The address complement is too long, it cannot be more than 40 characters.', 'woocommerce-pagseguro' ),
-			'53028' => __( 'The address complement is too long, it cannot be more than 40 characters.', 'woocommerce-pagseguro' ),
-			'53029' => __( '<strong>Neighborhood</strong> is a required field.', 'woocommerce-pagseguro' ),
-			'53046' => __( 'Credit card holder CPF invalid.', 'woocommerce-pagseguro' ),
-			'53122' => __( 'Invalid email domain. You must use an email @sandbox.pagseguro.com.br while you are using the PagSeguro Sandbox.', 'woocommerce-pagseguro' ),
-			'53081' => __( 'The customer email can not be the same as the PagSeguro account owner.', 'woocommerce-pagseguro' ),
+			'53111' => __( 'Please select a bank to make payment by bank transfer.', 'woo-pagseguro-rm' ),
+			'53045' => __( 'Credit card holder CPF is required.', 'woo-pagseguro-rm' ),
+			'53047' => __( 'Credit card holder birthdate is required.', 'woo-pagseguro-rm' ),
+			'53042' => __( 'Credit card holder name is required.', 'woo-pagseguro-rm' ),
+			'53049' => __( 'Credit card holder phone is required.', 'woo-pagseguro-rm' ),
+			'53051' => __( 'Credit card holder phone is required.', 'woo-pagseguro-rm' ),
+			'11020' => __( 'The address complement is too long, it cannot be more than 40 characters.', 'woo-pagseguro-rm' ),
+			'53028' => __( 'The address complement is too long, it cannot be more than 40 characters.', 'woo-pagseguro-rm' ),
+			'53029' => __( '<strong>Neighborhood</strong> is a required field.', 'woo-pagseguro-rm' ),
+			'53046' => __( 'Credit card holder CPF invalid.', 'woo-pagseguro-rm' ),
+			'53122' => __( 'Invalid email domain. You must use an email @sandbox.pagseguro.com.br while you are using the PagSeguro Sandbox.', 'woo-pagseguro-rm' ),
+			'53081' => __( 'The customer email can not be the same as the PagSeguro account owner.', 'woo-pagseguro-rm' ),
 		);
 
 		if ( isset( $messages[ $code ] ) ) {
 			return $messages[ $code ];
 		}
 
-		return __( 'An error has occurred while processing your payment, please review your data and try again. Or contact us for assistance.', 'woocommerce-pagseguro' );
+		return __( 'An error has occurred while processing your payment, please review your data and try again. Or contact us for assistance.', 'woo-pagseguro-rm' );
 	}
 
 	/**
@@ -380,7 +380,7 @@ class WC_PagSeguro_API {
 		// Force only one item.
 		if ( 'yes' == $this->gateway->send_only_total ) {
 			$items[] = array(
-				'description' => $this->sanitize_description( sprintf( __( 'Order %s', 'woocommerce-pagseguro' ), $order->get_order_number() ) ),
+				'description' => $this->sanitize_description( sprintf( __( 'Order %s', 'woo-pagseguro-rm' ), $order->get_order_number() ) ),
 				'amount'      => $this->money_format( $order->get_total() ),
 				'quantity'    => 1,
 			);
@@ -491,7 +491,9 @@ class WC_PagSeguro_API {
 			$xml->add_sender_data( $order );
 			$xml->add_shipping_data( $order, $ship_to, $data['shipping_cost'] );
 		} else {
+			// @codingStandardsIgnoreStart
 			$xml->add_reference( $this->gateway->invoice_prefix . $order->id );
+			// @codingStandardsIgnoreEnd
 			$xml->add_legacy_sender_data( $order );
 			$xml->add_legacy_shipping_data( $order, $ship_to, $data['shipping_cost'] );
 		}
@@ -590,7 +592,9 @@ class WC_PagSeguro_API {
 			$xml->add_sender_data( $order, $hash );
 			$xml->add_shipping_data( $order, $ship_to, $data['shipping_cost'] );
 		} else {
+			// @codingStandardsIgnoreStart
 			$xml->add_reference( $this->gateway->invoice_prefix . $order->id );
+			// @codingStandardsIgnoreEnd
 			$xml->add_legacy_sender_data( $order, $hash );
 			$xml->add_legacy_shipping_data( $order, $ship_to, $data['shipping_cost'] );
 		}
@@ -720,7 +724,7 @@ class WC_PagSeguro_API {
 		$xml = $this->get_checkout_post( $order, $posted );
 
 		if ( 'yes' == $this->gateway->debug ) {
-			$this->gateway->log->add( $this->gateway->id, 'Requesting token for order ' . $order->get_order_number() . ' with the following data: ' . $xml );
+			$this->gateway->log->add( $this->gateway->id, 'Requesting token for order ' . $order->get_order_number() . ' with the following data: ' . var_export($xml, true) );
 		}
 
 		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_checkout_url() );
@@ -738,7 +742,7 @@ class WC_PagSeguro_API {
 			return array(
 				'url'   => '',
 				'data'  => '',
-				'error' => array( __( 'Too bad! The email or token from the PagSeguro are invalids my little friend!', 'woocommerce-pagseguro' ) ),
+				'error' => array( __( 'Too bad! The email or token from the PagSeguro are invalids my little friend!', 'woo-pagseguro-rm' ) ),
 			);
 		} else {
 			try {
@@ -775,7 +779,7 @@ class WC_PagSeguro_API {
 
 				foreach ( $body->error as $error_key => $error ) {
 					if ( $message = $this->get_error_message( $error->code ) ) {
-						$errors[] = '<strong>' . __( 'PagSeguro', 'woocommerce-pagseguro' ) . '</strong>: ' . $message;
+						$errors[] = '<strong>' . __( 'PagSeguro', 'woo-pagseguro-rm' ) . '</strong>: ' . $message;
 					}
 				}
 
@@ -795,7 +799,7 @@ class WC_PagSeguro_API {
 		return array(
 			'url'   => '',
 			'token' => '',
-			'error' => array( '<strong>' . __( 'PagSeguro', 'woocommerce-pagseguro' ) . '</strong>: ' . __( 'An error has occurred while processing your payment, please try again. Or contact us for assistance.', 'woocommerce-pagseguro' ) ),
+			'error' => array( '<strong>' . __( 'PagSeguro', 'woo-pagseguro-rm' ) . '</strong>: ' . __( 'An error has occurred while processing your payment, please try again. Or contact us for assistance.', 'woo-pagseguro-rm' ) ),
 		);
 	}
 
@@ -819,7 +823,7 @@ class WC_PagSeguro_API {
 			return array(
 				'url'   => '',
 				'data'  => '',
-				'error' => array( '<strong>' . __( 'PagSeguro', 'woocommerce-pagseguro' ) . '</strong>: ' .  __( 'Please, select a payment method.', 'woocommerce-pagseguro' ) ),
+				'error' => array( '<strong>' . __( 'PagSeguro', 'woo-pagseguro-rm' ) . '</strong>: ' .  __( 'Please, select a payment method.', 'woo-pagseguro-rm' ) ),
 			);
 		}
 
@@ -828,7 +832,7 @@ class WC_PagSeguro_API {
 		$xml = $this->get_payment_post( $order, $posted );
 
 		if ( 'yes' == $this->gateway->debug ) {
-			$this->gateway->log->add( $this->gateway->id, 'Requesting direct payment for order ' . $order->get_order_number() . ' with the following data: ' . $xml );
+			$this->gateway->log->add( $this->gateway->id, 'Requesting direct payment for order ' . $order->get_order_number() . ' with the following data: ' . var_export($xml, true) );
 		}
 
 		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_transactions_url() );
@@ -846,7 +850,7 @@ class WC_PagSeguro_API {
 			return array(
 				'url'   => '',
 				'data'  => '',
-				'error' => array( __( 'You are not allowed to use the PagSeguro Transparent Checkout. Looks like you neglected to installation guide of this plugin. This is not pretty, do you know?', 'woocommerce-pagseguro' ) ),
+				'error' => array( __( 'You are not allowed to use the PagSeguro Transparent Checkout. Looks like you neglected to installation guide of this plugin. This is not pretty, do you know?', 'woo-pagseguro-rm' ) ),
 			);
 		} else {
 			try {
@@ -880,7 +884,7 @@ class WC_PagSeguro_API {
 
 				foreach ( $data->error as $error_key => $error ) {
 					if ( $message = $this->get_error_message( $error->code ) ) {
-						$errors[] = '<strong>' . __( 'PagSeguro', 'woocommerce-pagseguro' ) . '</strong>: ' . $message;
+						$errors[] = '<strong>' . __( 'PagSeguro', 'woo-pagseguro-rm' ) . '</strong>: ' . $message;
 					}
 				}
 
@@ -900,7 +904,7 @@ class WC_PagSeguro_API {
 		return array(
 			'url'   => '',
 			'data'  => '',
-			'error' => array( '<strong>' . __( 'PagSeguro', 'woocommerce-pagseguro' ) . '</strong>: ' . __( 'An error has occurred while processing your payment, please try again. Or contact us for assistance.', 'woocommerce-pagseguro' ) ),
+			'error' => array( '<strong>' . __( 'PagSeguro', 'woo-pagseguro-rm' ) . '</strong>: ' . __( 'An error has occurred while processing your payment, please try again. Or contact us for assistance.', 'woo-pagseguro-rm' ) ),
 		);
 	}
 

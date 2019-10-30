@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly
 Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 5.2
-Stable tag: 3.1.0
+Tested up to: 5.2.4
+Stable tag: 3.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -254,6 +254,16 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.2.0 - 30/10/2019 =
+
+* Agora o link para pagamento de boleto/tef aparece na página de sucesso
+* Melhoria no esquema de tradução (espera-se que o marketplace agora exiba que o módulo é traduzido para o portugues)
+* Correção nos logs que não exibiam os parâmetros sendo enviados ao pagseguro (mostrava 'Array')
+
+= 3.x - 09/2019 =
+
+* Versão no modelo de aplicação (por Ricardo Martins), que adiciona descontos às taxas do PagSeguro
 
 = 2.13.1 - 2018/08/03 =
 

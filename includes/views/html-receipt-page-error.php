@@ -16,4 +16,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php endforeach; ?>
 </ul>
 
-<a class="button cancel" href="<?php echo esc_url( $order->get_cancel_order_url() ); ?>"><?php esc_html_e( 'Click to try again', 'woocommerce-pagseguro' ); ?></a>
+<a class="button cancel" href="<?php echo esc_url( $order->get_cancel_order_url() ); ?>"><?php esc_html_e( 'Click to try again', 'woo-pagseguro-rm' ); ?></a>
