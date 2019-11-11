@@ -649,7 +649,7 @@ class WC_PagSeguro_API {
 			'currency' => (string)$xml->currency,
 			'paymentMethod' => (string)$xml->method,
 			'paymentMode' => (string)$xml->mode,
-			'notificationUrl' => (string)$xml->notificationURL,
+			'notificationURL' => (string)$xml->notificationURL,
 			'senderEmail' => (string)$xml->sender->email,
 			'senderHash' => (string)$xml->sender->hash,
 			'senderAreaCode' => (string)$xml->sender->phone->areaCode,
