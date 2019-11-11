@@ -303,6 +303,9 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 
 ## Changelog ##
+= 3.2.2 - 11/Nov/2019 =
+
+* Corrige problema na URL de notificação enviada ao PagSeguro. Este bug impedia o PagSeguro de atualizar o status dos pedidos na loja, visto que a url de notificação era ignorada.
 
 = 3.2.1 - 30/10/2019 =
 
