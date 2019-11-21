@@ -7,7 +7,7 @@
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
 **Tested up to:** 5.2.4  
-**Stable tag:** 3.2.2
+**Stable tag:** 3.2.3
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -303,6 +303,11 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 
 ## Changelog ##
+= 3.2.3 - 21/Nov/2019 =
+
+* Corrige problema quando produtos ou cliente possuí acento no nome
+* Adiciona headers com informações sobre a plataforma e versão do módulo
+ 
 = 3.2.2 - 11/Nov/2019 =
 
 * Corrige problema na URL de notificação enviada ao PagSeguro. Este bug impedia o PagSeguro de atualizar o status dos pedidos na loja, visto que a url de notificação era ignorada.

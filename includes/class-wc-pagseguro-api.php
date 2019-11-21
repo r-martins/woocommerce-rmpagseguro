@@ -557,7 +557,7 @@ class WC_PagSeguro_API {
 			default:
 				$post['senderCPF'] = (string)$xml->sender->documents->document->value;
 		}
-
+		$post = $this->convert_encoding($post);
 		return $post;
 
 	}
@@ -667,6 +667,7 @@ class WC_PagSeguro_API {
 			'shippingAddressPostalCode' => (string)$xml->shipping->address->postalCode,
 			'shippingAddressState' => (string)$xml->shipping->address->state,
 		);
+
 		foreach($xml->items as $item) {
 			$post['itemId' . (string)$item->item->id] = (string)$item->item->id;
 			$post['itemDescription' . (string)$item->item->id] = (string)$item->item->description;
@@ -707,7 +708,7 @@ class WC_PagSeguro_API {
 			$post['billingAddressPostalCode'] = (string)$xml->creditCard->billingAddress->postalCode;
 
 		}
-
+		$post = $this->convert_encoding($post);
 		return $post;
 	}
 
@@ -728,7 +729,7 @@ class WC_PagSeguro_API {
 		}
 
 		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_checkout_url() );
-		$response = $this->do_request( $url, 'POST', $xml, array( 'Content-Type' => 'application/x-www-form-urlencoded; charset=ISO-8859-1' ) );
+		$response = $this->do_request( $url, 'POST', $xml, $this->get_custom_headers() );
 
 		if ( is_wp_error( $response ) ) {
 			if ( 'yes' == $this->gateway->debug ) {
@@ -836,7 +837,7 @@ class WC_PagSeguro_API {
 		}
 
 		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_transactions_url() );
-		$response = $this->do_request( $url, 'POST', $xml, array( 'Content-Type' => 'application/x-www-form-urlencoded; charset=ISO-8859-1' ) );
+		$response = $this->do_request( $url, 'POST', $xml, $this->get_custom_headers() );
 
 		if ( is_wp_error( $response ) ) {
 			if ( 'yes' == $this->gateway->debug ) {
@@ -1019,5 +1020,60 @@ class WC_PagSeguro_API {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Adds custom headers with platform information
+	 * @return string
+	 */
+	public function get_custom_headers()
+	{
+		$headers  =  'Content-Type: application/x-www-form-urlencoded; charset=ISO-8859-1';
+		$headers .= PHP_EOL . 'Platform: WooCommerce';
+		$headers .= PHP_EOL . 'Platform-Version: ' . get_bloginfo('version');
+		$headers .= PHP_EOL . 'Module-Version:' . WC_PAGSEGURO_VERSION;
+
+		if ($wpVersion = $this->wpbo_get_woo_version_number()) {
+			$headers .= PHP_EOL . 'Extra-Version:' . $wpVersion;
+		}
+		return $headers;
+
+	}
+
+	/**
+	 * Get WooCommerce version
+	 * @return bool | string
+	 */
+	public function wpbo_get_woo_version_number() {
+		// If get_plugins() isn't available, require it
+		if ( ! function_exists( 'get_plugins' ) )
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+		// Create the plugins folder and file variables
+		$plugin_folder = get_plugins( '/' . 'woocommerce' );
+		$plugin_file = 'woocommerce.php';
+
+		// If the plugin version number is set, return it
+		if ( isset( $plugin_folder[$plugin_file]['Version'] ) ) {
+			return $plugin_folder[$plugin_file]['Version'];
+
+		} else {
+			// Otherwise return false
+			return false;
+		}
+	}
+
+	/**
+	 * Convert data sent to PagSeguro to ISO-8859-1
+	 * @param $data
+	 *
+	 * @return mixed
+	 */
+	public function convert_encoding($data)
+	{
+		foreach ($data as $k => $v) {
+			$data[$k] = utf8_decode($v);
+		}
+		return $data;
 	}
 }

@@ -440,6 +440,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 
 		$response = $this->api->do_checkout_request( $order, $request_data );
 
+
 		if ( $response['url'] ) {
 			// Lightbox script.
 			wc_enqueue_js(
