@@ -5,12 +5,12 @@
  * Description:          Adiciona PagSeguro como meio de pagamento (com desconto nas taxas oficiais).
  * Author:               Ricardo Martins (inspired on Claudio Sanches' PagSeguro project)
  * Author URI:           http://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
- * Version:              3.2.3
+ * Version:              3.2.4
  * License:              GPLv3 or later
  * Text Domain:          woo-pagseguro-rm
  * Domain Path:          /languages
  * WC requires at least: 3.0.0
- * WC tested up to:      3.7.0
+ * WC tested up to:      4.0.1
  *
  * WooCommerce PagSeguro is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Plugin constants.
-define( 'WC_PAGSEGURO_VERSION', '3.2.3' );
+define( 'WC_PAGSEGURO_VERSION', '3.2.4' );
 define( 'WC_PAGSEGURO_PLUGIN_FILE', __FILE__ );
 
 if ( ! class_exists( 'WC_PagSeguro' ) ) {

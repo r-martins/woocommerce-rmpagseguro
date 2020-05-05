@@ -543,11 +543,11 @@ class WC_PagSeguro_API {
 			'shippingAddressPostalCode' => (string)$xml->shipping->address->postalCode,
 			'shippingAddressState' => (string)$xml->shipping->address->state,
 		);
-		foreach($xml->items as $item) {
-			$post['itemId' . (string)$item->item->id] = (string)$item->item->id;
-			$post['itemDescription' . (string)$item->item->id] = (string)$item->item->description;
-			$post['itemAmount' . (string)$item->item->id] = (string)$item->item->amount;
-			$post['itemQuantity' . (string)$item->item->id] = (string)$item->item->quantity;
+		foreach($xml->items->item as $item) {
+			$post['itemId' . (string)$item->id] = (string)$item->id;
+			$post['itemDescription' . (string)$item->id] = (string)$item->description;
+			$post['itemAmount' . (string)$item->id] = (string)$item->amount;
+			$post['itemQuantity' . (string)$item->id] = (string)$item->quantity;
 		}
 
 		switch ((string)$xml->sender->documents->document->type){
@@ -668,11 +668,11 @@ class WC_PagSeguro_API {
 			'shippingAddressState' => (string)$xml->shipping->address->state,
 		);
 
-		foreach($xml->items as $item) {
-			$post['itemId' . (string)$item->item->id] = (string)$item->item->id;
-			$post['itemDescription' . (string)$item->item->id] = (string)$item->item->description;
-			$post['itemAmount' . (string)$item->item->id] = (string)$item->item->amount;
-			$post['itemQuantity' . (string)$item->item->id] = (string)$item->item->quantity;
+		foreach($xml->items->item as $item) {
+			$post['itemId' . (string)$item->id] = (string)$item->id;
+			$post['itemDescription' . (string)$item->id] = (string)$item->description;
+			$post['itemAmount' . (string)$item->id] = (string)$item->amount;
+			$post['itemQuantity' . (string)$item->id] = (string)$item->quantity;
 		}
 
 		switch ((string)$xml->sender->documents->document->type){
