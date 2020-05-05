@@ -20,7 +20,7 @@ Please notice that WooCommerce must be installed and active.
 
 = Contribute =
 
-You can contribute to the source code in our [GitHub](https://github.com/claudiosmweb/woocommerce-pagseguro) page.
+You can contribute to the source code in our [GitHub](https://github.com/r-martins/woocommerce-rmpagseguro/) page.
 
 ### Descrição em Português: ###
 
@@ -48,7 +48,7 @@ Este plugin também é compatível com o [WooCommerce Extra Checkout Fields for 
 
 = Instalação =
 
-Confira o nosso guia de instalação e configuração do PagSeguro na aba [Installation](http://wordpress.org/plugins/woocommerce-pagseguro/installation/).
+Confira o nosso guia de instalação e configuração do PagSeguro na aba [Installation](https://wordpress.org/plugins/woo-pagseguro-rm/#installation).
 
 = Integração =
 
@@ -61,13 +61,13 @@ Este plugin funciona perfeitamente em conjunto com:
 
 Você pode esclarecer suas dúvidas usando:
 
-* A nossa sessão de [FAQ](http://wordpress.org/plugins/woocommerce-pagseguro/faq/).
-* Utilizando o nosso [fórum no Github](https://github.com/claudiosmweb/woocommerce-pagseguro).
-* Criando um tópico no [fórum de ajuda do WordPress](http://wordpress.org/support/plugin/woocommerce-pagseguro).
+* A nossa sessão de [FAQ](https://wordpress.org/plugins/woo-pagseguro-rm/#faq).
+* Na [Central de Ajuda](https://pagsegurotransparente.zendesk.com/hc/pt-br).
+* Entrando em contato na Central de Ajuda no link acima.
 
 = Colaborar =
 
-Você pode contribuir com código-fonte em nossa página no [GitHub](https://github.com/claudiosmweb/woocommerce-pagseguro).
+Você pode contribuir com código-fonte em nossa página no [GitHub](https://github.com/r-martins/woocommerce-rmpagseguro/).
 
 = Agradecimentos =
 
@@ -203,7 +203,7 @@ Para quem estiver utilizando o **Checkout Transparente** é obrigatório o uso d
 Por último é possível ativar a opção de **Log de depuração** nas configurações do plugin e tentar novamente fechar um pedido (você deve tentar fechar um pedido para que o log será gerado e o erro gravado nele).
 Com o log é possível saber exatamente o que esta dando de errado com a sua instalação.
 
-Caso você não entenda o conteúdo do log não tem problema, você pode me abrir um [tópico no fórum do plugin](https://wordpress.org/support/plugin/woocommerce-pagseguro#postform) com o link do log (utilize o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com) para salvar o conteúdo do log).
+Caso você não entenda o conteúdo do log não tem problema, você pode me abrir um [chamado na central de ajuda](https://pagsegurotransparente.zendesk.com/hc/pt-br/) com o link do log (utilize o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com) para salvar o conteúdo do log).
 
 = O status do pedido não é alterado automaticamente? =
 
@@ -254,6 +254,13 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.2.4 - 5/Mai/2020 =
+
+* Corrige problema de pedidos com mais de 1 produto no checkout transparente ou Redirect que só enviava 1 produto
+* Testado compatibilidade com WordPress 5.4 e WooCommerce 4.0
+
+
 = 3.2.3 - 21/Nov/2019 =
 
 * Corrige problema quando produtos ou cliente possuí acento no nome
