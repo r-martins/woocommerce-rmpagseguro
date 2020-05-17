@@ -7,7 +7,7 @@
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
 **Tested up to:** 5.4.1 
-**Stable tag:** 3.2.5
+**Stable tag:** 3.2.6
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -303,6 +303,11 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 
 ## Changelog ##
+= 3.2.6 - 17/Mai/2020 =
+
+* Módulo duplicado corrigido - O módulo aparecia duplicado para quem fazia a instalação/download pelo site do wordpress ao invés do github.  
+
+
 = 3.2.5 - 11/Mai/2020 =
 
 * Corrige falha na atualização automática de pedidos, pois os pedidos estavam sendo enviados sem o código de referência, e desta forma não conseguiam ser encontrados quando o PagSeguro tentava atualizá-los.
