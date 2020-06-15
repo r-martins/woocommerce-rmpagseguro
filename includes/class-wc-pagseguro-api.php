@@ -553,6 +553,7 @@ class WC_PagSeguro_API {
 		switch ((string)$xml->sender->documents->document->type){
 			case 'CNPJ':
 				$post['senderCNPJ'] = (string)$xml->sender->documents->document->value;
+				break;
 			case 'CPF':
 			default:
 				$post['senderCPF'] = (string)$xml->sender->documents->document->value;
@@ -679,6 +680,7 @@ class WC_PagSeguro_API {
 		switch ((string)$xml->sender->documents->document->type){
 			case 'CNPJ':
 				$post['senderCNPJ'] = (string)$xml->sender->documents->document->value;
+				break;
 			case 'CPF':
 			default:
 				$post['senderCPF'] = (string)$xml->sender->documents->document->value;
