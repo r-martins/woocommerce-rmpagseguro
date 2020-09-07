@@ -64,6 +64,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 
 		// Main actions.
 		add_action( 'woocommerce_api_wc_pagseguro_gateway', array( $this, 'ipn_handler' ) );
+		add_action( 'woocommerce_api_wc_pagseguro_info', array( $this, 'wc_test' ) );
 		add_action( 'valid_pagseguro_ipn_request', array( $this, 'update_order_status' ) );
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
@@ -731,4 +732,60 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 			}
 		}
 	}
+
+
+	/**
+	 * Diagnostic tool used to check basic configuration of the module in case you open a ticket request
+	 */
+	public function wc_test()
+	{
+		@ob_clean(); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+
+		header('Content-Type: application/json');
+//		echo plugin_dir_path(__FILE__);
+//		echo plugin_dir_path(__FILE__) . '..' . DIRECTORY_SEPARATOR . 'woo-pagseguro-rm.php';
+//		exit;
+		$plugin_data = get_file_data(plugin_dir_path(__FILE__) . '..' . DIRECTORY_SEPARATOR . 'woo-pagseguro-rm.php', array('Version'=>'Version'));
+
+
+		$exta_checkout_fields_active = array_search(
+				"woocommerce-extra-checkout-fields-for-brazil/woocommerce-extra-checkout-fields-for-brazil.php",
+				get_option('active_plugins')
+			) !== false;
+
+		$pub_length = strlen($this->get_option('public_key'));
+		$public_key = $pub_length == 35 ? 'Good' : 'Wrong with ' . $pub_length . ' characters';
+
+		$token_length = strlen($this->get_option('token'));
+		$token = $token_length == 32 || $token_length == 100 ? 'Good' : 'Wrong';
+
+		$session_id = $this->api->get_session_id();
+
+		$pubauth = wp_safe_remote_get('https://ws.ricardomartins.net.br/pspro/v7/auth/' . $this->get_option('public_key'));
+		$info = array(
+			'platform'=>'Wordpress',
+			'module_version' => $plugin_data,
+			'extra_checkout_fields' => $exta_checkout_fields_active,
+			'public_key' => $public_key,
+			'token_consistency' => $token,
+			'session_id' => $session_id,
+			'valid_pub' => @$pubauth['body'],
+			'configuration' => array(
+				'enabled' => $this->get_option('enabled'),
+				'method' => $this->get_option('method'),
+				'sandbox' => $this->get_option('sandbox'),
+				'tc_credit' => $this->get_option('tc_credit'),
+				'tc_ticket' => $this->get_option('tc_ticket'),
+				'tc_ticket_message' => $this->get_option('tc_ticket_message'),
+				'send_only_total' => $this->get_option('send_only_total'),
+				'invoice_prefix' => $this->get_option('invoice_prefix'),
+				'debug' => $this->get_option('debug'),
+			)
+		);
+
+
+		echo json_encode($info);
+		exit;
+	}
+
 }

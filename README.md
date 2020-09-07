@@ -7,7 +7,7 @@
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
 **Tested up to:** 5.4.1 
-**Stable tag:** 3.2.7
+**Stable tag:** 3.3.0
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -303,6 +303,18 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 
 ## Changelog ##
+= 3.3.0 - 07/Set/2020 = 
+
+* Adicionado URL para auto diagnóstico, exibindo principais configurações do módulo
+* Melhoria: Agora o IP do cliente é enviado ao PagSegurom, reduzindo transações negadas por suspeita de fraude
+* Compatibilidade com Wordpress 5.5.1 e WooCommerce 4.4.1 verificada
+
+
+= 3.2.7 - 15/Jun/2020 =
+
+* Correção: pedidos feitos informando CNPJ com meio de pagamento Boleto não eram finalizados  
+
+
 = 3.2.6 - 17/Mai/2020 =
 
 * Módulo duplicado corrigido - O módulo aparecia duplicado para quem fazia a instalação/download pelo site do wordpress ao invés do github.  

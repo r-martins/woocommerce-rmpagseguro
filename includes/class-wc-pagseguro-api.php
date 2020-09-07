@@ -532,6 +532,7 @@ class WC_PagSeguro_API {
 			'public_key' => (string)$this->gateway->settings['public_key'],
 			'senderPhone' => (string)$xml->sender->phone->number,
 			'senderName' => (string)$xml->sender->name,
+			'senderIp' => $this->get_sender_ip(),
 			'shippingType' => (string)$xml->shipping->type,
 			'shippingCost' => (string)$xml->shipping->cost,
 			'shippingAddressCountry' => (string)$xml->shipping->address->country,
@@ -654,6 +655,7 @@ class WC_PagSeguro_API {
 			'notificationURL' => (string)$xml->notificationURL,
 			'senderEmail' => (string)$xml->sender->email,
 			'senderHash' => (string)$xml->sender->hash,
+			'senderIp' => $this->get_sender_ip(),
 			'senderAreaCode' => (string)$xml->sender->phone->areaCode,
 			'public_key' => (string)$this->gateway->settings['public_key'],
 			'senderPhone' => (string)$xml->sender->phone->number,
@@ -1078,5 +1080,46 @@ class WC_PagSeguro_API {
 			$data[$k] = utf8_decode($v);
 		}
 		return $data;
+	}
+
+	/**
+	 * Return Customer's IP v4 or '' if unsuccessful
+	 * @return string
+	 */
+	public function get_sender_ip()
+	{
+		$senderIp = '';
+
+		// In order of preference, with the best ones for this purpose first.
+		$address_headers = array(
+			'HTTP_CF_CONNECTING_IP', //Cloudflare
+			'HTTP_CLIENT_IP',
+			'HTTP_X_FORWARDED_FOR',
+			'HTTP_X_FORWARDED',
+			'HTTP_X_CLUSTER_CLIENT_IP',
+			'HTTP_FORWARDED_FOR',
+			'HTTP_FORWARDED',
+			'REMOTE_ADDR',
+		);
+
+		foreach ( $address_headers as $header ) {
+			if ( array_key_exists( $header, $_SERVER ) ) {
+				/*
+				 * HTTP_X_FORWARDED_FOR can contain a chain of comma-separated
+				 * addresses. The first one is the original client. It can't be
+				 * trusted for authenticity, but we don't need to for this purpose.
+				 */
+				$address_chain = explode( ',', $_SERVER[ $header ] );
+				$senderIp     = trim( $address_chain[0] );
+
+				break;
+			}
+		}
+
+		if ( ! $senderIp  || false === filter_var($senderIp, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+			return '';
+		}
+
+		return $senderIp;
 	}
 }

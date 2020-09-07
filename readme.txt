@@ -4,7 +4,7 @@ Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 5.4.1
-Stable tag: 3.2.7
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,7 +48,7 @@ Este plugin também é compatível com o [WooCommerce Extra Checkout Fields for 
 
 = Instalação =
 
-Confira o nosso guia de instalação e configuração do PagSeguro na aba [Installation](https://wordpress.org/plugins/woo-pagseguro-rm/#installation).
+Confira o nosso [passo a passo de instalação e configuração](https://pagseguro.ricardomartins.net.br/woocommerce/wizard.html).
 
 = Integração =
 
@@ -254,6 +254,13 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.3.0 - 07/Set/2020 = 
+
+* Adicionado URL para auto diagnóstico, exibindo principais configurações do módulo
+* Melhoria: Agora o IP do cliente é enviado ao PagSegurom, reduzindo transações negadas por suspeita de fraude
+* Compatibilidade com Wordpress 5.5.1 e WooCommerce 4.4.1 verificada
+
+
 = 3.2.7 - 15/Jun/2020 =
 
 * Correção: pedidos feitos informando CNPJ com meio de pagamento Boleto não eram finalizados  
