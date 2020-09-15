@@ -532,7 +532,6 @@ class WC_PagSeguro_API {
 			'public_key' => (string)$this->gateway->settings['public_key'],
 			'senderPhone' => (string)$xml->sender->phone->number,
 			'senderName' => (string)$xml->sender->name,
-			'senderIp' => $this->get_sender_ip(),
 			'shippingType' => (string)$xml->shipping->type,
 			'shippingCost' => (string)$xml->shipping->cost,
 			'shippingAddressCountry' => (string)$xml->shipping->address->country,
@@ -544,6 +543,12 @@ class WC_PagSeguro_API {
 			'shippingAddressPostalCode' => (string)$xml->shipping->address->postalCode,
 			'shippingAddressState' => (string)$xml->shipping->address->state,
 		);
+
+		$senderIp = $this->get_sender_ip();
+		if ($senderIp) {
+			$post['senderIp'] = $senderIp;
+		}
+
 		foreach($xml->items->item as $item) {
 			$post['itemId' . (string)$item->id] = (string)$item->id;
 			$post['itemDescription' . (string)$item->id] = (string)$item->description;
@@ -655,7 +660,6 @@ class WC_PagSeguro_API {
 			'notificationURL' => (string)$xml->notificationURL,
 			'senderEmail' => (string)$xml->sender->email,
 			'senderHash' => (string)$xml->sender->hash,
-			'senderIp' => $this->get_sender_ip(),
 			'senderAreaCode' => (string)$xml->sender->phone->areaCode,
 			'public_key' => (string)$this->gateway->settings['public_key'],
 			'senderPhone' => (string)$xml->sender->phone->number,
@@ -671,6 +675,11 @@ class WC_PagSeguro_API {
 			'shippingAddressPostalCode' => (string)$xml->shipping->address->postalCode,
 			'shippingAddressState' => (string)$xml->shipping->address->state,
 		);
+
+		$senderIp = $this->get_sender_ip();
+		if ($senderIp) {
+			$post['senderIp'] = $senderIp;
+		}
 
 		foreach($xml->items->item as $item) {
 			$post['itemId' . (string)$item->id] = (string)$item->id;

@@ -7,7 +7,7 @@
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
 **Tested up to:** 5.4.1 
-**Stable tag:** 3.3.0
+**Stable tag:** 3.3.1
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -303,6 +303,12 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 
 ## Changelog ##
+= 3.3.1 - 14/Set/2020 =
+
+* Correção do senderIp sendo enviado vazio quando não conseguia obter o senderIP, causando erro na finalização de pedidos
+* Correção de undefined index method que ocorria após instalação do módulo, quando não se tinha os valores de configuração preenchidos e salvos
+
+
 = 3.3.0 - 07/Set/2020 = 
 
 * Adicionado URL para auto diagnóstico, exibindo principais configurações do módulo

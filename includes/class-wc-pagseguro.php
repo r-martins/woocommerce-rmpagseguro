@@ -112,7 +112,10 @@ class WC_PagSeguro {
 	public static function transparent_checkout_billing_fields( $fields ) {
 		$settings = get_option( 'woocommerce_pagseguro_settings', array( 'method' => '' ) );
 
-		if ( 'transparent' === $settings['method'] && class_exists( 'Extra_Checkout_Fields_For_Brazil' ) ) {
+		if (isset($settings['method']) && 'transparent' === $settings['method']
+			&& class_exists(
+				'Extra_Checkout_Fields_For_Brazil'
+			)) {
 			if ( isset( $fields['billing_neighborhood'] ) ) {
 				$fields['billing_neighborhood']['required'] = true;
 			}
