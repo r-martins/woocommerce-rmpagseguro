@@ -549,6 +549,10 @@ class WC_PagSeguro_API {
 			$post['senderIp'] = $senderIp;
 		}
 
+		if (isset($xml->redirectURL)) {
+			$post['redirectURL'] = (string)$xml->redirectURL;
+		}
+
 		foreach($xml->items->item as $item) {
 			$post['itemId' . (string)$item->id] = (string)$item->id;
 			$post['itemDescription' . (string)$item->id] = (string)$item->description;
