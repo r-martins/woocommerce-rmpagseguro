@@ -151,7 +151,8 @@ class WC_PagSeguro {
 	public static function ecfb_missing_notice() {
 		$settings = get_option( 'woocommerce_pagseguro_settings', array( 'method' => '' ) );
 
-		if ( 'transparent' === $settings['method'] && ! class_exists( 'Extra_Checkout_Fields_For_Brazil' ) ) {
+		if ( isset($settings['method']) && 'transparent' === $settings['method']
+			&& ! class_exists( 'Extra_Checkout_Fields_For_Brazil' ) ) {
 			include dirname( __FILE__ ) . '/admin/views/html-notice-missing-ecfb.php';
 		}
 	}

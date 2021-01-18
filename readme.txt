@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly
 Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 5.4.1
-Stable tag: 3.3.2
+Tested up to: 5.6
+Stable tag: 3.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -254,6 +254,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.3.3 - 18/Jan/2021 =
+* Correção: Erro "Undefined index: method in class-wc-pagseguro.php" aparecia em alguns casos após desativar e reativar o módulo.
+
 = 3.3.2 - 6/Out/2020 =
 * Correção: URL de sucesso não era enviado quando meio "Redirect" era usado fazendo com que o usuário não retornasse para loja.
  
