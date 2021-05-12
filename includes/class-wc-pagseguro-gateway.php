@@ -49,6 +49,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$this->invoice_prefix    = $this->get_option( 'invoice_prefix', 'WC-' );
 		$this->sandbox           = $this->get_option( 'sandbox', 'no' );
 		$this->debug             = $this->get_option( 'debug' );
+		$this->stcmirror             = $this->get_option( 'stcmirror' );
 
 		// Active logs.
 		if ( 'yes' === $this->debug ) {
@@ -220,11 +221,19 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 			'sandbox'              => array(
 				'title'       => __( 'PagSeguro Sandbox', 'woo-pagseguro-rm' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Enable PagSeguro Sandbox (KEEP IT DISABLED)', 'woo-pagseguro-rm' ),
+				'label'       => __( 'Enable PagSeguro Sandbox (KEEP IT DISABLED)' .  ' (Não suportado)', 'woo-pagseguro-rm' ),
 				'desc_tip'    => true,
 				'default'     => 'no',
 
 				'description' => __( 'PagSeguro Sandbox can be used to test the payments.', 'woo-pagseguro-rm' ),
+			),
+			'stcmirror'              => array(
+				'title'       => __( 'Usar espelho para conteúdo estático?', 'woo-pagseguro-rm' ),
+				'label'		  => 'Habilitar',
+				'type'        => 'checkbox',
+				'desc_tip'    => false,
+				'default'     => 'yes',
+				'description' => __( 'Ao invés de chamar arquivos estáticos do CDN PagSeguro, usamos um espelhamento com maior disponibilidade e performance (recomendável).', 'woo-pagseguro-rm' ),
 			),
 			'email'                => array(
 				'title'       => __( 'PagSeguro Email', 'woo-pagseguro-rm' ),

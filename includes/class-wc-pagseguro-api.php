@@ -42,6 +42,14 @@ class WC_PagSeguro_API {
 	}
 
 	/**
+	 * Use stcpagseguro.ricardomartins.net.br instead of stc.pagseguro.uol.com.br (less stable)
+	 * @return bool
+	 */
+	protected function use_static_mirror() {
+		return ( 'yes' == $this->gateway->stcmirror );
+	}
+
+	/**
 	 * Get the checkout URL.
 	 *
 	 * @return string.
@@ -87,6 +95,10 @@ class WC_PagSeguro_API {
 	 * @return string.
 	 */
 	public function get_lightbox_url() {
+		if ($this->use_static_mirror()) {
+			return 'https://stcpagseguro.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js';
+		}
+
 		return 'https://stc.' . $this->get_environment() . 'pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js';
 	}
 
@@ -96,6 +108,9 @@ class WC_PagSeguro_API {
 	 * @return string.
 	 */
 	public function get_direct_payment_url() {
+		if ($this->use_static_mirror()) {
+			return 'https://stcpagseguro.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js';
+		}
 		return 'https://stc.' . $this->get_environment() . 'pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js';
 	}
 
