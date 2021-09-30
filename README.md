@@ -6,8 +6,8 @@
 **Donate link:** https://claudiosanches.com/doacoes/  
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
-**Tested up to:** 5.7 
-**Stable tag:** 3.3.3
+**Tested up to:** 5.8.1
+**Stable tag:** 3.3.4
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -303,6 +303,13 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 
 ## Changelog ##
+== Changelog ==
+
+= 3.3.5 - 29/Sep/2021 =
+
+* Compatibilidade: apenas atualizando notas de versão após teste de compatibilidade com Wordpress 5.8.1 e WooCommerce 5.7.1
+* Melhoria: alteração em mensagens de erro com linguagem muito informal.
+
 = 3.3.4 - 12/Mai/2021 =
 
 * Melhoria: criamos um espelho (Cloudfront) dos arquivos estáticos do PagSeguro a fim de reduzir indisponibilidade que fazia com que os meios de pagamento transparente nunca terminassem de carregar no checkout de algumas lojas.
