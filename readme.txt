@@ -4,7 +4,7 @@ Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 5.8.1
-Stable tag: 3.3.5
+Stable tag: 3.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -254,6 +254,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.3.6 - 29/Sep/2021 =
+* Correção da constante com o número de versão do módulo. (São muitos lugares pra se alterar a versão no WP e esquecemos deste)
+
+
 = 3.3.5 - 29/Sep/2021 =
 * Compatibilidade: apenas atualizando notas de versão após teste de compatibilidade com Wordpress 5.8.1 e WooCommerce 5.7.1
 * Melhoria: alteração em mensagens de erro com linguagem muito informal.
