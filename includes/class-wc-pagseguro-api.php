@@ -776,7 +776,7 @@ class WC_PagSeguro_API {
 			return array(
 				'url'   => '',
 				'data'  => '',
-				'error' => array( __( 'Too bad! The email or token from the PagSeguro are invalids my little friend!', 'woo-pagseguro-rm' ) ),
+				'error' => array( __( 'Invalid e-mail or token. Please check your PagSeguro configuration.', 'woo-pagseguro-rm' ) ),
 			);
 		} else {
 			try {
@@ -884,7 +884,7 @@ class WC_PagSeguro_API {
 			return array(
 				'url'   => '',
 				'data'  => '',
-				'error' => array( __( 'You are not allowed to use the PagSeguro Transparent Checkout. Looks like you neglected to installation guide of this plugin. This is not pretty, do you know?', 'woo-pagseguro-rm' ) ),
+				'error' => array( __( 'You are not allowed to use the PagSeguro Transparent Checkout. Please check the installation instructions.', 'woo-pagseguro-rm' ) ),
 			);
 		} else {
 			try {
