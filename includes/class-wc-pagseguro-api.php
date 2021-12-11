@@ -813,6 +813,8 @@ class WC_PagSeguro_API {
 
 				foreach ( $body->error as $error_key => $error ) {
 					if ( $message = $this->get_error_message( $error->code ) ) {
+                        //if generic message, add the original one
+                        $message .= (strpos($message, 'Um erro ocorreu') !== false) ? ' (' . $error->message . ')' : '';
 						$errors[] = '<strong>' . __( 'PagSeguro', 'woo-pagseguro-rm' ) . '</strong>: ' . $message;
 					}
 				}
