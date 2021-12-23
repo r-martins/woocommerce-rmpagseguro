@@ -1,7 +1,7 @@
 {
   "name": "woocommerce-pagseguro",
   "description": "Gateway de pagamento PagSeguro para WooCommerce",
-  "version": "3.3.7",
+  "version": "3.3.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/r-martins/woocommerce-rmpagseguro"
