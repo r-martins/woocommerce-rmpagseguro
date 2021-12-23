@@ -620,6 +620,11 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 
 						break;
 					case 4:
+						// if the payment is pending and the transaction status goes directly to status 4, we must complete the payment
+						if ( method_exists( $order, 'get_status' ) && 'pending' === $order->get_status() ) {
+							$order->payment_complete( sanitize_text_field( (string) $posted->code ) );
+						}
+
 						$order->add_order_note( __( 'PagSeguro: Payment completed and credited to your account.', 'woo-pagseguro-rm' ) );
 
 						break;
