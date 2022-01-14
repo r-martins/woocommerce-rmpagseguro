@@ -7,7 +7,7 @@
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0  
 **Tested up to:** 5.8.2
-**Stable tag:** 3.3.8
+**Stable tag:** 3.3.9
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -304,6 +304,9 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 ## Changelog ##
 == Changelog ==
+= 3.3.9 - 14/Jan/2022 =
+* Correção: suporte a atualização de pedidos feitos com PIX não tinha sido aplicada corretamente. Agora sim, pedidos com PIX serão atualizados automaticamente quando forem pagos.
+
 
 = 3.3.8 - 23/Dec/2021 =
 * Correção: suporte a atualização de pedidos feitos com PIX. Antes pedidos com PIX não eram atualizados automaticamente quando pagos.
