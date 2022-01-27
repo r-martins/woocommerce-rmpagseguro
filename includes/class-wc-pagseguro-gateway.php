@@ -231,11 +231,10 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 			'sandbox'              => array(
 				'title'       => __( 'PagSeguro Sandbox', 'woo-pagseguro-rm' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Enable PagSeguro Sandbox (KEEP IT DISABLED)', 'woo-pagseguro-rm' ),
-				'desc_tip'    => true,
+				'label'       => __( 'Enable PagSeguro Sandbox', 'woo-pagseguro-rm' ),
+				'desc_tip'    => false,
 				'default'     => 'no',
-
-				'description' => __( 'PagSeguro Sandbox can be used to test the payments.', 'woo-pagseguro-rm' ),
+				'description' => __( '⚠️ The Sandbox environment is extremelly unstable and it could be offline when you test it.', 'woo-pagseguro-rm' ),
 			),
 			'stcmirror'              => array(
 				'title'       => __( 'Usar espelho para conteúdo estático?', 'woo-pagseguro-rm' ),
