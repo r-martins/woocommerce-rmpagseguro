@@ -56,7 +56,13 @@ class WC_PagSeguro_API {
 	 */
 	protected function get_checkout_url() {
 		//modified by Ricardo Martins
-		return 'https://ws.ricardomartins.net.br/pspro/v6/wspagseguro/v2/checkout';
+		$appUrl = 'https://ws.ricardomartins.net.br/pspro/v7/wspagseguro/v2/checkout';
+
+		if ( 'yes' == $this->gateway->sandbox ) {
+			$appUrl = add_query_arg( array( 'isSandbox' => true ), $appUrl );
+		}
+
+		return $appUrl;
 	}
 
 	/**
@@ -65,7 +71,14 @@ class WC_PagSeguro_API {
 	 * @return string.
 	 */
 	protected function get_sessions_url() {
-		return 'https://ws.' . $this->get_environment() . 'pagseguro.uol.com.br/v2/sessions';
+		//modified by Ricardo Martins
+		$appUrl = 'https://ws.ricardomartins.net.br/pspro/v7/wspagseguro/v2/sessions';
+
+		if ( 'yes' == $this->gateway->sandbox ) {
+			$appUrl = add_query_arg( array( 'isSandbox' => true ), $appUrl );
+		}
+
+		return $appUrl;
 	}
 
 	/**
@@ -77,7 +90,7 @@ class WC_PagSeguro_API {
 	 */
 	protected function get_payment_url( $token ) {
 		//modified by Ricardo Martins
-		return 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $token;
+		return 'https://' . $this->get_environment() . 'pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $token;
 	}
 
 	/**
@@ -86,7 +99,14 @@ class WC_PagSeguro_API {
 	 * @return string.
 	 */
 	protected function get_transactions_url() {
-		return 'https://ws.ricardomartins.net.br/pspro/v6/wspagseguro/v2/transactions';
+		//modified by Ricardo Martins
+		$appUrl = 'https://ws.ricardomartins.net.br/pspro/v7/wspagseguro/v2/transactions';
+
+		if ( 'yes' == $this->gateway->sandbox ) {
+			$appUrl = add_query_arg( array( 'isSandbox' => true ), $appUrl );
+		}
+
+		return $appUrl;
 	}
 
 	/**
@@ -96,7 +116,9 @@ class WC_PagSeguro_API {
 	 */
 	public function get_lightbox_url() {
 		if ($this->use_static_mirror()) {
-			return 'https://stcpagseguro.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js';
+			return 'yes' == $this->gateway->sandbox
+				? 'https://stcpagsegurosandbox.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js'
+				: 'https://stcpagseguro.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js';
 		}
 
 		return 'https://stc.' . $this->get_environment() . 'pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js';
@@ -109,8 +131,11 @@ class WC_PagSeguro_API {
 	 */
 	public function get_direct_payment_url() {
 		if ($this->use_static_mirror()) {
-			return 'https://stcpagseguro.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js';
+			return 'yes' == $this->gateway->sandbox
+				? 'https://stcpagsegurosandbox.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js'
+				: 'https://stcpagseguro.ricardomartins.net.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js';
 		}
+
 		return 'https://stc.' . $this->get_environment() . 'pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js';
 	}
 
@@ -119,8 +144,15 @@ class WC_PagSeguro_API {
 	 *
 	 * @return string.
 	 */
-	protected function get_notification_url() {
-		return 'https://ws.' . $this->get_environment() . 'pagseguro.uol.com.br/v2/transactions/notifications/';
+	protected function get_notification_url($notificationCode) {
+		//modified by Ricardo Martins
+		$appUrl = 'https://ws.ricardomartins.net.br/pspro/v7/wspagseguro/v3/transactions/notifications/' . esc_attr($notificationCode);
+
+		if ( 'yes' == $this->gateway->sandbox ) {
+			$appUrl = add_query_arg( array( 'isSandbox' => true ), $appUrl );
+		}
+
+		return $appUrl;
 	}
 
 	/**
@@ -761,7 +793,7 @@ class WC_PagSeguro_API {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting token for order ' . $order->get_order_number() . ' with the following data: ' . var_export($xml, true) );
 		}
 
-		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_checkout_url() );
+		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token(), 'public_key' => $this->gateway->get_public_key() ), $this->get_checkout_url() );
 		$response = $this->do_request( $url, 'POST', $xml, $this->get_custom_headers() );
 
 		if ( is_wp_error( $response ) ) {
@@ -871,7 +903,7 @@ class WC_PagSeguro_API {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting direct payment for order ' . $order->get_order_number() . ' with the following data: ' . var_export($xml, true) );
 		}
 
-		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_transactions_url() );
+		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token(), 'public_key' => $this->gateway->get_public_key() ), $this->get_transactions_url() );
 		$response = $this->do_request( $url, 'POST', $xml, $this->get_custom_headers() );
 
 		if ( is_wp_error( $response ) ) {
@@ -976,7 +1008,7 @@ class WC_PagSeguro_API {
 		}
 
 		// Gets the PagSeguro response.
-		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_notification_url() . esc_attr( $data['notificationCode'] ) );
+		$url      = add_query_arg( array( 'public_key' => $this->gateway->get_public_key() ), $this->get_notification_url( $data['notificationCode'] ) );
 		$response = $this->do_request( $url, 'GET' );
 
 		// Check to see if the request was valid.
@@ -1022,7 +1054,7 @@ class WC_PagSeguro_API {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting session ID...' );
 		}
 
-		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token() ), $this->get_sessions_url() );
+		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token(), 'public_key' => $this->gateway->get_public_key() ), $this->get_sessions_url() );
 		$response = $this->do_request( $url, 'POST' );
 
 		// Check to see if the request was valid.

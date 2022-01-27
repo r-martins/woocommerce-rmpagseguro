@@ -40,6 +40,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$this->public_key        = $this->get_option( 'public_key' ); //added by Ricardo Martins
 		$this->sandbox_email     = $this->get_option( 'sandbox_email' );
 		$this->sandbox_token     = $this->get_option( 'sandbox_token' );
+		$this->sandbox_public_key= $this->get_option( 'sandbox_public_key' ); //added by Ricardo Martins
 		$this->method            = $this->get_option( 'method', 'direct' );
 		$this->tc_credit         = $this->get_option( 'tc_credit', 'yes' );
 		$this->tc_transfer       = $this->get_option( 'tc_transfer', 'yes' );
@@ -103,6 +104,15 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	 */
 	public function get_token() {
 		return 'yes' === $this->sandbox ? $this->sandbox_token : $this->token;
+	}
+
+	/**
+	 * Get public key.
+	 *
+	 * @return string
+	 */
+	public function get_public_key() {
+		return 'yes' === $this->sandbox ? $this->sandbox_public_key : $this->public_key;
 	}
 
 	/**
@@ -221,7 +231,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 			'sandbox'              => array(
 				'title'       => __( 'PagSeguro Sandbox', 'woo-pagseguro-rm' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Enable PagSeguro Sandbox (KEEP IT DISABLED)' .  ' (Não suportado)', 'woo-pagseguro-rm' ),
+				'label'       => __( 'Enable PagSeguro Sandbox (KEEP IT DISABLED)', 'woo-pagseguro-rm' ),
 				'desc_tip'    => true,
 				'default'     => 'no',
 
@@ -269,6 +279,13 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'type'        => 'text',
 				/* translators: %s: link to PagSeguro settings */
 				'description' => sprintf( __( 'Please enter your PagSeguro sandbox token. You can get your sandbox token %s.', 'woo-pagseguro-rm' ), '<a href="https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html">' . __( 'here', 'woo-pagseguro-rm' ) . '</a>' ),
+				'default'     => '',
+			),
+			'sandbox_public_key'   => array(
+				'title'       => __( 'PagSeguro Sandbox App Key', 'woo-pagseguro-rm' ),
+				'type'        => 'text',
+				/* translators: %s: link to PagSeguro settings */
+				'description' => sprintf( __( 'To get your app key, authorize the app. %s to authorize it (it\'s free).', 'woo-pagseguro-rm' ), '<a href="https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html" target="_blank">' . __( 'Click here', 'woo-pagseguro-rm' ) . '</a>' ),
 				'default'     => '',
 			),
 			'transparent_checkout' => array(
