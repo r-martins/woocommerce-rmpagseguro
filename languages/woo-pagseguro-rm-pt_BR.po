@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce PagSeguro 3.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/trunk\n"
 "POT-Creation-Date: 2022-01-28 16:16+1100\n"
-"PO-Revision-Date: 2022-01-28 16:21+1100\n"
+"PO-Revision-Date: 2022-01-28 16:28+1100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -412,14 +412,13 @@ msgid "PagSeguro Sandbox App Key"
 msgstr "Token Sandbox PagSeguro"
 
 #: includes/class-wc-pagseguro-gateway.php:287
-#, fuzzy, php-format
-#| msgid ""
-#| "To get your app key, authorize the app. %s to authorize it (it's free)."
+#, php-format
 msgid ""
 "To get your sandbox app key, authorize your sandbox app. %s to authorize it "
 "(it's free)."
 msgstr ""
-"Para obter sua App Key autorize a aplicação. %s para autorizar gratuitamente."
+"Para obter sua App Key de Sandbox autorize a aplicação criada no Sandbox. %s "
+"para autorizar (gratuitamente)."
 
 #: includes/class-wc-pagseguro-gateway.php:291
 msgid "Transparent Checkout Options"
