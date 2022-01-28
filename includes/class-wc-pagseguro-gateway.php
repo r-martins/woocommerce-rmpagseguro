@@ -237,12 +237,12 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'description' => __( '⚠️ The Sandbox environment is extremelly unstable and it could be offline when you test it.', 'woo-pagseguro-rm' ),
 			),
 			'stcmirror'              => array(
-				'title'       => __( 'Usar espelho para conteúdo estático?', 'woo-pagseguro-rm' ),
+				'title'       => __( 'Use CDN mirror for PagSeguro static files?', 'woo-pagseguro-rm' ),
 				'label'		  => 'Habilitar',
 				'type'        => 'checkbox',
 				'desc_tip'    => false,
 				'default'     => 'yes',
-				'description' => __( 'Ao invés de chamar arquivos estáticos do CDN PagSeguro, usamos um espelhamento com maior disponibilidade e performance (recomendável).', 'woo-pagseguro-rm' ),
+				'description' => __( 'Instead asking for PagSeguro files, we can obtain those files from a mirror server (faster and more reliable).', 'woo-pagseguro-rm' ),
 			),
 			'email'                => array(
 				'title'       => __( 'PagSeguro Email', 'woo-pagseguro-rm' ),
@@ -284,7 +284,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'title'       => __( 'PagSeguro Sandbox App Key', 'woo-pagseguro-rm' ),
 				'type'        => 'text',
 				/* translators: %s: link to PagSeguro settings */
-				'description' => sprintf( __( 'To get your app key, authorize the app. %s to authorize it (it\'s free).', 'woo-pagseguro-rm' ), '<a href="https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html" target="_blank">' . __( 'Click here', 'woo-pagseguro-rm' ) . '</a>' ),
+				'description' => sprintf( __( 'To get your sandbox app key, authorize your sandbox app. %s to authorize it (it\'s free).', 'woo-pagseguro-rm' ), '<a href="https://pagseguro.ricardomartins.net.br/sandbox.html" target="_blank">' . __( 'Click here', 'woo-pagseguro-rm' ) . '</a>' ),
 				'default'     => '',
 			),
 			'transparent_checkout' => array(
