@@ -93,8 +93,17 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	 *
 	 * @return string
 	 */
+	public function is_sanbox_on() {
+		return (bool) ('yes' === $this->sandbox);
+	}
+
+	/**
+	 * Get email.
+	 *
+	 * @return string
+	 */
 	public function get_email() {
-		return 'yes' === $this->sandbox ? $this->sandbox_email : $this->email;
+		return $this->is_sanbox_on() ? $this->sandbox_email : $this->email;
 	}
 
 	/**
@@ -103,7 +112,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	 * @return string
 	 */
 	public function get_token() {
-		return 'yes' === $this->sandbox ? $this->sandbox_token : $this->token;
+		return $this->is_sanbox_on() ? $this->sandbox_token : $this->token;
 	}
 
 	/**
@@ -112,7 +121,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	 * @return string
 	 */
 	public function get_public_key() {
-		return 'yes' === $this->sandbox ? $this->sandbox_public_key : $this->public_key;
+		return $this->is_sanbox_on() ? $this->sandbox_public_key : $this->public_key;
 	}
 
 	/**
@@ -409,6 +418,17 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	 */
 	public function process_payment( $order_id ) {
 		$order = wc_get_order( $order_id );
+
+		// adds 'is sandbox transaction' info to the order
+		if ($this->is_sanbox_on()) {
+			// WooCommerce 3.0 or later.
+			if ( method_exists( $order, 'update_meta_data' ) ) {
+				$order->update_meta_data( 'is_sandbox' ,'yes' );
+				$order->save();
+			} else {
+				update_post_meta( $order->id, 'is_sandbox', 'yes' ); // @codingStandardsIgnoreLine
+			}
+		}
 
 		if ( 'lightbox' !== $this->method ) {
 			if ( isset( $_POST['pagseguro_sender_hash'] ) && 'transparent' === $this->method ) { // WPCS: input var ok, CSRF ok.
