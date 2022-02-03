@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly
 Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 5.8.2
-Stable tag: 3.3.9
+Tested up to: 5.9.0
+Stable tag: 3.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -254,6 +254,11 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.4.0 - 3/Fev/2022 =
+* Adicionado suporte a Sandbox
+* Melhorias e correções nas traduções incluindo remoção de arquivos de tradução não utilizados
+
+
 = 3.3.9 - 14/Jan/2022 =
 * Correção: suporte a atualização de pedidos feitos com PIX não tinha sido aplicada corretamente. Agora sim, pedidos com PIX serão atualizados automaticamente quando forem pagos.
 
