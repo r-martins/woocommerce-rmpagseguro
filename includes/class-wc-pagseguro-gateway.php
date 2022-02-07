@@ -185,7 +185,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	/**
 	 * Retrieves an option numeric value, parsing the configured value
 	 *
-	 * @return float|int|null
+	 * @return float|null
 	 */
 	public function get_numeric_option( $option_name )
 	{
@@ -196,7 +196,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		}
 
 		// it means that the comma is the decimal separator
-		if ( strpos( $value. ',' ) !== false ) {
+		if ( strpos( $value, ',' ) !== false ) {
 			return (float) str_replace( ',', '.', str_replace( '.', '', $value ) );
 		}
 
