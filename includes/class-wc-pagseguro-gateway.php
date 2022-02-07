@@ -461,7 +461,8 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 
 		if ( 'lightbox' !== $this->method ) {
 			if ( isset( $_POST['pagseguro_sender_hash'] ) && 'transparent' === $this->method ) { // WPCS: input var ok, CSRF ok.
-				$response = $this->api->do_payment_request( $order, $_POST ); // WPCS: input var ok, CSRF ok.
+				$postedData = array_merge( $_POST, array( 'no_interest_installments_min_value' => $this->get_numeric_option ( 'no_interest_installments_min_value' ) ) );
+				$response = $this->api->do_payment_request( $order, $postedData ); // WPCS: input var ok, CSRF ok.
 
 				if ( $response['data'] ) {
 					$this->update_order_status( $response['data'] );

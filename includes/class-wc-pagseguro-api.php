@@ -762,6 +762,21 @@ class WC_PagSeguro_API {
 			$post['creditCardHolderAreaCode'] = (string)$xml->creditCard->holder->phone->areaCode;
 			$post['creditCardHolderPhone'] = (string)$xml->creditCard->holder->phone->number;
 
+			// parcels without interest setting
+			if ( $posted['no_interest_installments_min_value'] != null ) {
+				// default value, for cases that the interest value is bigger than the the cart total
+				$post['noInterestInstallmentQuantity'] = 1;
+
+				// if its configured '0', sends '0'
+				if ( $posted['no_interest_installments_min_value'] == 0 ) {
+					$post['noInterestInstallmentQuantity'] = 0;
+				}
+				// otherwise, calculates and sends the qty of parcels without interest
+				else if ( $order->get_total() >= $posted['no_interest_installments_min_value'] ) {
+					$post['noInterestInstallmentQuantity'] = floor( $order->get_total() / $posted['no_interest_installments_min_value'] );
+				}
+			}
+
 			//billing address
 			$post['billingAddressStreet'] = (string)$xml->creditCard->billingAddress->street;
 			$post['billingAddressNumber'] = (string)$xml->creditCard->billingAddress->number;
