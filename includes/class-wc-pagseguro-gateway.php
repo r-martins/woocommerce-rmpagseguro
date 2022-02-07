@@ -175,10 +175,32 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 						'expired_date'       => __( 'Please check the expiry date and use a valid format as MM / YYYY.', 'woo-pagseguro-rm' ),
 						'general_error'      => __( 'Unable to process the data from your credit card on the PagSeguro, please try again or contact us for assistance.', 'woo-pagseguro-rm' ),
 						'empty_installments' => __( 'Select a number of installments.', 'woo-pagseguro-rm' ),
+						'no_interest_installments_min_value' => $this->get_numeric_option( 'no_interest_installments_min_value' ),
 					)
 				);
 			}
 		}
+	}
+
+	/**
+	 * Retrieves an option numeric value, parsing the configured value
+	 *
+	 * @return float|int|null
+	 */
+	public function get_numeric_option( $option_name )
+	{
+		$value = $this->get_option( $option_name );
+
+		if ( $value == '' ) {
+			return null;
+		}
+
+		// it means that the comma is the decimal separator
+		if ( strpos( $value. ',' ) !== false ) {
+			return (float) str_replace( ',', '.', str_replace( '.', '', $value ) );
+		}
+
+		return (float) $value;
 	}
 
 	/**
@@ -306,6 +328,13 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable Credit Card for Transparente Checkout', 'woo-pagseguro-rm' ),
 				'default' => 'yes',
+			),
+			'no_interest_installments_min_value'            => array(
+				'title'   => __( 'Minimum parcel value for installments without interest', 'woo-pagseguro-rm' ),
+				'type'    => 'text',
+				'desc_tip' => false,
+				'description' => __( 'If you specify this value, the promotion rules saved on PagSeguro will be ignored. Please inform \'0\' if you don\'t want to offer installments without interest.', 'woo-pagseguro-rm' ),
+				'default' => '',
 			),
 			'tc_transfer'          => array(
 				'title'   => __( 'Bank Transfer', 'woo-pagseguro-rm' ),

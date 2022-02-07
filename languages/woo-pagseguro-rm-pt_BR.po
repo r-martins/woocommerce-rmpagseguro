@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce PagSeguro 3.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/trunk\n"
-"POT-Creation-Date: 2022-02-03 12:11+1100\n"
-"PO-Revision-Date: 2022-02-03 12:11+1100\n"
+"POT-Creation-Date: 2022-02-07 17:39-0300\n"
+"PO-Revision-Date: 2022-02-07 17:40-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-KeywordsList: __;esc_html_e;_e;esc_attr_e;_x;_ex;esc_attr_x;"
 "esc_html_x\n"
 "X-Poedit-Basepath: ..\n"
@@ -97,7 +97,7 @@ msgid "You should inform your token."
 msgstr "Você deve informar o seu token."
 
 #: includes/class-wc-pagseguro-api.php:201
-#: includes/class-wc-pagseguro-gateway.php:305
+#: includes/class-wc-pagseguro-gateway.php:327
 #: templates/transparent-checkout-form.php:19
 msgid "Credit Card"
 msgstr "Cartão de Crédito"
@@ -107,7 +107,7 @@ msgid "Billet"
 msgstr "Boleto"
 
 #: includes/class-wc-pagseguro-api.php:203
-#: includes/class-wc-pagseguro-gateway.php:311
+#: includes/class-wc-pagseguro-gateway.php:339
 #: templates/transparent-checkout-form.php:23
 msgid "Bank Transfer"
 msgstr "Transferência Bancária"
@@ -242,7 +242,7 @@ msgstr ""
 #: includes/class-wc-pagseguro-api.php:955
 #: includes/class-wc-pagseguro-api.php:975
 #: includes/class-wc-pagseguro-gateway.php:25
-#: includes/class-wc-pagseguro-gateway.php:213
+#: includes/class-wc-pagseguro-gateway.php:235
 msgid "PagSeguro"
 msgstr ""
 
@@ -307,48 +307,48 @@ msgstr ""
 msgid "Select a number of installments."
 msgstr "Selecione a quantidade de parcelas."
 
-#: includes/class-wc-pagseguro-gateway.php:191
+#: includes/class-wc-pagseguro-gateway.php:213
 msgid "System Status &gt; Logs"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:203
+#: includes/class-wc-pagseguro-gateway.php:225
 msgid "Enable/Disable"
 msgstr "Habilitar/Desabilitar"
 
-#: includes/class-wc-pagseguro-gateway.php:205
+#: includes/class-wc-pagseguro-gateway.php:227
 msgid "Enable PagSeguro"
 msgstr "Habilitar PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:209
+#: includes/class-wc-pagseguro-gateway.php:231
 msgid "Title"
 msgstr "Título"
 
-#: includes/class-wc-pagseguro-gateway.php:211
+#: includes/class-wc-pagseguro-gateway.php:233
 msgid "This controls the title which the user sees during checkout."
 msgstr "Isto mostra o título que o usuário vai ver no checkout."
 
-#: includes/class-wc-pagseguro-gateway.php:216
+#: includes/class-wc-pagseguro-gateway.php:238
 msgid "Description"
 msgstr "Descrição"
 
-#: includes/class-wc-pagseguro-gateway.php:218
+#: includes/class-wc-pagseguro-gateway.php:240
 msgid "This controls the description which the user sees during checkout."
 msgstr "A descrição do pagamento que é exibida no checkout."
 
-#: includes/class-wc-pagseguro-gateway.php:219
+#: includes/class-wc-pagseguro-gateway.php:241
 #: templates/lightbox-checkout.php:19
 msgid "Pay via PagSeguro"
 msgstr "Pagar com PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:222
+#: includes/class-wc-pagseguro-gateway.php:244
 msgid "Integration"
 msgstr "Integração"
 
-#: includes/class-wc-pagseguro-gateway.php:227
+#: includes/class-wc-pagseguro-gateway.php:249
 msgid "Integration method"
 msgstr "Meio de integração"
 
-#: includes/class-wc-pagseguro-gateway.php:229
+#: includes/class-wc-pagseguro-gateway.php:251
 msgid ""
 "Choose how the customer will interact with the PagSeguro. Redirect (Client "
 "goes to PagSeguro page) or Lightbox (Inside your store)"
@@ -356,27 +356,27 @@ msgstr ""
 "Escolha como o cliente vai interagir com o PagSeguro. Redirecionar (Cliente "
 "vai pata página de checkout do PagSeguro) ou Lightbox (Dentro da sua loja)"
 
-#: includes/class-wc-pagseguro-gateway.php:234
+#: includes/class-wc-pagseguro-gateway.php:256
 msgid "Redirect (default)"
 msgstr "Redirecionar (padrão)"
 
-#: includes/class-wc-pagseguro-gateway.php:235
+#: includes/class-wc-pagseguro-gateway.php:257
 msgid "Lightbox"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:236
+#: includes/class-wc-pagseguro-gateway.php:258
 msgid "Transparent Checkout"
 msgstr "Checkout Transparente"
 
-#: includes/class-wc-pagseguro-gateway.php:241
+#: includes/class-wc-pagseguro-gateway.php:263
 msgid "PagSeguro Sandbox"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:243
+#: includes/class-wc-pagseguro-gateway.php:265
 msgid "Enable PagSeguro Sandbox"
 msgstr "Habilitar Sandbox PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:246
+#: includes/class-wc-pagseguro-gateway.php:268
 msgid ""
 "⚠️ The Sandbox environment is extremelly unstable and it could be offline "
 "when you test it."
@@ -384,11 +384,11 @@ msgstr ""
 "⚠️ O ambiente de Sandbox é extremamente instável e pode estar fora do ar "
 "quando você testar."
 
-#: includes/class-wc-pagseguro-gateway.php:249
+#: includes/class-wc-pagseguro-gateway.php:271
 msgid "Use CDN mirror for PagSeguro static files?"
 msgstr "Usar espelho CDN para os arquivos estáticos do PagSeguro?"
 
-#: includes/class-wc-pagseguro-gateway.php:254
+#: includes/class-wc-pagseguro-gateway.php:276
 msgid ""
 "Instead asking for PagSeguro files, we can obtain those files from a mirror "
 "server (faster and more reliable)."
@@ -396,11 +396,11 @@ msgstr ""
 "Ao invés de chamar arquivos estáticos do CDN PagSeguro, usamos um "
 "espelhamento com maior disponibilidade e performance (recomendável)."
 
-#: includes/class-wc-pagseguro-gateway.php:257
+#: includes/class-wc-pagseguro-gateway.php:279
 msgid "PagSeguro Email"
 msgstr "E-mail PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:259
+#: includes/class-wc-pagseguro-gateway.php:281
 msgid ""
 "Please enter your PagSeguro email address. This is needed in order to take "
 "payment."
@@ -408,11 +408,11 @@ msgstr ""
 "Por favor informe o seu e-mail do PagSeguro. Isso é necessário para receber "
 "pagamentos."
 
-#: includes/class-wc-pagseguro-gateway.php:264
+#: includes/class-wc-pagseguro-gateway.php:286
 msgid "PagSeguro Token"
 msgstr "Token PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:267
+#: includes/class-wc-pagseguro-gateway.php:289
 #, php-format
 msgid ""
 "Please enter your PagSeguro token. This is needed to process the payment and "
@@ -421,32 +421,32 @@ msgstr ""
 "Por favor informe seu token PagSeguro. Ele é necessário para processar "
 "pagamentos e negociações. É possível gerar um novo token %s."
 
-#: includes/class-wc-pagseguro-gateway.php:267
-#: includes/class-wc-pagseguro-gateway.php:282
 #: includes/class-wc-pagseguro-gateway.php:289
+#: includes/class-wc-pagseguro-gateway.php:304
+#: includes/class-wc-pagseguro-gateway.php:311
 msgid "here"
 msgstr "aqui"
 
-#: includes/class-wc-pagseguro-gateway.php:272
+#: includes/class-wc-pagseguro-gateway.php:294
 msgid "PagSeguro App Key"
 msgstr "PagSeguro App Key"
 
-#: includes/class-wc-pagseguro-gateway.php:275
+#: includes/class-wc-pagseguro-gateway.php:297
 #, php-format
 msgid "To get your app key, authorize the app. %s to authorize it (it's free)."
 msgstr ""
 "Para obter sua App Key autorize a aplicação. %s para autorizar gratuitamente."
 
-#: includes/class-wc-pagseguro-gateway.php:275
-#: includes/class-wc-pagseguro-gateway.php:296
+#: includes/class-wc-pagseguro-gateway.php:297
+#: includes/class-wc-pagseguro-gateway.php:318
 msgid "Click here"
 msgstr "Clique aqui"
 
-#: includes/class-wc-pagseguro-gateway.php:279
+#: includes/class-wc-pagseguro-gateway.php:301
 msgid "PagSeguro Sandbox Email"
 msgstr "E-mail Sandbox PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:282
+#: includes/class-wc-pagseguro-gateway.php:304
 #, php-format
 msgid ""
 "Please enter your PagSeguro sandbox email address. You can get your sandbox "
@@ -455,22 +455,22 @@ msgstr ""
 "Entre seu e-mail de Sandbox do PagSeguro. Você pode obter seu e-mail de "
 "sandbox %s."
 
-#: includes/class-wc-pagseguro-gateway.php:286
+#: includes/class-wc-pagseguro-gateway.php:308
 msgid "PagSeguro Sandbox Token"
 msgstr "Token Sandbox PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:289
+#: includes/class-wc-pagseguro-gateway.php:311
 #, php-format
 msgid ""
 "Please enter your PagSeguro sandbox token. You can get your sandbox token %s."
 msgstr ""
 "Por favor informe seu token Sandbox. Você pode obter seu token sandbox %s."
 
-#: includes/class-wc-pagseguro-gateway.php:293
+#: includes/class-wc-pagseguro-gateway.php:315
 msgid "PagSeguro Sandbox App Key"
 msgstr "Token Sandbox PagSeguro"
 
-#: includes/class-wc-pagseguro-gateway.php:296
+#: includes/class-wc-pagseguro-gateway.php:318
 #, php-format
 msgid ""
 "To get your sandbox app key, authorize your sandbox app. %s to authorize it "
@@ -479,32 +479,45 @@ msgstr ""
 "Para obter sua App Key de Sandbox autorize a aplicação criada no Sandbox. %s "
 "para autorizar (gratuitamente)."
 
-#: includes/class-wc-pagseguro-gateway.php:300
+#: includes/class-wc-pagseguro-gateway.php:322
 msgid "Transparent Checkout Options"
 msgstr "Opções do Checkout Transparente"
 
-#: includes/class-wc-pagseguro-gateway.php:307
+#: includes/class-wc-pagseguro-gateway.php:329
 msgid "Enable Credit Card for Transparente Checkout"
 msgstr "Habilitar Cartão de Crédito para Checkout Transparente"
 
-#: includes/class-wc-pagseguro-gateway.php:313
+#: includes/class-wc-pagseguro-gateway.php:333
+msgid "Minimum parcel value for installments without interest"
+msgstr "Parcela mínima sem juros"
+
+#: includes/class-wc-pagseguro-gateway.php:335
+msgid ""
+"If you specify this value, the promotion rules saved on PagSeguro will be "
+"ignored. Please inform '0' if you don't want to offer installments without "
+"interest."
+msgstr ""
+"Ao especificar um valor, as promoções salvas na conta PagSeguro serão "
+"ignoradas. Informe '0' caso não queira oferecer parcelamento sem juros."
+
+#: includes/class-wc-pagseguro-gateway.php:341
 msgid "Enable Bank Transfer for Transparente Checkout"
 msgstr "Habilitar Transferência Bancária para Checkout Transparente"
 
-#: includes/class-wc-pagseguro-gateway.php:317
+#: includes/class-wc-pagseguro-gateway.php:345
 #: templates/transparent-checkout-form.php:27
 msgid "Banking Ticket"
 msgstr "Boleto Bancário"
 
-#: includes/class-wc-pagseguro-gateway.php:319
+#: includes/class-wc-pagseguro-gateway.php:347
 msgid "Enable Banking Ticket for Transparente Checkout"
 msgstr "Habilitar Boleto Bancário para Checkout Transparente"
 
-#: includes/class-wc-pagseguro-gateway.php:323
+#: includes/class-wc-pagseguro-gateway.php:351
 msgid "Banking Ticket Tax Message"
 msgstr "Mensagem de Taxa do Boleto Bancário"
 
-#: includes/class-wc-pagseguro-gateway.php:325
+#: includes/class-wc-pagseguro-gateway.php:353
 msgid ""
 "Display a message alerting the customer that will be charged R$ 1,00 for "
 "payment by Banking Ticket"
@@ -512,15 +525,15 @@ msgstr ""
 "Exibe uma mensagem avisando que o cliente será cobrado em R$ 1,00 pelo "
 "pagamento com Boleto Bancário"
 
-#: includes/class-wc-pagseguro-gateway.php:329
+#: includes/class-wc-pagseguro-gateway.php:357
 msgid "Integration Behavior"
 msgstr "Comportamento da Integração"
 
-#: includes/class-wc-pagseguro-gateway.php:334
+#: includes/class-wc-pagseguro-gateway.php:362
 msgid "Send only the order total"
 msgstr "Enviar apenas o valor total do pedido"
 
-#: includes/class-wc-pagseguro-gateway.php:336
+#: includes/class-wc-pagseguro-gateway.php:364
 msgid ""
 "If this option is enabled will only send the order total, not the list of "
 "items."
@@ -528,11 +541,11 @@ msgstr ""
 "Se esta opção estiver ativa apenas o valor total do pedido será enviado, e "
 "não a lista dos itens."
 
-#: includes/class-wc-pagseguro-gateway.php:340
+#: includes/class-wc-pagseguro-gateway.php:368
 msgid "Invoice Prefix"
 msgstr "Prefixo da Fatura"
 
-#: includes/class-wc-pagseguro-gateway.php:342
+#: includes/class-wc-pagseguro-gateway.php:370
 msgid ""
 "Please enter a prefix for your invoice numbers. If you use your PagSeguro "
 "account for multiple stores ensure this prefix is unqiue as PagSeguro will "
@@ -542,57 +555,57 @@ msgstr ""
 "PagSeguro para mais de uma loja, certifique-se que este prefixo é único, já "
 "que o PagSeguro não aceita pedidos com o mesmo número de fatura."
 
-#: includes/class-wc-pagseguro-gateway.php:347
+#: includes/class-wc-pagseguro-gateway.php:375
 msgid "Gateway Testing"
 msgstr "Testando o Gateway"
 
-#: includes/class-wc-pagseguro-gateway.php:352
+#: includes/class-wc-pagseguro-gateway.php:380
 msgid "Debug Log"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:354
+#: includes/class-wc-pagseguro-gateway.php:382
 msgid "Enable logging"
 msgstr "Habilitar logs"
 
-#: includes/class-wc-pagseguro-gateway.php:357
+#: includes/class-wc-pagseguro-gateway.php:385
 #, php-format
 msgid "Log PagSeguro events, such as API requests, inside %s"
 msgstr "Logue eventos PagSeguro, como chamadas API, dentro %s"
 
-#: includes/class-wc-pagseguro-gateway.php:557
+#: includes/class-wc-pagseguro-gateway.php:585
 msgid "Payer email"
 msgstr "E-mail do comprador"
 
-#: includes/class-wc-pagseguro-gateway.php:560
+#: includes/class-wc-pagseguro-gateway.php:588
 msgid "Payer name"
 msgstr "Nome do comprador"
 
-#: includes/class-wc-pagseguro-gateway.php:565
+#: includes/class-wc-pagseguro-gateway.php:593
 msgid "Payment type"
 msgstr "Tipo de pagamento"
 
-#: includes/class-wc-pagseguro-gateway.php:570
+#: includes/class-wc-pagseguro-gateway.php:598
 msgid "Payment method"
 msgstr "Meio de pagamento"
 
-#: includes/class-wc-pagseguro-gateway.php:575
+#: includes/class-wc-pagseguro-gateway.php:603
 #: templates/transparent-checkout-form.php:53
 msgid "Installments"
 msgstr "Parcelas"
 
-#: includes/class-wc-pagseguro-gateway.php:580
+#: includes/class-wc-pagseguro-gateway.php:608
 msgid "Payment URL"
 msgstr "URL de Pagamento"
 
-#: includes/class-wc-pagseguro-gateway.php:583
+#: includes/class-wc-pagseguro-gateway.php:611
 msgid "Intermediation Rate"
 msgstr "Taxa de Intermediação"
 
-#: includes/class-wc-pagseguro-gateway.php:586
+#: includes/class-wc-pagseguro-gateway.php:614
 msgid "Intermediation Fee"
 msgstr "Tarifa de Intermediação"
 
-#: includes/class-wc-pagseguro-gateway.php:633
+#: includes/class-wc-pagseguro-gateway.php:661
 msgid ""
 "PagSeguro: The buyer initiated the transaction, but so far the PagSeguro not "
 "received any payment information."
@@ -600,33 +613,33 @@ msgstr ""
 "PagSeguro: O comprador iniciou a transação, mas até agora o PagSeguro não "
 "recebeu informações sobre o pagamento."
 
-#: includes/class-wc-pagseguro-gateway.php:637
+#: includes/class-wc-pagseguro-gateway.php:665
 msgid "PagSeguro: Payment under review."
 msgstr "PagSeguro: Pagamento em análise."
 
-#: includes/class-wc-pagseguro-gateway.php:648
-#: includes/class-wc-pagseguro-gateway.php:651
+#: includes/class-wc-pagseguro-gateway.php:676
+#: includes/class-wc-pagseguro-gateway.php:679
 msgid "PagSeguro: Payment approved."
 msgstr "PagSeguro: Pagamento aprovado."
 
-#: includes/class-wc-pagseguro-gateway.php:664
+#: includes/class-wc-pagseguro-gateway.php:692
 msgid "PagSeguro: Payment completed and credited to your account."
 msgstr "PagSeguro: Pagamento completo e disponível na sua conta."
 
-#: includes/class-wc-pagseguro-gateway.php:668
+#: includes/class-wc-pagseguro-gateway.php:696
 msgid "PagSeguro: Payment came into dispute."
 msgstr "PagSeguro: Pagamento entrou em disputa."
 
-#: includes/class-wc-pagseguro-gateway.php:671
+#: includes/class-wc-pagseguro-gateway.php:699
 #, php-format
 msgid "Payment for order %s came into dispute"
 msgstr "Pagamento para o pedido %s entrou em disputa"
 
-#: includes/class-wc-pagseguro-gateway.php:672
+#: includes/class-wc-pagseguro-gateway.php:700
 msgid "Payment in dispute"
 msgstr "Pagamento em disputa"
 
-#: includes/class-wc-pagseguro-gateway.php:674
+#: includes/class-wc-pagseguro-gateway.php:702
 #, php-format
 msgid ""
 "Order %s has been marked as on-hold, because the payment came into dispute "
@@ -635,25 +648,25 @@ msgstr ""
 "Pedido %s foi marcado como segurado, pois o pagamento entrou em disputa no "
 "PagSeguro."
 
-#: includes/class-wc-pagseguro-gateway.php:679
+#: includes/class-wc-pagseguro-gateway.php:707
 msgid "PagSeguro: Payment refunded."
 msgstr "PagSeguro: Pagamento devolvido."
 
-#: includes/class-wc-pagseguro-gateway.php:682
+#: includes/class-wc-pagseguro-gateway.php:710
 #, php-format
 msgid "Payment for order %s refunded"
 msgstr "Pagamento para o pedido %s devolvido"
 
-#: includes/class-wc-pagseguro-gateway.php:683
+#: includes/class-wc-pagseguro-gateway.php:711
 msgid "Payment refunded"
 msgstr "Pagamento devolvido"
 
-#: includes/class-wc-pagseguro-gateway.php:685
+#: includes/class-wc-pagseguro-gateway.php:713
 #, php-format
 msgid "Order %s has been marked as refunded by PagSeguro."
 msgstr "Pedido %s foi marcado como devolvido pelo PagSeguro."
 
-#: includes/class-wc-pagseguro-gateway.php:694
+#: includes/class-wc-pagseguro-gateway.php:722
 msgid "PagSeguro: Payment canceled."
 msgstr "PagSeguro: Pagamento cancelado."
 
@@ -664,6 +677,102 @@ msgstr "Configurações"
 #: includes/views/html-receipt-page-error.php:19
 msgid "Click to try again"
 msgstr "Clique para tentar de novo"
+
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:3
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:5
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:10
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:15
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:4
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:6
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:11
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:16
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:3
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:5
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:10
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:15
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:3
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:5
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:10
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:15
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:3
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:5
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:10
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:15
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:3
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:5
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:10
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:15
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:4
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:6
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:11
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:16
+msgid "Hello World"
+msgstr ""
+
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:4
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:6
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:11
+#: node_modules/grunt-checktextdomain/test/expected/incorrect-domain-autocorrect.php:16
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:5
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:7
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:12
+#: node_modules/grunt-checktextdomain/test/expected/variable-domain-autocorrect.php:17
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:4
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:6
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:11
+#: node_modules/grunt-checktextdomain/test/fixtures/correct-domain.php:16
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:4
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:6
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:11
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain-autocorrect.php:16
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:4
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:6
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:11
+#: node_modules/grunt-checktextdomain/test/fixtures/incorrect-domain.php:16
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:4
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:6
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:11
+#: node_modules/grunt-checktextdomain/test/fixtures/missing-domain.php:16
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:5
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:7
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:12
+#: node_modules/grunt-checktextdomain/test/fixtures/variable-domain-autocorrect.php:17
+msgid "Post"
+msgstr ""
+
+#: node_modules/grunt-wp-i18n/test/fixtures/basic-theme/exclude/file.php:3
+#: node_modules/grunt-wp-i18n/test/fixtures/plugin-include/plugin-include.php:6
+msgid "Exclude"
+msgstr ""
+
+#: node_modules/grunt-wp-i18n/test/fixtures/plugin-include/include/file.php:2
+#: node_modules/node-wp-i18n/test/fixtures/makepot/nested-theme/include/include.php:2
+msgid "Include"
+msgstr ""
+
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/add-domain.php:2
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:2
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:3
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:4
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:6
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:7
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:8
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:2
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:3
+msgid "String"
+msgstr ""
+
+#: node_modules/grunt-wp-i18n/test/fixtures/translator-comments/translator-comments.php:7
+msgid "A"
+msgstr ""
+
+#: node_modules/grunt-wp-i18n/test/fixtures/translator-comments/translator-comments.php:15
+msgid "B"
+msgstr ""
+
+#: node_modules/node-wp-i18n/test/fixtures/makepot/nested-theme/subdir/index.php:2
+msgid "Index"
+msgstr ""
 
 #: templates/emails/html-instructions.php:15
 #: templates/emails/plain-instructions.php:14
@@ -869,7 +978,6 @@ msgstr "Esta compra está sendo feita no Brasil"
 msgid "Brazilian flag"
 msgstr "Bandeira do Brasil"
 
-#, php-format
 #~ msgid ""
 #~ "Help us keep the %s plugin free making a donation or rate %s on WordPress."
 #~ "org. Thank you in advance!"

@@ -269,19 +269,21 @@
 			// Get the installments.
 			$( 'body' ).on( 'pagseguro_credit_card_brand', function( event, brand ) {
 				if ( 'error' !== brand ) {
-					PagSeguroDirectPayment.getInstallments({
-						amount: $( 'body #pagseguro-payment-form' ).data( 'cart_total' ),
+
+					var totalAmount = $( 'body #pagseguro-payment-form' ).data( 'cart_total' );
+					var params = {
+						amount: totalAmount,
 						brand: brand,
 						success: function( data ) {
-							var instalmments = $( 'body #pagseguro-card-installments' );
+							var installments = $( 'body #pagseguro-card-installments' );
 
 							if ( false === data.error ) {
-								instalmments.empty();
-								instalmments.removeAttr( 'disabled' );
-								instalmments.append( '<option value="0">--</option>' );
+								installments.empty();
+								installments.removeAttr( 'disabled' );
+								installments.append( '<option value="0">--</option>' );
 
 								$.each( data.installments[brand], function( index, installment ) {
-									instalmments.append( pagSeguroGetInstallmentOption( installment ) );
+									installments.append( pagSeguroGetInstallmentOption( installment ) );
 								});
 							} else {
 								pagSeguroAddErrorMessage( wc_pagseguro_params.invalid_card );
@@ -290,7 +292,25 @@
 						error: function() {
 							pagSeguroAddErrorMessage( wc_pagseguro_params.invalid_card );
 						}
-					});
+					};
+
+					// parcels without interest setting
+					if ( wc_pagseguro_params.no_interest_installments_min_value != null ) {
+						// default value, for cases that the interest value is bigger than the the cart total
+						params.maxInstallmentNoInterest = 1;
+
+						// if its configured '0', sends '0'
+						if ( wc_pagseguro_params.no_interest_installments_min_value == 0 ) {
+							params.maxInstallmentNoInterest = 0;
+						}
+						// otherwise, calculates and sends the qty of parcels without interest
+						else if ( totalAmount >= wc_pagseguro_params.no_interest_installments_min_value ) {
+							params.maxInstallmentNoInterest = Math.floor( totalAmount / wc_pagseguro_params.no_interest_installments_min_value );
+						}
+					}
+
+					PagSeguroDirectPayment.getInstallments(params);
+
 				} else {
 					pagSeguroAddErrorMessage( wc_pagseguro_params.invalid_card );
 				}
