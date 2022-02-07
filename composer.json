@@ -3,6 +3,7 @@
 	"description": "Adiciona PagSeguro como meio de pagamento no Wordpress(com desconto nas taxas oficiais).",
 	"homepage": "https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html",
 	"type": "wordpress-plugin",
+	"version": "3.5.0",
 	"license": "GPL-3.0-or-later",
 	"authors": [
 		{

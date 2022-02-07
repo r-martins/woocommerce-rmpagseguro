@@ -4,7 +4,7 @@ Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 5.9.0
-Stable tag: 3.4.0
+Stable tag: 3.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -254,6 +254,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.5.0 - 8/Fev/2022 =
+* Melhoria: agora é possível definir o valor da parcela mínima sem juros. Saiba mais em https://bit.ly/34927gh.
+
+
 = 3.4.0 - 3/Fev/2022 =
 * Adicionado suporte a Sandbox
 * Melhorias e correções nas traduções incluindo remoção de arquivos de tradução não utilizados
