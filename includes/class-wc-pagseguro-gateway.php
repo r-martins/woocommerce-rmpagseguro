@@ -687,7 +687,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 						break;
 					case 4:
 						// if the payment is pending and the transaction status goes directly to status 4, we must complete the payment
-						if ( method_exists( $order, 'get_status' ) && 'pending' === $order->get_status() ) {
+						if ( method_exists( $order, 'get_status' ) && in_array( $order->get_status(), array('on-hold', 'pending' ) ) ) {
 							$order->payment_complete( sanitize_text_field( (string) $posted->code ) );
 						}
 
