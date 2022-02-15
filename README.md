@@ -7,7 +7,7 @@
 **Tags:** woocommerce, pagseguro, payment  
 **Requires at least:** 4.0
 **Tested up to:** 5.9.0
-**Stable tag:** 3.5.0
+**Stable tag:** 3.5.1
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -304,6 +304,10 @@ Caso não encontre o que procura, [abra um chamado](https://pagsegurotransparent
 
 ## Changelog ##
 == Changelog ==
+= 3.5.1 - 15/Fev/2022 =
+* Melhoria: em algumas situações, quando a loja falha em receber uma das notificações do PagSeguro e/ou quando um pedido tem seu status alterado para 'Disponível' sem passar pelo status 'Pago' o pedido não tinha seu status atualizado. Agora se o pedido estiver como 'pendente' ou 'em espera' ele será atualizado com sucesso. (Reportado por Rodrigo Roncaglio)
+
+
 = 3.5.0 - 8/Fev/2022 =
 * Melhoria: agora é possível definir o valor da parcela mínima sem juros. Saiba mais em https://bit.ly/34927gh.
 
