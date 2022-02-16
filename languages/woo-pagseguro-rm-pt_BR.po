@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce PagSeguro 3.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/trunk\n"
-"POT-Creation-Date: 2022-02-07 17:39-0300\n"
-"PO-Revision-Date: 2022-02-07 17:40-0300\n"
+"POT-Creation-Date: 2022-02-16 14:24-0300\n"
+"PO-Revision-Date: 2022-02-16 14:26-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -107,7 +107,7 @@ msgid "Billet"
 msgstr "Boleto"
 
 #: includes/class-wc-pagseguro-api.php:203
-#: includes/class-wc-pagseguro-gateway.php:339
+#: includes/class-wc-pagseguro-gateway.php:340
 #: templates/transparent-checkout-form.php:23
 msgid "Bank Transfer"
 msgstr "Transferência Bancária"
@@ -231,23 +231,23 @@ msgstr ""
 msgid "Order %s"
 msgstr "Pedido %s"
 
-#: includes/class-wc-pagseguro-api.php:811
+#: includes/class-wc-pagseguro-api.php:820
 msgid "Invalid e-mail or token. Please check your PagSeguro configuration."
 msgstr ""
 "E-mail ou token inválidos. Por favor verifique sua configuração PagSeguro."
 
-#: includes/class-wc-pagseguro-api.php:850
-#: includes/class-wc-pagseguro-api.php:870
-#: includes/class-wc-pagseguro-api.php:894
-#: includes/class-wc-pagseguro-api.php:955
-#: includes/class-wc-pagseguro-api.php:975
+#: includes/class-wc-pagseguro-api.php:859
+#: includes/class-wc-pagseguro-api.php:879
+#: includes/class-wc-pagseguro-api.php:903
+#: includes/class-wc-pagseguro-api.php:964
+#: includes/class-wc-pagseguro-api.php:984
 #: includes/class-wc-pagseguro-gateway.php:25
 #: includes/class-wc-pagseguro-gateway.php:235
 msgid "PagSeguro"
 msgstr ""
 
-#: includes/class-wc-pagseguro-api.php:870
-#: includes/class-wc-pagseguro-api.php:975
+#: includes/class-wc-pagseguro-api.php:879
+#: includes/class-wc-pagseguro-api.php:984
 msgid ""
 "An error has occurred while processing your payment, please try again. Or "
 "contact us for assistance."
@@ -255,11 +255,11 @@ msgstr ""
 "Um erro ocorreu ao processar seu pagamento. Por favor tente novamente ou "
 "entre em contato conosco para obter ajuda."
 
-#: includes/class-wc-pagseguro-api.php:894
+#: includes/class-wc-pagseguro-api.php:903
 msgid "Please, select a payment method."
 msgstr "Por favor, selecione um meio de pagamento."
 
-#: includes/class-wc-pagseguro-api.php:921
+#: includes/class-wc-pagseguro-api.php:930
 msgid ""
 "You are not allowed to use the PagSeguro Transparent Checkout. Please check "
 "the installation instructions."
@@ -468,7 +468,7 @@ msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:315
 msgid "PagSeguro Sandbox App Key"
-msgstr "Token Sandbox PagSeguro"
+msgstr "App Key Sandbox PagSeguro"
 
 #: includes/class-wc-pagseguro-gateway.php:318
 #, php-format
@@ -491,7 +491,7 @@ msgstr "Habilitar Cartão de Crédito para Checkout Transparente"
 msgid "Minimum parcel value for installments without interest"
 msgstr "Parcela mínima sem juros"
 
-#: includes/class-wc-pagseguro-gateway.php:335
+#: includes/class-wc-pagseguro-gateway.php:336
 msgid ""
 "If you specify this value, the promotion rules saved on PagSeguro will be "
 "ignored. Please inform '0' if you don't want to offer installments without "
@@ -500,24 +500,24 @@ msgstr ""
 "Ao especificar um valor, as promoções salvas na conta PagSeguro serão "
 "ignoradas. Informe '0' caso não queira oferecer parcelamento sem juros."
 
-#: includes/class-wc-pagseguro-gateway.php:341
+#: includes/class-wc-pagseguro-gateway.php:342
 msgid "Enable Bank Transfer for Transparente Checkout"
 msgstr "Habilitar Transferência Bancária para Checkout Transparente"
 
-#: includes/class-wc-pagseguro-gateway.php:345
+#: includes/class-wc-pagseguro-gateway.php:346
 #: templates/transparent-checkout-form.php:27
 msgid "Banking Ticket"
 msgstr "Boleto Bancário"
 
-#: includes/class-wc-pagseguro-gateway.php:347
+#: includes/class-wc-pagseguro-gateway.php:348
 msgid "Enable Banking Ticket for Transparente Checkout"
 msgstr "Habilitar Boleto Bancário para Checkout Transparente"
 
-#: includes/class-wc-pagseguro-gateway.php:351
+#: includes/class-wc-pagseguro-gateway.php:352
 msgid "Banking Ticket Tax Message"
 msgstr "Mensagem de Taxa do Boleto Bancário"
 
-#: includes/class-wc-pagseguro-gateway.php:353
+#: includes/class-wc-pagseguro-gateway.php:354
 msgid ""
 "Display a message alerting the customer that will be charged R$ 1,00 for "
 "payment by Banking Ticket"
@@ -525,15 +525,15 @@ msgstr ""
 "Exibe uma mensagem avisando que o cliente será cobrado em R$ 1,00 pelo "
 "pagamento com Boleto Bancário"
 
-#: includes/class-wc-pagseguro-gateway.php:357
+#: includes/class-wc-pagseguro-gateway.php:358
 msgid "Integration Behavior"
 msgstr "Comportamento da Integração"
 
-#: includes/class-wc-pagseguro-gateway.php:362
+#: includes/class-wc-pagseguro-gateway.php:363
 msgid "Send only the order total"
 msgstr "Enviar apenas o valor total do pedido"
 
-#: includes/class-wc-pagseguro-gateway.php:364
+#: includes/class-wc-pagseguro-gateway.php:365
 msgid ""
 "If this option is enabled will only send the order total, not the list of "
 "items."
@@ -541,11 +541,11 @@ msgstr ""
 "Se esta opção estiver ativa apenas o valor total do pedido será enviado, e "
 "não a lista dos itens."
 
-#: includes/class-wc-pagseguro-gateway.php:368
+#: includes/class-wc-pagseguro-gateway.php:369
 msgid "Invoice Prefix"
 msgstr "Prefixo da Fatura"
 
-#: includes/class-wc-pagseguro-gateway.php:370
+#: includes/class-wc-pagseguro-gateway.php:371
 msgid ""
 "Please enter a prefix for your invoice numbers. If you use your PagSeguro "
 "account for multiple stores ensure this prefix is unqiue as PagSeguro will "
@@ -555,57 +555,57 @@ msgstr ""
 "PagSeguro para mais de uma loja, certifique-se que este prefixo é único, já "
 "que o PagSeguro não aceita pedidos com o mesmo número de fatura."
 
-#: includes/class-wc-pagseguro-gateway.php:375
+#: includes/class-wc-pagseguro-gateway.php:376
 msgid "Gateway Testing"
 msgstr "Testando o Gateway"
 
-#: includes/class-wc-pagseguro-gateway.php:380
+#: includes/class-wc-pagseguro-gateway.php:381
 msgid "Debug Log"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:382
+#: includes/class-wc-pagseguro-gateway.php:383
 msgid "Enable logging"
 msgstr "Habilitar logs"
 
-#: includes/class-wc-pagseguro-gateway.php:385
+#: includes/class-wc-pagseguro-gateway.php:386
 #, php-format
 msgid "Log PagSeguro events, such as API requests, inside %s"
 msgstr "Logue eventos PagSeguro, como chamadas API, dentro %s"
 
-#: includes/class-wc-pagseguro-gateway.php:585
+#: includes/class-wc-pagseguro-gateway.php:587
 msgid "Payer email"
 msgstr "E-mail do comprador"
 
-#: includes/class-wc-pagseguro-gateway.php:588
+#: includes/class-wc-pagseguro-gateway.php:590
 msgid "Payer name"
 msgstr "Nome do comprador"
 
-#: includes/class-wc-pagseguro-gateway.php:593
+#: includes/class-wc-pagseguro-gateway.php:595
 msgid "Payment type"
 msgstr "Tipo de pagamento"
 
-#: includes/class-wc-pagseguro-gateway.php:598
+#: includes/class-wc-pagseguro-gateway.php:600
 msgid "Payment method"
 msgstr "Meio de pagamento"
 
-#: includes/class-wc-pagseguro-gateway.php:603
+#: includes/class-wc-pagseguro-gateway.php:605
 #: templates/transparent-checkout-form.php:53
 msgid "Installments"
 msgstr "Parcelas"
 
-#: includes/class-wc-pagseguro-gateway.php:608
+#: includes/class-wc-pagseguro-gateway.php:610
 msgid "Payment URL"
 msgstr "URL de Pagamento"
 
-#: includes/class-wc-pagseguro-gateway.php:611
+#: includes/class-wc-pagseguro-gateway.php:613
 msgid "Intermediation Rate"
 msgstr "Taxa de Intermediação"
 
-#: includes/class-wc-pagseguro-gateway.php:614
+#: includes/class-wc-pagseguro-gateway.php:616
 msgid "Intermediation Fee"
 msgstr "Tarifa de Intermediação"
 
-#: includes/class-wc-pagseguro-gateway.php:661
+#: includes/class-wc-pagseguro-gateway.php:663
 msgid ""
 "PagSeguro: The buyer initiated the transaction, but so far the PagSeguro not "
 "received any payment information."
@@ -613,33 +613,33 @@ msgstr ""
 "PagSeguro: O comprador iniciou a transação, mas até agora o PagSeguro não "
 "recebeu informações sobre o pagamento."
 
-#: includes/class-wc-pagseguro-gateway.php:665
+#: includes/class-wc-pagseguro-gateway.php:667
 msgid "PagSeguro: Payment under review."
 msgstr "PagSeguro: Pagamento em análise."
 
-#: includes/class-wc-pagseguro-gateway.php:676
-#: includes/class-wc-pagseguro-gateway.php:679
+#: includes/class-wc-pagseguro-gateway.php:678
+#: includes/class-wc-pagseguro-gateway.php:681
 msgid "PagSeguro: Payment approved."
 msgstr "PagSeguro: Pagamento aprovado."
 
-#: includes/class-wc-pagseguro-gateway.php:692
+#: includes/class-wc-pagseguro-gateway.php:694
 msgid "PagSeguro: Payment completed and credited to your account."
 msgstr "PagSeguro: Pagamento completo e disponível na sua conta."
 
-#: includes/class-wc-pagseguro-gateway.php:696
+#: includes/class-wc-pagseguro-gateway.php:698
 msgid "PagSeguro: Payment came into dispute."
 msgstr "PagSeguro: Pagamento entrou em disputa."
 
-#: includes/class-wc-pagseguro-gateway.php:699
+#: includes/class-wc-pagseguro-gateway.php:701
 #, php-format
 msgid "Payment for order %s came into dispute"
 msgstr "Pagamento para o pedido %s entrou em disputa"
 
-#: includes/class-wc-pagseguro-gateway.php:700
+#: includes/class-wc-pagseguro-gateway.php:702
 msgid "Payment in dispute"
 msgstr "Pagamento em disputa"
 
-#: includes/class-wc-pagseguro-gateway.php:702
+#: includes/class-wc-pagseguro-gateway.php:704
 #, php-format
 msgid ""
 "Order %s has been marked as on-hold, because the payment came into dispute "
@@ -648,25 +648,25 @@ msgstr ""
 "Pedido %s foi marcado como segurado, pois o pagamento entrou em disputa no "
 "PagSeguro."
 
-#: includes/class-wc-pagseguro-gateway.php:707
+#: includes/class-wc-pagseguro-gateway.php:709
 msgid "PagSeguro: Payment refunded."
 msgstr "PagSeguro: Pagamento devolvido."
 
-#: includes/class-wc-pagseguro-gateway.php:710
+#: includes/class-wc-pagseguro-gateway.php:712
 #, php-format
 msgid "Payment for order %s refunded"
 msgstr "Pagamento para o pedido %s devolvido"
 
-#: includes/class-wc-pagseguro-gateway.php:711
+#: includes/class-wc-pagseguro-gateway.php:713
 msgid "Payment refunded"
 msgstr "Pagamento devolvido"
 
-#: includes/class-wc-pagseguro-gateway.php:713
+#: includes/class-wc-pagseguro-gateway.php:715
 #, php-format
 msgid "Order %s has been marked as refunded by PagSeguro."
 msgstr "Pedido %s foi marcado como devolvido pelo PagSeguro."
 
-#: includes/class-wc-pagseguro-gateway.php:722
+#: includes/class-wc-pagseguro-gateway.php:724
 msgid "PagSeguro: Payment canceled."
 msgstr "PagSeguro: Pagamento cancelado."
 
