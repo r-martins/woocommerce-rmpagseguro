@@ -1,13 +1,13 @@
 # Módulo PagSeguro para WooCommerce - Ricardo Martins (com descontos) #
-**Official Website:** http://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html
+**Official Website:** https://pagseguro.ricardomartins.net.br/woocommerce.html
  
 **Contributors:** [claudiosanches](https://profiles.wordpress.org/claudiosanches), [Gabriel Reguly](https://profiles.wordpress.org/Gabriel Reguly)
 **Modified by:** [martins56](https://profiles.wordpress.org/martins56)  
 **Donate link:** https://claudiosanches.com/doacoes/  
-**Tags:** woocommerce, pagseguro, payment  
+**Tags:** woocommerce, pagseguro, payment
 **Requires at least:** 4.0
-**Tested up to:** 5.9.0
-**Stable tag:** 3.5.2
+**Tested up to:** 6.1
+**Stable tag:** 3.5.3
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 

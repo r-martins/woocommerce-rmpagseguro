@@ -1,14 +1,14 @@
 === Módulo PagSeguro ===
-Contributors: claudiosanches, Gabriel Reguly
+Contributors: claudiosanches, Gabriel Reguly, Ricardo Martins
 Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 5.9.0
-Stable tag: 3.5.2
+Tested up to: 6.1
+Stable tag: 3.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds PagSeguro gateway to the WooCommerce plugin
+Adiciona PagSeguro aos meios de pagamento WooCommerce
 
 == Description ==
 
@@ -26,25 +26,37 @@ You can contribute to the source code in our [GitHub](https://github.com/r-marti
 
 Adicione o PagSeguro como método de pagamento em sua loja WooCommerce.
 
-[PagSeguro](https://pagseguro.uol.com.br/) é um método de pagamento brasileiro desenvolvido pela UOL.
-
-O plugin WooCommerce PagSeguro foi desenvolvido sem nenhum incentivo do PagSeguro ou da UOL. Nenhum dos desenvolvedores deste plugin possuem vínculos com estas duas empresas.
+[PagSeguro](https://pagseguro.uol.com.br/) é um método de pagamento brasileiro oferecido pela UOL.
 
 Este plugin foi desenvolvido a partir da [documentação oficial do PagSeguro](https://pagseguro.uol.com.br/v2/guia-de-integracao/visao-geral.html) e utiliza a última versão da API de pagamentos.
 
+### Descontos nas taxas ###
+
+Graças a uma parceria com o PagSeguro, as transações realizadas por este módulo, possuem [condições especiais junto ao PagSeguro](https://pagseguro.ricardomartins.net.br/compare.html). 
+
+Ao usar nossa integração, você não pagará mais a taxa de intermediação do PagSeguro (tipicamente R$0,40/pedido aprovado) e passará a pager uma taxa de transação menor que a taxa oficial (tipicamente 4,99% para recebimento em 14 dias ou 3,99% para recebimento em 30 dias).
+
+Caso sua conta PagSeguro possua uma taxa ou condição negociada melhor que a nossa, e seu faturamento seja superior a R$20 mil/mês, [entre em contato](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new) conosco antes de usar nossa integração.
+
+Você não paga nada a mais por isso e ainda ajuda este e [outros projetos](https://pagsegurotransparente.zendesk.com/hc/pt-br/articles/208158763).
+
+
+
 Estão disponíveis as seguintes modalidades de pagamento:
 
-- **Padrão:** Cliente é redirecionado ao PagSeguro para concluir a compra.
+- **Redirect:** Cliente é redirecionado ao PagSeguro para concluir a compra.
 - **Lightbox:** Uma janela do PagSeguro é aberta na finalização para o cliente fazer o pagamento.
 - **Transparente:** O cliente faz o pagamento direto no seu site sem precisar ir ao site do PagSeguro.
 
-Além que é possível utilizar o novo [sandbox do PagSeguro](https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html).
+Para usar a Sandbox do PagSeguro, consulte [nossa documentação](https://pagsegurotransparente.zendesk.com/hc/pt-br/).
 
 = Compatibilidade =
 
 Compatível com versões posteriores ao WooCommerce 3.0.
 
 Este plugin também é compatível com o [WooCommerce Extra Checkout Fields for Brazil](http://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil/), desta forma é possível enviar os campos de "CPF", "número do endereço" e "bairro" (para o Checkout Transparente é obrigatório o uso deste plugin).
+
+Estamos sempre trabalhando para garantir melhores funcionalidades e máxima compatibilidade. Se mesmo assim tiver problemas, não hesite em [entrar em contato conosco](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new).
 
 = Instalação =
 
@@ -85,6 +97,7 @@ Você pode contribuir com código-fonte em nossa página no [GitHub](https://git
 
 * Envie os arquivos do plugin para a pasta wp-content/plugins, ou instale usando o instalador de plugins do WordPress.
 * Ative o plugin.
+* Lembre-se de [autorizar nossa aplicação](https://pagseguro.ricardomartins.net.br/woocommerce/wizard.html) junto ao PagSeguro para obter sua chave e configurar o módulo.
 
 = Requerimentos: =
 
@@ -94,7 +107,7 @@ Você pode contribuir com código-fonte em nossa página no [GitHub](https://git
 
 No PagSeguro é necessário desativar a opção de "Pagamento via Formulário HTML", você pode fazer isso em "Preferências" > "[Integrações](https://pagseguro.uol.com.br/preferencias/integracoes.jhtml)".
 
-Apenas com isso já é possível receber os pagamentos e fazer o retorno automático de dados.
+Com isso já é possível receber os pagamentos e receber notificações do PagSeguro para atualizar seus pedidos automaticamente.
 
 <blockquote>Atenção: Não é necessário configurar qualquer URL em "Página de redirecionamento" ou "Notificação de transação", pois o plugin é capaz de comunicar o PagSeguro pela API quais URLs devem ser utilizadas para cada situação.</blockquote>
 
@@ -106,9 +119,11 @@ Habilite o PagSeguro, adicione o seu e-mail e o token do PagSeguro. O token é u
 
 Você pode conseguir um token no PagSeguro em "Integrações" > "[Token de Segurança](https://pagseguro.uol.com.br/integracao/token-de-seguranca.jhtml)".
 
+PagSeguro App Key: [Autorize nossa aplicação](https://pagseguro.ricardomartins.net.br/woocommerce/wizard.html) junto ao PagSeguro para obter sua chave e usufruir das novas taxas de recebimento e maior conversão.
+
 É possível escolher entre três opções de pagamento que são:
 
-- **Checkout no PagSeguro (padrão):** O cliente e redirecionado para o site do PagSeguro
+- **Redirecionar (padrão):** O cliente e redirecionado para o site do PagSeguro onde pode [pagar com PIX](https://pagsegurotransparente.zendesk.com/hc/pt-br/articles/360056018451-Como-aceitar-PIX-com-PagSeguro-em-meu-site-), Saldo PagSeguro, e outros meios de pagamento.
 - **Checkout em Lighbox:** O cliente permanece no seu site é aberto um Lightbox do PagSeguro onde o cliente fará o pagamento
 - **Checkout Transparente:** O cliente faz o pagamento direto em seu site na página de finalizar pedido utilizando a API do PagSeguro.
 
@@ -123,9 +138,8 @@ Para utilizar o checkout transparente é necessário utilizar o plugin [WooComme
 
 Com o **WooCommerce Extra Checkout Fields for Brazil** instalado e ativado você deve ir até "WooCommerce > Campos do Checkout" e configurar a opção "Exibir Tipo de Pessoa" como "Pessoa Física apenas".
 
-Isto é necessário porque é obrigatório o envio de CPF para o PagSeguro, além de que o PagSeguro aceita apenas CPF.
+Isto é necessário porque é obrigatório o envio de CPF para o PagSeguro, além de que o PagSeguro aceita apenas CPF para documento do titular do cartão.
 
-Note que é necessário aprovação do PagSeguro para utilizar o Checkout Transparente, saiba mais em "[Como receber pagamentos pelo PagSeguro](https://pagseguro.uol.com.br/receba-pagamentos.jhtml)".
 
 Pronto, sua loja já pode receber pagamentos pelo PagSeguro.
 
@@ -150,7 +164,8 @@ Este plugin esta licenciado como GPL.
 
 * Ter instalado o plugin WooCommerce 3.0 ou mais recente.
 * Possuir uma conta no PagSeguro.
-* Gerar um token de segurança no PagSeguro.
+* Gerar um token de segurança no PagSeguro (logo não será necessário).
+* [Autorizar nossa integração](https://pagseguro.ricardomartins.net.br/woocommerce/wizard.html) junto ao PagSeguro
 * Desativar a opção "Pagamento via Formulário HTML" em integrações na página do PagSeguro.
 
 = PagSeguro recebe pagamentos de quais países? =
@@ -189,7 +204,7 @@ Para produtos baixáveis a configuração padrão do WooCommerce é permitir o a
 
 = Ao tentar finalizar a compra aparece a mensagem "PagSeguro: Um erro ocorreu ao processar o seu pagamento, por favor, tente novamente ou entre em contato para obter ajuda." o que fazer? =
 
-Esta mensagem geralmente aparece por causa que não foi configurado um **Token válido**.
+Esta mensagem geralmente aparece por que não foi configurado um **Token válido**.
 Gere um novo Token no PagSeguro em "Preferências" > "[Integrações](https://pagseguro.uol.com.br/preferencias/integracoes.jhtml)" e adicione ele nas configurações do plugin.
 
 Outro erro comum é gerar um token e cadastrar nas configurações do plugin um e-mail que não é o proprietário do token, então tenha certeza que estes dados estão realmente corretos!
@@ -209,9 +224,7 @@ Caso você não entenda o conteúdo do log não tem problema, você pode me abri
 
 Sim, o status é alterado automaticamente usando a API de notificações de mudança de status do PagSeguro.
 
-Caso os status dos seus pedidos não estiverem sendo alterados siga o tutorial do PagSeguro:
-
-* [Não recebi o POST do retorno automático. O que devo fazer?](https://pagseguro.uol.com.br/atendimento/perguntas_frequentes/nao-recebi-o-post-com-retorno-automatico-o-que-devo-fazer.jhtml)
+Caso os status dos seus pedidos não estiverem sendo alterados [clique aqui](https://pagsegurotransparente.zendesk.com/hc/pt-br/articles/209089326-Configurei-o-retorno-autom%C3%A1tico-mas-parece-n%C3%A3o-funcionar-) e veja algumas soluções para testar e corrigir o problema.
 
 A seguir uma lista de ferramentas que podem estar bloqueando as notificações do PagSeguro:
 
@@ -226,7 +239,7 @@ Sim, basta ativar esta nas opções do plugin.
 = Funciona com o checkout transparente do PagSeguro? =
 
 Sim, funciona. Você deve ativar nas opções do plugin.
-Note que é necessário aprovação do PagSeguro para utilizar o Checkout Transparente, saiba mais em "[Como receber pagamentos pelo PagSeguro](https://pagseguro.uol.com.br/receba-pagamentos.jhtml)".
+Com a nossa integração não é necessário autorização para utilizar o mesmo.
 
 = Funciona com o Sandbox do PagSeguro? =
 
@@ -242,7 +255,7 @@ Não é necessário configurar qualquer URL para "Notificação de transação" 
 
 = Mais dúvidas relacionadas ao funcionamento do plugin? =
 
-Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra um tópico no fórum do plugin](https://wordpress.org/support/plugin/woocommerce-pagseguro#postform) com o link arquivo de log (ative ele nas opções do plugin e tente fazer uma compra, depois vá até WooCommerce > Status do Sistema, selecione o log do *pagseguro* e copie os dados, depois crie um link usando o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com)), desta forma fica mais rápido para fazer o diagnóstico.
+Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre em contato conosco](https://pagsegurotransparente.zendesk.com/hc/request) com o link arquivo de log (ative ele nas opções do plugin e tente fazer uma compra, depois vá até WooCommerce > Status do Sistema, selecione o log do *pagseguro* e copie os dados, depois crie um link usando o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com)), desta forma fica mais rápido para fazer o diagnóstico.
 
 == Screenshots ==
 
@@ -254,6 +267,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [abra 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.5.3 - 10/Mai/2022 =
+* Testes e suporte a Wordpress 6.0 e 6.1 adicionados
+* Atualização de instruções no arquivo principal
+
 = 3.5.2 - 16/Fev/2022 =
 * Correção: Ao habilitar a sandbox, o campo "PagSeguro App Key" era exibido novamente como "Token PagSeguro", confundindo quem realizasse a configuração.
 
