@@ -34,7 +34,7 @@ Este plugin foi desenvolvido a partir da [documentação oficial do PagSeguro](h
 
 Graças a uma parceria com o PagSeguro, as transações realizadas por este módulo, possuem [condições especiais junto ao PagSeguro](https://pagseguro.ricardomartins.net.br/compare.html). 
 
-Ao usar nossa integração, você não pagará mais a taxa de intermediação do PagSeguro (tipicamente R$0,40/pedido aprovado) e passará a pager uma taxa de transação menor que a taxa oficial (tipicamente 4,99% para recebimento em 14 dias ou 3,99% para recebimento em 30 dias).
+Ao usar nossa integração, você não pagará mais a taxa de intermediação do PagSeguro (tipicamente R$0,40/pedido aprovado) e passará a pagar uma taxa de transação menor que a taxa oficial (tipicamente 4,99% para recebimento em 14 dias ou 3,99% para recebimento em 30 dias).
 
 Caso sua conta PagSeguro possua uma taxa ou condição negociada melhor que a nossa, e seu faturamento seja superior a R$20 mil/mês, [entre em contato](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new) conosco antes de usar nossa integração.
 
