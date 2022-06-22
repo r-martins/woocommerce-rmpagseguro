@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly, Ricardo Martins
 Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 6.1
-Stable tag: 3.5.3
+Tested up to: 6.0
+Stable tag: 3.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -267,6 +267,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.6.0 - 21/Jun/2022 =
+* Agora exibimos mais informações sobre o meio de pagamento na tela do pedido. Para pedidos com cartão, agora é possível ver o NSU, TID, código de autorização, e outras informações. Para pagamentos com Redirect, agora é possível ver qual meio de pagamento foi escolhido no PagSeguro.
+
 = 3.5.3 - 10/Mai/2022 =
 * Testes e suporte a Wordpress 6.0 e 6.1 adicionados
 * Atualização de instruções no arquivo principal

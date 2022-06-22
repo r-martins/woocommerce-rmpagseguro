@@ -615,8 +615,31 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		if ( isset( $posted->creditorFees->intermediationFeeAmount ) ) { // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
 			$meta_data[ __( 'Intermediation Fee', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $posted->creditorFees->intermediationFeeAmount ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
 		}
+        if ( isset( $posted->code ) ) { // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+            $meta_data[ __( 'Transaction Code', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $posted->code ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+        }
+        if ( isset( $posted->gatewaySystem) ) {
+            if ( isset ($posted->gatewaySystem->acquirerName ) ) {
+                $meta_data[ __( 'Acquirer Name', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $posted->gatewaySystem->acquirerName ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+            }
+            if ( isset ($posted->gatewaySystem->nsu ) ) {
+                $meta_data[ __( 'NSU', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $posted->gatewaySystem->nsu ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+            }
+            if ( isset ($posted->gatewaySystem->tid ) ) {
+                $meta_data[ __( 'TID', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $posted->gatewaySystem->tid ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+            }
+            if ( isset ($posted->gatewaySystem->authorizationCode ) ) {
+                $meta_data[ __( 'Authorization Code', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $posted->gatewaySystem->authorizationCode ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+            }
+            if ( isset ($posted->gatewaySystem->establishmentCode ) ) {
+                $meta_data[ __( 'Estabilishment Code', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $posted->gatewaySystem->establishmentCode ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+            }
+            if ($paymentMethod = $this->getPaymentMethodFromCode($posted)) {
+                $meta_data[ __( 'Payment Method', 'woo-pagseguro-rm' ) ] = sanitize_text_field( (string) $paymentMethod ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+            }
+        }
 
-		$meta_data['_wc_pagseguro_payment_data'] = $payment_data;
+        $meta_data['_wc_pagseguro_payment_data'] = $payment_data;
 
 		// WooCommerce 3.0 or later.
 		if ( method_exists( $order, 'update_meta_data' ) ) {
@@ -867,5 +890,58 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		echo json_encode($info);
 		exit;
 	}
+
+    /**
+     * Returns the payment method name used in the transaction, or false if not set or now known
+     * @param $posted
+     *
+     * @return false|string
+     */
+    public function getPaymentMethodFromCode($posted)
+    {
+        $methods = [
+            101 => 'Cartão de crédito Visa',
+            102 => 'Cartão de crédito MasterCard',
+            103 => 'Cartão de crédito American Express',
+            104 => 'Cartão de crédito Diners',
+            105 => 'Cartão de crédito Hipercard',
+            106 => 'Cartão de crédito Aura',
+            107 => 'Cartão de crédito Elo',
+            108 => 'Cartão de crédito PLENOCard',
+            109 => 'Cartão de crédito PersonalCard',
+            110 => 'Cartão de crédito JCB',
+            111 => 'Cartão de crédito Discover',
+            112 => 'Cartão de crédito BrasilCard',
+            113 => 'Cartão de crédito FORTBRASIL',
+            114 => 'Cartão de crédito CARDBAN',
+            115 => 'Cartão de crédito VALECARD',
+            116 => 'Cartão de crédito Cabal',
+            117 => 'Cartão de crédito Mais!',
+            118 => 'Cartão de crédito Avista',
+            119 => 'Cartão de crédito GRANDCARD',
+            120 => 'Cartão de crédito Sorocred',
+            122 => 'Cartão de crédito Up Policard',
+            123 => 'Cartão de crédito Banese Card',
+            201 => 'Boleto Bradesco',
+            202 => 'Boleto Santander',
+            301 => 'Débito online Bradesco',
+            302 => 'Débito online Itaú',
+            303 => 'Débito online Unibanco',
+            304 => 'Débito online Banco do Brasil',
+            305 => 'Débito online Banco Real',
+            306 => 'Débito online Banrisul',
+            307 => 'Débito online HSBC',
+            401 => 'Saldo PagSeguro',
+            402 => 'PIX',
+            501 => 'Oi Paggo',
+            701 => 'Depósito em conta - Banco do Brasil',
+        ];
+        
+        if ( isset($posted->paymentMethod->code) && isset($methods[(int)$posted->paymentMethod->code])) {
+            return $methods[(int)$posted->paymentMethod->code];
+        }
+        
+        return false;
+    }
 
 }
