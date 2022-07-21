@@ -4,7 +4,7 @@ Donate link: https://claudiosanches.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.0
-Stable tag: 3.6.0
+Stable tag: 3.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -267,6 +267,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.6.1 - 21/Jul/2022 =
+* Adicionando PIX e Cartao Emergencial Caixa na lista de pagamentos. Desta forma, quando um pagamento com um desses meios for realizado no Redirect, o 'Meio de Pagamento' não mais ficará como 'Desconhecido'. (Reportado por Achiles)
 
 = 3.6.0 - 21/Jun/2022 =
 * Agora exibimos mais informações sobre o meio de pagamento na tela do pedido. Para pedidos com cartão, agora é possível ver o NSU, TID, código de autorização, e outras informações. Para pagamentos com Redirect, agora é possível ver qual meio de pagamento foi escolhido no PagSeguro.
