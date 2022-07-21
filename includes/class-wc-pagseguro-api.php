@@ -204,6 +204,8 @@ class WC_PagSeguro_API {
 			4 => __( 'PagSeguro credit', 'woo-pagseguro-rm' ),
 			5 => __( 'Oi Paggo', 'woo-pagseguro-rm' ),
 			7 => __( 'Account deposit', 'woo-pagseguro-rm' ),
+            8 => __( 'Emergential Card Caixa (Debit)'),
+            11 => __('PIX')
 		);
 
 		return isset( $types[ $value ] ) ? $types[ $value ] : __( 'Unknown', 'woo-pagseguro-rm' );
@@ -386,14 +388,14 @@ class WC_PagSeguro_API {
 			return false;
 		}
 
-		if ( function_exists( 'libxml_disable_entity_loader' ) ) {
+		if ( function_exists( 'libxml_disable_entity_loader' ) && version_compare(phpversion(), '8.0.0', '<')) {
 			$old = libxml_disable_entity_loader( true );
 		}
 
 		$dom    = new DOMDocument();
 		$return = $dom->loadXML( $source, $options );
 
-		if ( ! is_null( $old ) ) {
+		if ( ! is_null( $old ) && version_compare(phpversion(), '8.0.0', '<')) {
 			libxml_disable_entity_loader( $old );
 		}
 
@@ -1063,7 +1065,7 @@ class WC_PagSeguro_API {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting session ID...' );
 		}
 
-		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token(), 'public_key' => $this->gateway->get_public_key() ), $this->get_sessions_url() );
+		$url      = add_query_arg( array( 'public_key' => $this->gateway->get_public_key() ), $this->get_sessions_url() );
 		$response = $this->do_request( $url, 'POST' );
 
 		// Check to see if the request was valid.
