@@ -294,9 +294,13 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'title'       => __( 'PagSeguro App Key', 'woo-pagseguro-rm' ),
 				'type'        => 'text',
 				/* translators: %s: link to PagSeguro settings */
-				'description' => sprintf( __( 'To get your app key, authorize the app. %s to authorize it (it\'s free).', 'woo-pagseguro-rm' ), '<a href="https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html" target="_blank">' . __( 'Click here', 'woo-pagseguro-rm' ) . '</a>' ),
+				'description' => sprintf( __( 'To get your app key, authorize the app. %s to authorize it (it\'s free).', 'woo-pagseguro-rm' ), '<a href="https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce/wizard.html" target="_blank" id="psauthorize">' . __( 'Click here', 'woo-pagseguro-rm' ) . '</a>' ),
 				'default'     => '',
 			),
+            'authjslink' => array(
+              'title' => '',
+              'type' => 'pslink',
+            ),
 			'sandbox_email'        => array(
 				'title'       => __( 'PagSeguro Sandbox Email', 'woo-pagseguro-rm' ),
 				'type'        => 'text',
@@ -943,5 +947,49 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
         
         return false;
     }
+    /**
+     * Changes PagSeguro authorize link with the ability to capture the generated Public Key and auto-configure it within the module.
+     *
+     * @access public
+     * @param mixed $key
+     * @param mixed $data
+     * @return string
+     */
+    public function generate_pslink_html( $key, $data ) {
+        ob_start();
+        ?>
+        <script type="text/javascript">
+            jQuery('#psauthorize').on('click', authorizePagseguro).attr('href', 'javascript:void(0)')
+            var intervalPs;
+            window.addEventListener("message", function(ev) {
+                if (ev.data.message != undefined && ev.data.message.substring(0, 3) === "PUB") {
+                    clearInterval(intervalPs);
+                    jQuery('#woocommerce_pagseguro_public_key').val(ev.data.message);
+                    ev.source.close();
+                }
+            });
 
+            function authorizePagseguro() {
+                var child = window.open("https://pagseguro.ricardomartins.net.br/autorizar.html?sameWindow=true&utm_source=wordpress-config&utm_campaign=authorizepopup&utm_medium=textlink", "_blank", "height=600,width=700,popup=yes");
+                // for test purposes
+                // var child = window.open("https://pagseguro.ricardomartins.net.br/pro/app/created.html?publicKey=PUBD123", "_blank", "height=600,width=700,popup=yes");
+
+                intervalPs = setInterval(function() {
+                    try {
+                        child.postMessage({ message: "getPublicKey" }, "*");
+                    }
+                    catch(e) {
+                        // we're here when the child window has been navigated away or closed
+                        if (child.closed) {
+                            clearInterval(intervalPs);
+                            console.debug("pagseguro authorization window was closed");
+                            return;
+                        }
+                    }
+                }, 500);
+            }
+        </script>
+        <?php
+        return ob_get_clean();
+    }
 }

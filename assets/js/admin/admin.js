@@ -11,9 +11,7 @@
 		function pagSeguroSwitchTCOptions( method ) {
 			var fields  = $( '#woocommerce_pagseguro_tc_credit' ).closest( '.form-table' ),
 				heading = fields.prev( 'h3' );
-
-			console.log( 'foi?' );
-
+			
 			if ( 'transparent' === method ) {
 				fields.show();
 				heading.show();
