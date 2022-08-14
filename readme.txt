@@ -267,6 +267,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.8.0 - 14/Ago/2022 =
+* Melhoria: ano da validade do cartão agora pede apenas 2 dígitos
+* Correção: ao especificar 0 (zero) como 'valor de parcela minima sem juros' fazia com que em algumas situações um erro genérico fosse exibido impedindo a finalização da venda. Na verdade, um erro de valor da parcela inválido era gerado por conta de outro problema relacionado a esta configuração.
 
 = 3.7.0 - 25/Jul/2022 =
 * Agora o processo de autorização para obtenção da chave pública pode ser feito nas configurações do módulo. Após autorizar a aplicação, sua chave pública será preenchida automaticamente no lugar certo.
