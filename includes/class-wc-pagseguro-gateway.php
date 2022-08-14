@@ -337,7 +337,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'title'   => __( 'Minimum parcel value for installments without interest', 'woo-pagseguro-rm' ),
 				'type'    => 'text',
 				'desc_tip' => false,
-				'description' => __( 'If you specify this value, the promotion rules saved on PagSeguro will be ignored. Please inform \'0\' if you don\'t want to offer installments without interest.', 'woo-pagseguro-rm' ),
+				'description' => __( 'If you specify this value, the promotion rules saved on PagSeguro will be ignored. Please leave if blank if you don\'t want to offer installments without interest (make sure you don\'t have any active promotion on PagSeguro).', 'woo-pagseguro-rm' ),
 				'default' => '',
 			),
 			'tc_transfer'          => array(

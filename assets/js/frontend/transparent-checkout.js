@@ -305,7 +305,7 @@
 
 						// if its configured '0', sends '0'
 						if ( noInterestInstallmentsMaxParcels == 0 ) {
-							params.maxInstallmentNoInterest = 0;
+							delete params.maxInstallmentNoInterest;
 						}
 						// otherwise, calculates and sends the qty of parcels without interest
 						else if ( totalAmount >= noInterestInstallmentsMaxParcels ) {
