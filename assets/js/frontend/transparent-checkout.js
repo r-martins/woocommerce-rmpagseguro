@@ -153,12 +153,12 @@
 			}
 
 			// Validate the expiry date.
-			if ( 2 !== expirationMonth.length || 4 !== expirationYear.length ) {
+			if ( 2 !== expirationMonth.length || 2 !== expirationYear.length ) {
 				errorHtml += '<li>' + wc_pagseguro_params.invalid_expiry + '</li>';
 				error = true;
 			}
 
-			if ( ( 2 === expirationMonth.length && 4 === expirationYear.length ) && ( expirationMonth > 12 || expirationYear <= ( today.getFullYear() - 1 ) || expirationYear >= ( today.getFullYear() + 20 ) || ( expirationMonth < ( today.getMonth() + 2 ) && expirationYear.toString() === today.getFullYear().toString() ) ) ) {
+			if ( ( 2 === expirationMonth.length && 2 === expirationYear.length ) && ( expirationMonth > 12 || expirationYear < ( today.getFullYear().toString().slice(-2) ) || expirationYear >= ( today.getFullYear().toString().slice(-2)*1 + 20 ) || ( expirationMonth < ( today.getMonth() + 2 ) && expirationYear.toString() === today.getFullYear().toString().slice(-2) ) ) ) {
 				errorHtml += '<li>' + wc_pagseguro_params.expired_date + '</li>';
 				error = true;
 			}
@@ -178,7 +178,7 @@
 					cardNumber:      cardNumber,
 					cvv:             cvv,
 					expirationMonth: expirationMonth,
-					expirationYear:  expirationYear,
+					expirationYear:  '20' + expirationYear,
 					success: function( data ) {
 						// Remove any old hash input.
 						$( 'input[name=pagseguro_credit_card_hash], input[name=pagseguro_credit_card_hash], input[name=pagseguro_installment_value]', form ).remove();

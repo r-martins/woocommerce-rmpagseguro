@@ -41,8 +41,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</p>
 			<div class="clear"></div>
 			<p id="pagseguro-card-expiry-field" class="form-row form-row-first">
-				<label for="pagseguro-card-expiry"><?php _e( 'Expiry (MM/YYYY)', 'woo-pagseguro-rm' ); ?> <span class="required">*</span></label>
-				<input id="pagseguro-card-expiry" class="input-text wc-credit-card-form-card-expiry" type="tel" autocomplete="off" placeholder="<?php _e( 'MM / YYYY', 'woo-pagseguro-rm' ); ?>" style="font-size: 1.5em; padding: 8px;" />
+				<label for="pagseguro-card-expiry"><?php _e( 'Expiry (MM/YY)', 'woo-pagseguro-rm' ); ?> <span class="required">*</span></label>
+				<input id="pagseguro-card-expiry" class="input-text wc-credit-card-form-card-expiry" type="tel" autocomplete="off" placeholder="<?php _e( 'MM / YY', 'woo-pagseguro-rm' ); ?>" style="font-size: 1.5em; padding: 8px;" maxlength="7"/>
 			</p>
 			<p id="pagseguro-card-cvc-field" class="form-row form-row-last">
 				<label for="pagseguro-card-cvc"><?php _e( 'Security Code', 'woo-pagseguro-rm' ); ?> <span class="required">*</span></label>
