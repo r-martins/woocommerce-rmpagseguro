@@ -768,7 +768,11 @@ class WC_PagSeguro_API {
 			if ( $posted['no_interest_installments_min_value'] ) {
 				$noInterestInstallmentsMaxParcels = floor( $order->get_total() / $posted['no_interest_installments_min_value'] );
 
-				if ( $noInterestInstallmentsMaxParcels > 0 ) {
+                //prevents internal server error from PagSeguro when receiving a value > 18
+                $noInterestInstallmentsMaxParcels = min($noInterestInstallmentsMaxParcels, 18);
+                
+                //prevents 0 or 1
+				if ( $noInterestInstallmentsMaxParcels > 1 ) {
 					$post['noInterestInstallmentQuantity'] = $noInterestInstallmentsMaxParcels;
 				}
 			}

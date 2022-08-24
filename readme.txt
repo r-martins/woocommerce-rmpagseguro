@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.0
-Stable tag: 3.8.0
+Stable tag: 3.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -267,6 +267,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.8.1 - 23/Ago/2022 =
+* Correção importante: O erro "Um erro ocorreu ao processar seu pagamento. Por favor tente novamente ou entre em contato conosco para obter ajuda." era exibido valor de parcela minima é especificado e o valor das parcelas mínimas sem juros é superior a 18 (ex: valor da parcela minima = 20 / valor do pedido = 500 / total de parcelas sem juros = 25) fazia o PagSeguro gerar um erro interno ocasionando esta mensagem e impedindo a compra. 
+
 = 3.8.0 - 14/Ago/2022 =
 * Melhoria: ano da validade do cartão agora pede apenas 2 dígitos
 * Correção: ao especificar 0 (zero) como 'valor de parcela minima sem juros' fazia com que em algumas situações um erro genérico fosse exibido impedindo a finalização da venda. Na verdade, um erro de valor da parcela inválido era gerado por conta de outro problema relacionado a esta configuração.
