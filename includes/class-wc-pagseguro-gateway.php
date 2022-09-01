@@ -36,10 +36,8 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$this->title             = $this->get_option( 'title' );
 		$this->description       = $this->get_option( 'description' );
 		$this->email             = $this->get_option( 'email' );
-		$this->token             = $this->get_option( 'token' );
 		$this->public_key        = $this->get_option( 'public_key' ); //added by Ricardo Martins
 		$this->sandbox_email     = $this->get_option( 'sandbox_email' );
-		$this->sandbox_token     = $this->get_option( 'sandbox_token' );
 		$this->sandbox_public_key= $this->get_option( 'sandbox_public_key' ); //added by Ricardo Martins
 		$this->method            = $this->get_option( 'method', 'direct' );
 		$this->tc_credit         = $this->get_option( 'tc_credit', 'yes' );
@@ -105,16 +103,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	public function get_email() {
 		return $this->is_sanbox_on() ? $this->sandbox_email : $this->email;
 	}
-
-	/**
-	 * Get token.
-	 *
-	 * @return string
-	 */
-	public function get_token() {
-		return $this->is_sanbox_on() ? $this->sandbox_token : $this->token;
-	}
-
+    
 	/**
 	 * Get public key.
 	 *
@@ -133,7 +122,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	 */
 	public function is_available() {
 		// Test if is valid for use.
-		$available = 'yes' === $this->get_option( 'enabled' ) && '' !== $this->get_email() && '' !== $this->get_token() && $this->using_supported_currency();
+		$available = 'yes' === $this->get_option( 'enabled' ) && '' !== $this->get_email()  && $this->using_supported_currency();
 
 		if ( 'transparent' === $this->method && ! class_exists( 'Extra_Checkout_Fields_For_Brazil' ) ) {
 			$available = false;
@@ -282,13 +271,6 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'desc_tip'    => true,
 				'default'     => '',
 			),
-			'token'                => array(
-				'title'       => __( 'PagSeguro Token', 'woo-pagseguro-rm' ),
-				'type'        => 'text',
-				/* translators: %s: link to PagSeguro settings */
-				'description' => sprintf( __( 'Please enter your PagSeguro token. This is needed to process the payment and notifications. Is possible generate a new token %s.', 'woo-pagseguro-rm' ), '<a href="https://pagseguro.uol.com.br/integracao/token-de-seguranca.jhtml">' . __( 'here', 'woo-pagseguro-rm' ) . '</a>' ),
-				'default'     => '',
-			),
 			//modified by Ricardo Martins
 			'public_key'                => array(
 				'title'       => __( 'PagSeguro App Key', 'woo-pagseguro-rm' ),
@@ -306,13 +288,6 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'type'        => 'text',
 				/* translators: %s: link to PagSeguro settings */
 				'description' => sprintf( __( 'Please enter your PagSeguro sandbox email address. You can get your sandbox email %s.', 'woo-pagseguro-rm' ), '<a href="https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html">' . __( 'here', 'woo-pagseguro-rm' ) . '</a>' ),
-				'default'     => '',
-			),
-			'sandbox_token'        => array(
-				'title'       => __( 'PagSeguro Sandbox Token', 'woo-pagseguro-rm' ),
-				'type'        => 'text',
-				/* translators: %s: link to PagSeguro settings */
-				'description' => sprintf( __( 'Please enter your PagSeguro sandbox token. You can get your sandbox token %s.', 'woo-pagseguro-rm' ), '<a href="https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html">' . __( 'here', 'woo-pagseguro-rm' ) . '</a>' ),
 				'default'     => '',
 			),
 			'sandbox_public_key'   => array(
@@ -863,9 +838,6 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$pub_length = strlen($this->get_option('public_key'));
 		$public_key = $pub_length == 35 ? 'Good' : 'Wrong with ' . $pub_length . ' characters';
 
-		$token_length = strlen($this->get_option('token'));
-		$token = $token_length == 32 || $token_length == 100 ? 'Good' : 'Wrong';
-
 		$session_id = $this->api->get_session_id();
 
 		$pubauth = wp_safe_remote_get('https://ws.ricardomartins.net.br/pspro/v7/auth/' . $this->get_option('public_key'));
@@ -874,7 +846,6 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 			'module_version' => $plugin_data,
 			'extra_checkout_fields' => $exta_checkout_fields_active,
 			'public_key' => $public_key,
-			'token_consistency' => $token,
 			'session_id' => $session_id,
 			'valid_pub' => @$pubauth['body'],
 			'configuration' => array(

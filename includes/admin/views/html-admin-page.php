@@ -22,10 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		if ( '' === $this->get_email() ) {
 			include dirname( __FILE__ ) . '/html-notice-email-missing.php';
 		}
-
-		if ( '' === $this->get_token() ) {
-			include dirname( __FILE__ ) . '/html-notice-token-missing.php';
-		}
+        
 	}
 ?>
 

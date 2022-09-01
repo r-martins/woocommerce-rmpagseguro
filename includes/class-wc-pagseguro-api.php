@@ -808,7 +808,7 @@ class WC_PagSeguro_API {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting token for order ' . $order->get_order_number() . ' with the following data: ' . var_export($xml, true) );
 		}
 
-		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token(), 'public_key' => $this->gateway->get_public_key() ), $this->get_checkout_url() );
+		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'public_key' => $this->gateway->get_public_key() ), $this->get_checkout_url() );
 		$response = $this->do_request( $url, 'POST', $xml, $this->get_custom_headers() );
 
 		if ( is_wp_error( $response ) ) {
@@ -817,13 +817,13 @@ class WC_PagSeguro_API {
 			}
 		} else if ( 401 === $response['response']['code'] ) {
 			if ( 'yes' == $this->gateway->debug ) {
-				$this->gateway->log->add( $this->gateway->id, 'Invalid token and/or email settings!' );
+				$this->gateway->log->add( $this->gateway->id, 'Invalid public key and/or email settings!' );
 			}
 
 			return array(
 				'url'   => '',
 				'data'  => '',
-				'error' => array( __( 'Invalid e-mail or token. Please check your PagSeguro configuration.', 'woo-pagseguro-rm' ) ),
+				'error' => array( __( 'Invalid e-mail or public key. Please check your PagSeguro configuration.', 'woo-pagseguro-rm' ) ),
 			);
 		} else {
 			try {
@@ -918,7 +918,7 @@ class WC_PagSeguro_API {
 			$this->gateway->log->add( $this->gateway->id, 'Requesting direct payment for order ' . $order->get_order_number() . ' with the following data: ' . var_export($xml, true) );
 		}
 
-		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'token' => $this->gateway->get_token(), 'public_key' => $this->gateway->get_public_key() ), $this->get_transactions_url() );
+		$url      = add_query_arg( array( 'email' => $this->gateway->get_email(), 'public_key' => $this->gateway->get_public_key() ), $this->get_transactions_url() );
 		$response = $this->do_request( $url, 'POST', $xml, $this->get_custom_headers() );
 
 		if ( is_wp_error( $response ) ) {

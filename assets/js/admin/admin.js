@@ -43,25 +43,19 @@
 		 */
 		function pagSeguroSwitchUserData( checked ) {
 			var email = $( '#woocommerce_pagseguro_email' ).closest( 'tr' ),
-				token = $( '#woocommerce_pagseguro_token' ).closest( 'tr' ),
 				pubKey = $( '#woocommerce_pagseguro_public_key' ).closest( 'tr' ),
 				sandboxEmail = $( '#woocommerce_pagseguro_sandbox_email' ).closest( 'tr' ),
-				sandboxToken = $( '#woocommerce_pagseguro_sandbox_token' ).closest( 'tr' ),
 				sandboxPubKey = $( '#woocommerce_pagseguro_sandbox_public_key' ).closest( 'tr' );
 
 			if ( checked ) {
 				email.hide();
-				token.hide();
 				pubKey.hide();
 				sandboxEmail.show();
-				sandboxToken.show();
 				sandboxPubKey.show();
 			} else {
 				email.show();
-				token.show();
 				pubKey.show();
 				sandboxEmail.hide();
-				sandboxToken.hide();
 				sandboxPubKey.hide();
 			}
 		}
