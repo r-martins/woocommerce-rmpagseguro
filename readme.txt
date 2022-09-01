@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.0
-Stable tag: 3.8.1
+Stable tag: 3.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -267,6 +267,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.9.0 - 31/Set/2022 =
+* Melhoria: você não precisa mais informar seu token PagSeguro nas configurações do módulo. No modelo de aplicação nunca precisamos do seu token, mas ele era solicitado e enviado mesmo assim e eventualmente causava confusão na hora de configurar o módulo.
+
 = 3.8.1 - 23/Ago/2022 =
 * Correção importante: O erro "Um erro ocorreu ao processar seu pagamento. Por favor tente novamente ou entre em contato conosco para obter ajuda." era exibido valor de parcela minima é especificado e o valor das parcelas mínimas sem juros é superior a 18 (ex: valor da parcela minima = 20 / valor do pedido = 500 / total de parcelas sem juros = 25) fazia o PagSeguro gerar um erro interno ocasionando esta mensagem e impedindo a compra. 
 
