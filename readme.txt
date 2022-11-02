@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly, Ricardo Martins
 Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 6.0
-Stable tag: 3.9.0
+Tested up to: 6.1
+Stable tag: 3.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -267,6 +267,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.9.1 - 02/Nov/2022 =
+* Adicionado suporte ao Wordpress 6.1
+
 = 3.9.0 - 31/Set/2022 =
 * Melhoria: você não precisa mais informar seu token PagSeguro nas configurações do módulo. No modelo de aplicação nunca precisamos do seu token, mas ele era solicitado e enviado mesmo assim e eventualmente causava confusão na hora de configurar o módulo.
 
