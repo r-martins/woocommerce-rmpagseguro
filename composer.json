@@ -1,9 +1,9 @@
 {
 	"name": "ricardomartins/woocommerce-rmpagseguro",
 	"description": "Adiciona PagSeguro como meio de pagamento no Wordpress(com desconto nas taxas oficiais).",
-	"homepage": "https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html",
+	"homepage": "https://pagseguro.ricardomartins.net.br/woocommerce.html",
 	"type": "wordpress-plugin",
-	"version": "3.9.1",
+	"version": "3.9.2",
 	"license": "GPL-3.0-or-later",
 	"authors": [
 		{
@@ -13,7 +13,7 @@
 		},
 		{
 			"name": "Ricardo Martins",
-			"homepage": "https://r-martins.github.io/PagSeguro-Magento-Transparente/woocommerce.html",
+			"homepage": "https://pagseguro.ricardomartins.net.br/woocommerce.html",
 			"role": "Developer"
 		}
 	],
