@@ -583,6 +583,16 @@ msgstr "Habilitar logs"
 msgid "Log PagSeguro events, such as API requests, inside %s"
 msgstr "Logue eventos PagSeguro, como chamadas API, dentro %s"
 
+#: includes/class-wc-pagseguro-gateway.php:378
+#, php-format
+msgid "Incorrect App Key. The App Key (or Public Key) is only 35 characters long and starts with the PUB prefix."
+msgstr "App Key incorreta. A App Key (ou chave pública) possui apenas 35 caracteres e começa com o prefixo PUB."
+
+#: includes/class-wc-pagseguro-gateway.php:388
+#, php-format
+msgid "Invalid App Key."
+msgstr "App Key inválida."
+
 #: includes/class-wc-pagseguro-gateway.php:591
 msgid "Payer email"
 msgstr "E-mail do comprador"

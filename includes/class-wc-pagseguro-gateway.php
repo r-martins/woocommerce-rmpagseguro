@@ -103,7 +103,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	public function get_email() {
 		return $this->is_sanbox_on() ? $this->sandbox_email : $this->email;
 	}
-    
+
 	/**
 	 * Get public key.
 	 *
@@ -365,6 +365,56 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'description' => sprintf( __( 'Log PagSeguro events, such as API requests, inside %s', 'woo-pagseguro-rm' ), $this->get_log_view() ),
 			),
 		);
+	}
+
+	/**
+	 * Validate the Public Key
+	 * @param $key
+	 * @param $value
+	 * @return string
+	 */
+	public function validate_public_key_field( $key, $value ) {
+		if (strlen($value) > 35) {
+			WC_Admin_Settings::add_error(__('Incorrect App Key. The App Key (or Public Key) is only 35 characters long and starts with the PUB prefix.', 'woo-pagseguro-rm'));
+			return '';
+		}
+
+		$endpoint = 'https://ws.ricardomartins.net.br/pspro/v7/auth/' . $value;
+		$response = wp_remote_get($endpoint);
+		$responseBody = wp_remote_retrieve_body($response);
+		$responseBody = unserialize($responseBody);
+		$validPublicKey = $responseBody['auth'];
+		if (!$validPublicKey) {
+			WC_Admin_Settings::add_error( __('Invalid App Key.', 'woo-pagseguro-rm') );
+			return '';
+		}
+
+		return $value;
+	}
+
+	/**
+	 * Validate the Sandbox Public Key
+	 * @param $key
+	 * @param $value
+	 * @return string
+	 */
+	public function validate_sandbox_public_key_field( $key, $value ) {
+		if (strlen($value) > 35) {
+			WC_Admin_Settings::add_error(__('Incorrect App Key. The App Key (or Public Key) is only 35 characters long and starts with the PUB prefix.', 'woo-pagseguro-rm'));
+			return '';
+		}
+
+		$endpoint = 'https://ws.ricardomartins.net.br/pspro/v7/auth/' . $value . '?isSandbox=1';
+		$response = wp_remote_get($endpoint);
+		$responseBody = wp_remote_retrieve_body($response);
+		$responseBody = unserialize($responseBody);
+		$validPublicKey = $responseBody['auth'];
+		if (!$validPublicKey) {
+			WC_Admin_Settings::add_error( __('Invalid App Key.', 'woo-pagseguro-rm') );
+			return '';
+		}
+
+		return $value;
 	}
 
 	/**
@@ -911,11 +961,11 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
             501 => 'Oi Paggo',
             701 => 'Depósito em conta - Banco do Brasil',
         ];
-        
+
         if ( isset($posted->paymentMethod->code) && isset($methods[(int)$posted->paymentMethod->code])) {
             return $methods[(int)$posted->paymentMethod->code];
         }
-        
+
         return false;
     }
     /**
