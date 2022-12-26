@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.1
-Stable tag: 3.9.2
+Stable tag: 3.10.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,11 @@ Adiciona PagSeguro aos meios de pagamento WooCommerce
 
 == Description ==
 
-### Add PagSeguro gateway to WooCommerce ###
+https://www.youtube.com/watch?v=eN_WaK-1SQc
+
+Veja o [passo a passo de instalação](https://pagseguro.ricardomartins.net.br/woocommerce/wizard.html) para WooCommerce
+
+### Add PagSeguro gateway to WooCommerce. ###
 
 This plugin adds PagSeguro gateway to WooCommerce.
 
@@ -267,6 +271,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.10.0 - 26/Dez/2022 =
+* Adicionada validação da chave pública, visto que muitos usuários informam o token desnecessariamente ao configurar o módulo, fazendo com que o módulo não funcione.
+
 = 3.9.2 - 14/Nov/2022 =
 * Adicionado suporte ao Woocommerce 7.1
 
