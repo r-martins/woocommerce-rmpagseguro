@@ -399,6 +399,10 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 	 * @return string
 	 */
 	public function validate_sandbox_public_key_field( $key, $value ) {
+        if ($this->sandbox == 'no') {
+            return $value;
+        }
+        
 		if (strlen($value) > 35) {
 			WC_Admin_Settings::add_error(__('Incorrect App Key. The App Key (or Public Key) is only 35 characters long and starts with the PUB prefix.', 'woo-pagseguro-rm'));
 			return '';
@@ -408,7 +412,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$response = wp_remote_get($endpoint);
 		$responseBody = wp_remote_retrieve_body($response);
 		$responseBody = unserialize($responseBody);
-		$validPublicKey = $responseBody['auth'];
+        $validPublicKey = isset($responseBody['auth']) ? $responseBody['auth'] : false;
 		if (!$validPublicKey) {
 			WC_Admin_Settings::add_error( __('Invalid App Key.', 'woo-pagseguro-rm') );
 			return '';
