@@ -271,6 +271,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.10.1 - 15/Jan/2023 =
+* Corrigido: Mensagem de Chave Publica inválida era exibida em alguns casos mesmo quando a chave estava correta.
+
 = 3.10.0 - 26/Dez/2022 =
 * Adicionada validação da chave pública, visto que muitos usuários informam o token desnecessariamente ao configurar o módulo, fazendo com que o módulo não funcione.
 
