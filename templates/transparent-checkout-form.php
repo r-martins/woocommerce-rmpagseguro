@@ -26,6 +26,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( 'yes' == $tc_ticket ) : ?>
 		<li><label><input id="pagseguro-payment-method-banking-ticket" type="radio" name="pagseguro_payment_method" value="banking-ticket" <?php checked( true, ( 'no' == $tc_credit && 'no' == $tc_transfer && 'yes' == $tc_ticket ), true ); ?> /> <?php _e( 'Banking Ticket', 'woo-pagseguro-rm' ); ?></label></li>
 		<?php endif; ?>
+
+        <?php if ( 'yes' == $tc_redirect ) : ?>
+            <li><label><input id="pagseguro-payment-method-redirect" type="radio" name="pagseguro_payment_method" value="redirect" /> <?php _e( 'Redirect', 'woo-pagseguro-rm' ); ?></label></li>
+        <?php endif; ?>
+
 	</ul>
 	<div class="clear"></div>
 
@@ -98,6 +103,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="clear"></div>
 		</div>
 	<?php endif; ?>
+
+    <?php if ( 'yes' == $tc_redirect ) : ?>
+        <div id="pagseguro-redirect-form" class="pagseguro-method-form">
+			<p><?php _e( '* After clicking "Proceed to payment" you will be redirected to PagSeguro and will be able to select various payment methods including credit and debit card, pagseguro balance, bank billet and PIX.', 'woo-pagseguro-rm' ); ?></p>
+        </div>
+    <?php endif; ?>
 
 	<p><?php esc_html_e( 'This purchase is being made in Brazil', 'woo-pagseguro-rm' ); ?> <img src="<?php echo esc_url( $flag ); ?>" alt="<?php esc_attr_e( 'Brazilian flag', 'woo-pagseguro-rm' ); ?>" style="display: inline; float: none; vertical-align: middle; border: none;" /></p>
 

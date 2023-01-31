@@ -44,6 +44,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$this->tc_transfer       = $this->get_option( 'tc_transfer', 'yes' );
 		$this->tc_ticket         = $this->get_option( 'tc_ticket', 'yes' );
 		$this->tc_ticket_message = $this->get_option( 'tc_ticket_message', 'yes' );
+		$this->tc_redirect       = $this->get_option( 'tc_redirect', 'yes' );
 		$this->send_only_total   = $this->get_option( 'send_only_total', 'no' );
 		$this->invoice_prefix    = $this->get_option( 'invoice_prefix', 'WC-' );
 		$this->sandbox           = $this->get_option( 'sandbox', 'no' );
@@ -227,7 +228,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'title'       => __( 'Description', 'woo-pagseguro-rm' ),
 				'type'        => 'textarea',
 				'description' => __( 'This controls the description which the user sees during checkout.', 'woo-pagseguro-rm' ),
-				'default'     => __( 'Pay via PagSeguro', 'woo-pagseguro-rm' ),
+				'default'     => __( 'Pay via PagSeguro (via Credit card, balance, bank billet or PIX)', 'woo-pagseguro-rm' ),
 			),
 			'integration'          => array(
 				'title'       => __( 'Integration', 'woo-pagseguro-rm' ),
@@ -242,9 +243,9 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'default'     => 'direct',
 				'class'       => 'wc-enhanced-select',
 				'options'     => array(
-					'redirect'    => __( 'Redirect (default)', 'woo-pagseguro-rm' ),
+					'redirect'    => __( 'Redirect', 'woo-pagseguro-rm' ),
 					'lightbox'    => __( 'Lightbox', 'woo-pagseguro-rm' ),
-					'transparent' => __( 'Transparent Checkout', 'woo-pagseguro-rm' ),
+					'transparent' => __( 'Transparent Checkout (recommended)', 'woo-pagseguro-rm' ),
 				),
 			),
 			//modified by Ricardo Martins
@@ -331,6 +332,12 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'title'   => __( 'Banking Ticket Tax Message', 'woo-pagseguro-rm' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Display a message alerting the customer that will be charged R$ 1,00 for payment by Banking Ticket', 'woo-pagseguro-rm' ),
+				'default' => 'yes',
+			),
+			'tc_redirect'            => array(
+				'title'   => __( 'Redirect', 'woo-pagseguro-rm' ),
+				'type'    => 'checkbox',
+				'label'   => __( 'Enable the Redirect to PagSeguro option together with the Transparent Checkout', 'woo-pagseguro-rm' ),
 				'default' => 'yes',
 			),
 			'behavior'             => array(
@@ -470,6 +477,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 					'tc_transfer'       => $this->tc_transfer,
 					'tc_ticket'         => $this->tc_ticket,
 					'tc_ticket_message' => $this->tc_ticket_message,
+					'tc_redirect'       => $this->tc_redirect,
 					'flag'              => plugins_url( 'assets/images/brazilian-flag.png', plugin_dir_path( __FILE__ ) ),
 				), 'woocommerce/pagseguro/', WC_PagSeguro::get_templates_path()
 			);
@@ -497,7 +505,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		}
 
 		if ( 'lightbox' !== $this->method ) {
-			if ( isset( $_POST['pagseguro_sender_hash'] ) && 'transparent' === $this->method ) { // WPCS: input var ok, CSRF ok.
+			if ( isset( $_POST['pagseguro_sender_hash'] ) && 'transparent' === $this->method && $_POST['pagseguro_payment_method'] !== 'redirect' ) { // WPCS: input var ok, CSRF ok.
 				$postedData = array_merge( $_POST, array( 'no_interest_installments_min_value' => $this->get_numeric_option ( 'no_interest_installments_min_value' ) ) );
 				$response = $this->api->do_payment_request( $order, $postedData ); // WPCS: input var ok, CSRF ok.
 
