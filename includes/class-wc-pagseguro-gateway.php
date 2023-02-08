@@ -335,7 +335,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'default' => 'yes',
 			),
 			'tc_redirect'            => array(
-				'title'   => __( 'Redirect', 'woo-pagseguro-rm' ),
+				'title'   => __( 'Others', 'woo-pagseguro-rm' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable the Redirect to PagSeguro option together with the Transparent Checkout', 'woo-pagseguro-rm' ),
 				'default' => 'yes',
@@ -384,7 +384,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
         if($this->sandbox == 'yes'){
             return $value;
         }
-        
+
 		if (strlen($value) > 35) {
 			WC_Admin_Settings::add_error(__('Incorrect App Key. The App Key (or Public Key) is only 35 characters long and starts with the PUB prefix.', 'woo-pagseguro-rm'));
 			return '';
@@ -413,7 +413,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
         if ($this->sandbox == 'no') {
             return $value;
         }
-        
+
 		if (strlen($value) > 35) {
 			WC_Admin_Settings::add_error(__('Incorrect App Key. The App Key (or Public Key) is only 35 characters long and starts with the PUB prefix.', 'woo-pagseguro-rm'));
 			return '';

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce PagSeguro 3.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-pagseguro\n"
-"POT-Creation-Date: 2023-01-28 22:42-0300\n"
+"POT-Creation-Date: 2023-02-01 21:11-0300\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pagseguro-transparente@ricardomartins.net.br\n"
@@ -242,7 +242,7 @@ msgid "This controls the description which the user sees during checkout."
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:231
-msgid "Pay via PagSeguro"
+msgid "Pay via PagSeguro (via Credit card, balance, bank billet or PIX)"
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:234
@@ -260,7 +260,7 @@ msgid ""
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:246
-msgid "Redirect (default)"
+msgid "Redirect"
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:247
@@ -268,7 +268,7 @@ msgid "Lightbox"
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:248
-msgid "Transparent Checkout"
+msgid "Transparent Checkout (recommended)"
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:253
@@ -386,7 +386,7 @@ msgid ""
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:338
-msgid "Redirect"
+msgid "Others"
 msgstr ""
 
 #: includes/class-wc-pagseguro-gateway.php:340
@@ -435,124 +435,136 @@ msgstr ""
 msgid "Log PagSeguro events, such as API requests, inside %s"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:574
+#: includes/class-wc-pagseguro-gateway.php:389
+#: includes/class-wc-pagseguro-gateway.php:418
+msgid ""
+"Incorrect App Key. The App Key (or Public Key) is only 35 characters long and "
+"starts with the PUB prefix."
+msgstr ""
+
+#: includes/class-wc-pagseguro-gateway.php:399
+#: includes/class-wc-pagseguro-gateway.php:428
+msgid "Invalid App Key."
+msgstr ""
+
+#: includes/class-wc-pagseguro-gateway.php:632
 msgid "Payer email"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:577
+#: includes/class-wc-pagseguro-gateway.php:635
 msgid "Payer name"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:582
+#: includes/class-wc-pagseguro-gateway.php:640
 msgid "Payment type"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:587
+#: includes/class-wc-pagseguro-gateway.php:645
 msgid "Payment method"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:592
+#: includes/class-wc-pagseguro-gateway.php:650
 msgid "Installments"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:597
+#: includes/class-wc-pagseguro-gateway.php:655
 msgid "Payment URL"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:600
+#: includes/class-wc-pagseguro-gateway.php:658
 msgid "Intermediation Rate"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:603
+#: includes/class-wc-pagseguro-gateway.php:661
 msgid "Intermediation Fee"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:606
+#: includes/class-wc-pagseguro-gateway.php:664
 msgid "Transaction Code"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:610
+#: includes/class-wc-pagseguro-gateway.php:668
 msgid "Acquirer Name"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:613
+#: includes/class-wc-pagseguro-gateway.php:671
 msgid "NSU"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:616
+#: includes/class-wc-pagseguro-gateway.php:674
 msgid "TID"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:619
+#: includes/class-wc-pagseguro-gateway.php:677
 msgid "Authorization Code"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:622
+#: includes/class-wc-pagseguro-gateway.php:680
 msgid "Estabilishment Code"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:625
+#: includes/class-wc-pagseguro-gateway.php:683
 msgid "Payment Method"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:673
+#: includes/class-wc-pagseguro-gateway.php:731
 msgid ""
 "PagSeguro: The buyer initiated the transaction, but so far the PagSeguro not "
 "received any payment information."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:677
+#: includes/class-wc-pagseguro-gateway.php:735
 msgid "PagSeguro: Payment under review."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:688
-#: includes/class-wc-pagseguro-gateway.php:691
+#: includes/class-wc-pagseguro-gateway.php:746
+#: includes/class-wc-pagseguro-gateway.php:749
 msgid "PagSeguro: Payment approved."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:704
+#: includes/class-wc-pagseguro-gateway.php:762
 msgid "PagSeguro: Payment completed and credited to your account."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:708
+#: includes/class-wc-pagseguro-gateway.php:766
 msgid "PagSeguro: Payment came into dispute."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:711
+#: includes/class-wc-pagseguro-gateway.php:769
 #, php-format
 msgid "Payment for order %s came into dispute"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:712
+#: includes/class-wc-pagseguro-gateway.php:770
 msgid "Payment in dispute"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:714
+#: includes/class-wc-pagseguro-gateway.php:772
 #, php-format
 msgid ""
 "Order %s has been marked as on-hold, because the payment came into dispute in "
 "PagSeguro."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:719
+#: includes/class-wc-pagseguro-gateway.php:777
 msgid "PagSeguro: Payment refunded."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:722
+#: includes/class-wc-pagseguro-gateway.php:780
 #, php-format
 msgid "Payment for order %s refunded"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:723
+#: includes/class-wc-pagseguro-gateway.php:781
 msgid "Payment refunded"
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:725
+#: includes/class-wc-pagseguro-gateway.php:783
 #, php-format
 msgid "Order %s has been marked as refunded by PagSeguro."
 msgstr ""
 
-#: includes/class-wc-pagseguro-gateway.php:734
+#: includes/class-wc-pagseguro-gateway.php:792
 msgid "PagSeguro: Payment canceled."
 msgstr ""
 
