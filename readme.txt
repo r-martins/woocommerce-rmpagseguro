@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly, Ricardo Martins
 Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 6.1
-Stable tag: 3.11.1
+Tested up to: 6.2
+Stable tag: 3.11.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -271,6 +271,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.11.2 - 17/Mai/2023 =
+* Adicionado compatibilidade com Wordpress 6.2 e WooCommerce 7.7.
+
 = 3.11.1 - 08/Fev/2023 =
 * Melhoria: a palavra "Redirecionar" foi trocada por "Outros" quando o modo redirect é habilitado em conjunto com transparente. Pequena melhoria estética sugerida por José Guedes.
 
