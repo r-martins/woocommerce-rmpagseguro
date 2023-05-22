@@ -33,23 +33,24 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$this->init_settings();
 
 		// Define user set variables.
-		$this->title             = $this->get_option( 'title' );
-		$this->description       = $this->get_option( 'description' );
-		$this->email             = $this->get_option( 'email' );
-		$this->public_key        = $this->get_option( 'public_key' ); //added by Ricardo Martins
-		$this->sandbox_email     = $this->get_option( 'sandbox_email' );
-		$this->sandbox_public_key= $this->get_option( 'sandbox_public_key' ); //added by Ricardo Martins
-		$this->method            = $this->get_option( 'method', 'direct' );
-		$this->tc_credit         = $this->get_option( 'tc_credit', 'yes' );
-		$this->tc_transfer       = $this->get_option( 'tc_transfer', 'yes' );
-		$this->tc_ticket         = $this->get_option( 'tc_ticket', 'yes' );
-		$this->tc_ticket_message = $this->get_option( 'tc_ticket_message', 'yes' );
-		$this->tc_redirect       = $this->get_option( 'tc_redirect', 'yes' );
-		$this->send_only_total   = $this->get_option( 'send_only_total', 'no' );
-		$this->invoice_prefix    = $this->get_option( 'invoice_prefix', 'WC-' );
-		$this->sandbox           = $this->get_option( 'sandbox', 'no' );
-		$this->debug             = $this->get_option( 'debug' );
-		$this->stcmirror             = $this->get_option( 'stcmirror' );
+		$this->title                        = $this->get_option( 'title' );
+		$this->description                  = $this->get_option( 'description' );
+		$this->email                        = $this->get_option( 'email' );
+		$this->public_key                   = $this->get_option( 'public_key' ); //added by Ricardo Martins
+		$this->sandbox_email                = $this->get_option( 'sandbox_email' );
+		$this->sandbox_public_key           = $this->get_option( 'sandbox_public_key' ); //added by Ricardo Martins
+		$this->method                       = $this->get_option( 'method', 'direct' );
+		$this->tc_credit                    = $this->get_option( 'tc_credit', 'yes' );
+		$this->tc_transfer                  = $this->get_option( 'tc_transfer', 'yes' );
+		$this->tc_ticket                    = $this->get_option( 'tc_ticket', 'yes' );
+		$this->tc_ticket_message            = $this->get_option( 'tc_ticket_message', 'yes' );
+		$this->tc_redirect                  = $this->get_option( 'tc_redirect', 'yes' );
+		$this->send_only_total              = $this->get_option( 'send_only_total', 'no' );
+		$this->invoice_prefix   			= $this->get_option( 'invoice_prefix', 'WC-' );
+		$this->hides_when_is_outside_brazil = $this->get_option( 'hides_when_is_outside_brazil', 'no' );
+		$this->sandbox                      = $this->get_option( 'sandbox', 'no' );
+		$this->debug                        = $this->get_option( 'debug' );
+		$this->stcmirror                    = $this->get_option( 'stcmirror' );
 
 		// Active logs.
 		if ( 'yes' === $this->debug ) {
@@ -357,6 +358,12 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'description' => __( 'Please enter a prefix for your invoice numbers. If you use your PagSeguro account for multiple stores ensure this prefix is unqiue as PagSeguro will not allow orders with the same invoice number.', 'woo-pagseguro-rm' ),
 				'desc_tip'    => true,
 				'default'     => 'WC-',
+			),
+			'hides_when_is_outside_brazil' => array(
+				'title'   => __( 'Disable module if selected country is not Brazil', 'woo-pagseguro-rm' ),
+				'type'    => 'checkbox',
+				'label'   => __( 'Disable module if selected country is not Brazil (enable this option if you sell to other countries than Brazil).', 'woo-pagseguro-rm' ),
+				'default' => 'no',
 			),
 			'testing'              => array(
 				'title'       => __( 'Gateway Testing', 'woo-pagseguro-rm' ),

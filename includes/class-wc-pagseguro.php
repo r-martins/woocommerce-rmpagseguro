@@ -95,6 +95,12 @@ class WC_PagSeguro {
 	 * @return  array                     New Available Gateways.
 	 */
 	public static function hides_when_is_outside_brazil( $available_gateways ) {
+		$settings = get_option( 'woocommerce_pagseguro_settings', array( 'method' => '' ) );
+		$hidePagseguroMethod = isset($settings['hides_when_is_outside_brazil']) && $settings['hides_when_is_outside_brazil'] === 'yes';
+		if (!$hidePagseguroMethod) {
+			return $available_gateways;
+		}
+
 		// Remove PagSeguro gateway.
 		if ( isset( $_REQUEST['country'] ) && 'BR' !== $_REQUEST['country'] ) { // WPCS: input var ok, CSRF ok.
 			unset( $available_gateways['pagseguro'] );
