@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.2
-Stable tag: 3.11.2
+Stable tag: 3.12.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -271,6 +271,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.12.0 - 23/Mai/2023 =
+* Adicionada opção para não exibir o PagSeguro caso o cliente seja de outro país
+* Nos casos onde a loja possui algum recurso para não exibir o campo País o módulo não era exibido. Agora, por padrão o módulo será exibido em todos os países a menos que marcado o contrário.
+
 = 3.11.2 - 17/Mai/2023 =
 * Adicionado compatibilidade com Wordpress 6.2 e WooCommerce 7.7.
 
