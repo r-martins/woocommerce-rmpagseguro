@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.2
-Stable tag: 3.13.0
+Stable tag: 3.13.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -271,6 +271,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+= 3.13.1 - 27/Jun/2023 =
+* Pequena mudança na validade do checkout, para permitir que o tempo selecionado seja em minutos e não em horas.
+
 = 3.13.0 - 27/Jun/2023 =
 * Agora é possível definir a validade do link de checkout quando usamos pagamento Redirect. (Sugerido por Fabio Oliveira - Kaizen Digital)
 
