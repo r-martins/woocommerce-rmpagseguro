@@ -557,7 +557,8 @@ class WC_PagSeguro_API {
 		}
 
 		$xml->add_max_uses( 1 );
-		$xml->add_max_age( 120 );
+		$maxAge = $this->gateway->get_option( 'redirect_max_age', 2 ) * 60;
+		$xml->add_max_age( $maxAge );
 
 		// Filter the XML.
 		$xml = apply_filters( 'woocommerce_pagseguro_checkout_xml', $xml, $order );
@@ -770,7 +771,7 @@ class WC_PagSeguro_API {
 
                 //prevents internal server error from PagSeguro when receiving a value > 18
                 $noInterestInstallmentsMaxParcels = min($noInterestInstallmentsMaxParcels, 18);
-                
+
                 //prevents 0 or 1
 				if ( $noInterestInstallmentsMaxParcels > 1 ) {
 					$post['noInterestInstallmentQuantity'] = $noInterestInstallmentsMaxParcels;

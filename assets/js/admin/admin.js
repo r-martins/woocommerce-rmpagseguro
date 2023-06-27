@@ -11,7 +11,13 @@
 		function pagSeguroSwitchTCOptions( method ) {
 			var fields  = $( '#woocommerce_pagseguro_tc_credit' ).closest( '.form-table' ),
 				heading = fields.prev( 'h3' );
-			
+
+			if ('redirect' === method) {
+				$( '#woocommerce_pagseguro_redirect_max_age' ).closest( 'tr' ).show();
+			} else {
+				$( '#woocommerce_pagseguro_redirect_max_age' ).closest( 'tr' ).hide();
+			}
+
 			if ( 'transparent' === method ) {
 				fields.show();
 				heading.show();
