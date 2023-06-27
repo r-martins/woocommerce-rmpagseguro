@@ -557,7 +557,7 @@ class WC_PagSeguro_API {
 		}
 
 		$xml->add_max_uses( 1 );
-		$maxAge = $this->gateway->get_option( 'redirect_max_age', 2 ) * 60;
+		$maxAge = $this->gateway->get_option( 'redirect_max_age', 120 );
 		$xml->add_max_age( $maxAge );
 
 		// Filter the XML.

@@ -250,10 +250,10 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				),
 			),
 			'redirect_max_age' => array(
-				'title'   => __( 'Redirect Expiry (hours)', 'woo-pagseguro-rm' ),
+				'title'   => __( 'Redirect Expiry (minutes)', 'woo-pagseguro-rm' ),
 				'type'    => 'number',
-				'default' => 2,
-				'placeholder' => 2,
+				'default' => 120,
+				'placeholder' => 120,
 				'desc_tip' => true,
 				'description'   => __( 'Defines how long the user can use the checkout link to pay for the order.', 'woo-pagseguro-rm' ),
 			),
