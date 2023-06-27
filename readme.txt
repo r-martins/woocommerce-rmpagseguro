@@ -271,7 +271,7 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
-= 3.12.0 - 27/Jun/2023 =
+= 3.13.0 - 27/Jun/2023 =
 * Agora é possível definir a validade do link de checkout quando usamos pagamento Redirect. (Sugerido por Fabio Oliveira - Kaizen Digital)
 
 = 3.12.0 - 23/Mai/2023 =
