@@ -5,6 +5,7 @@
  * @package WooCommerce_PagSeguro/Admin/Settings
  */
 
+/** @var WC_PagSeguro_Gateway $this */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -22,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		if ( '' === $this->get_email() ) {
 			include dirname( __FILE__ ) . '/html-notice-email-missing.php';
 		}
-        
+
 	}
 ?>
 

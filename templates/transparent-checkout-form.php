@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
         <?php if ( 'yes' == $tc_redirect ) : ?>
-            <li><label><input id="pagseguro-payment-method-redirect" type="radio" name="pagseguro_payment_method" value="redirect" /> <?php _e( 'Others', 'woo-pagseguro-rm' ); ?></label></li>
+            <li><label><input id="pagseguro-payment-method-redirect" type="radio" name="pagseguro_payment_method" value="redirect" /> <?php echo esc_attr($tc_redirect_title); ?></label></li>
         <?php endif; ?>
 
 	</ul>

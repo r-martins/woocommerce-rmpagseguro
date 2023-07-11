@@ -45,6 +45,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 		$this->tc_ticket                    = $this->get_option( 'tc_ticket', 'yes' );
 		$this->tc_ticket_message            = $this->get_option( 'tc_ticket_message', 'yes' );
 		$this->tc_redirect                  = $this->get_option( 'tc_redirect', 'yes' );
+		$this->tc_redirect_title            = $this->get_option( 'tc_redirect_title', 'Others' );
 		$this->send_only_total              = $this->get_option( 'send_only_total', 'no' );
 		$this->invoice_prefix   			= $this->get_option( 'invoice_prefix', 'WC-' );
 		$this->hides_when_is_outside_brazil = $this->get_option( 'hides_when_is_outside_brazil', 'no' );
@@ -349,6 +350,12 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'label'   => __( 'Enable the Redirect to PagSeguro option together with the Transparent Checkout', 'woo-pagseguro-rm' ),
 				'default' => 'yes',
 			),
+			'tc_redirect_title' => array(
+				'title'       => __( 'Redirect Title', 'woo-pagseguro-rm' ),
+				'type'        => 'text',
+				'description' => __( 'Name that will be displayed as Other payment options (tab title)', 'woo-pagseguro-rm' ),
+				'default'     => __( 'Others', 'woo-pagseguro-rm' ),
+			),
 			'behavior'             => array(
 				'title'       => __( 'Integration Behavior', 'woo-pagseguro-rm' ),
 				'type'        => 'title',
@@ -493,6 +500,7 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 					'tc_ticket'         => $this->tc_ticket,
 					'tc_ticket_message' => $this->tc_ticket_message,
 					'tc_redirect'       => $this->tc_redirect,
+					'tc_redirect_title' => $this->tc_redirect_title,
 					'flag'              => plugins_url( 'assets/images/brazilian-flag.png', plugin_dir_path( __FILE__ ) ),
 				), 'woocommerce/pagseguro/', WC_PagSeguro::get_templates_path()
 			);

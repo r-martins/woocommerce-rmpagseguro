@@ -43,7 +43,7 @@
 		}
 
 		/**
-		 * Awitch user data for sandbox and production.
+		 * Switch user data for sandbox and production.
 		 *
 		 * @param {String} checked
 		 */
@@ -65,6 +65,22 @@
 				sandboxPubKey.hide();
 			}
 		}
+
+		// region related to check/unchecking woocommerce_pagseguro_tc_redirect and showing others title
+		function pagseguroSwitchOtherTitle(){
+			//Others title
+			if ( $('#woocommerce_pagseguro_tc_redirect').is(':checked') ) {
+				jQuery('#woocommerce_pagseguro_tc_redirect_title').closest('tr') .show();
+			}else{
+				jQuery('#woocommerce_pagseguro_tc_redirect_title').closest('tr') .hide();
+			}
+		}
+
+		pagseguroSwitchOtherTitle();
+		$( 'body' ).on( 'change', '#woocommerce_pagseguro_tc_redirect', function () {
+			pagseguroSwitchOtherTitle();
+		});
+		// endregion
 
 		pagSeguroSwitchTCOptions( $( '#woocommerce_pagseguro_method' ).val() );
 
