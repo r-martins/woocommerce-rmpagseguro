@@ -315,6 +315,9 @@ class WC_PagSeguro_XML extends SimpleXMLElement {
 		$installment = $credit_card->addChild( 'installment' );
 		$installment->addChild( 'quantity', $installment_data['quantity'] );
 		$installment->addChild( 'value', $installment_data['value'] );
+		if (isset($installment_data['noInterestInstallmentQuantity'])) {
+			$installment->addChild( 'noInterestInstallmentQuantity', $installment_data['noInterestInstallmentQuantity'] );
+		}
 
 		$holder = $credit_card->addChild( 'holder' );
 		$holder->addChild( 'name' )->add_cdata( $holder_data['name'] );
@@ -361,6 +364,10 @@ class WC_PagSeguro_XML extends SimpleXMLElement {
 		$installment = $credit_card->addChild( 'installment' );
 		$installment->addChild( 'quantity', $installment_data['quantity'] );
 		$installment->addChild( 'value', $installment_data['value'] );
+
+		if (isset($installment_data['noInterestInstallmentQuantity'])) {
+			$installment->addChild( 'noInterestInstallmentQuantity', $installment_data['noInterestInstallmentQuantity'] );
+		}
 
 		$holder = $credit_card->addChild( 'holder' );
 		$holder->addChild( 'name' )->add_cdata( $holder_data['name'] );

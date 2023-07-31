@@ -674,6 +674,17 @@ class WC_PagSeguro_API {
 				'phone'      => isset( $posted['pagseguro_card_holder_phone'] ) ? sanitize_text_field( $posted['pagseguro_card_holder_phone'] ) : '',
 			);
 
+			switch( $this->gateway->get_option('cc_installment_options') ) {
+				case 'fixed':
+					$installment['noInterestInstallmentQuantity'] = (int)$this->gateway->get_option('cc_installment_options_fixed');
+					break;
+				case 'min_total':
+					$min_total = (int)$this->gateway->get_option('cc_installments_options_min_total');
+					$installment['noInterestInstallmentQuantity'] = (int)floor($order->get_total() / $min_total);
+					break;
+			}
+
+
 			// WooCommerce 3.0 or later.
 			if ( method_exists( $order, 'get_id' ) ) {
 				$xml->add_credit_card_data( $order, $credit_card_token, $installment, $holder_data );
@@ -765,17 +776,8 @@ class WC_PagSeguro_API {
 			$post['creditCardHolderAreaCode'] = (string)$xml->creditCard->holder->phone->areaCode;
 			$post['creditCardHolderPhone'] = (string)$xml->creditCard->holder->phone->number;
 
-			// parcels without interest setting
-			if ( $posted['no_interest_installments_min_value'] ) {
-				$noInterestInstallmentsMaxParcels = floor( $order->get_total() / $posted['no_interest_installments_min_value'] );
-
-                //prevents internal server error from PagSeguro when receiving a value > 18
-                $noInterestInstallmentsMaxParcels = min($noInterestInstallmentsMaxParcels, 18);
-
-                //prevents 0 or 1
-				if ( $noInterestInstallmentsMaxParcels > 1 ) {
-					$post['noInterestInstallmentQuantity'] = $noInterestInstallmentsMaxParcels;
-				}
+			if (isset ($xml->creditCard->installment->noInterestInstallmentQuantity)){
+				$post['noInterestInstallmentQuantity'] = (string)$xml->creditCard->installment->noInterestInstallmentQuantity;
 			}
 
 			//billing address

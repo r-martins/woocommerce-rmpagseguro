@@ -97,6 +97,35 @@
 		$( 'body' ).on( 'change', '#woocommerce_pagseguro_sandbox', function () {
 			pagSeguroSwitchUserData( $( this ).is( ':checked' ) );
 		});
+
+		/*region valor minimo da parcela sem juros*/
+		function hideOrShowMinTotalOptions() {
+			return function () {
+				$('#woocommerce_pagseguro_cc_installments_options_min_total').closest('tr').hide();
+
+				if ($(this).val() === 'min_total')
+					$('#woocommerce_pagseguro_cc_installments_options_min_total').closest('tr').show();
+			};
+		}
+
+		$('#woocommerce_pagseguro_cc_installment_options').change(hideOrShowMinTotalOptions());
+		hideOrShowMinTotalOptions().call($('#woocommerce_pagseguro_cc_installment_options'));
+		/*endregion*/
+
+
+		//max installments no interest
+		function hideOrShowFixedOptions() {
+			return function () {
+				$('#woocommerce_pagseguro_cc_installment_options_fixed').closest('tr').hide();
+
+				if ($(this).val() === 'fixed')
+					$('#woocommerce_pagseguro_cc_installment_options_fixed').closest('tr').show();
+			};
+		}
+
+		$('#woocommerce_pagseguro_cc_installment_options').change(hideOrShowFixedOptions());
+		hideOrShowFixedOptions().call($('#woocommerce_pagseguro_cc_installment_options'));
+		//endregion
 	});
 
 }( jQuery ));

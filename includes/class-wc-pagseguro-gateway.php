@@ -168,6 +168,9 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 						'general_error'      => __( 'Unable to process the data from your credit card on the PagSeguro, please try again or contact us for assistance.', 'woo-pagseguro-rm' ),
 						'empty_installments' => __( 'Select a number of installments.', 'woo-pagseguro-rm' ),
 						'no_interest_installments_min_value' => $this->get_numeric_option( 'no_interest_installments_min_value' ),
+						'cc_installment_options' => $this->get_option( 'cc_installment_options' ),
+						'cc_installment_options_fixed' => $this->get_numeric_option('cc_installment_options_fixed'),
+						'cc_installments_options_min_total' => $this->get_option('cc_installments_options_min_total')
 					)
 				);
 			}
@@ -255,6 +258,10 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'type'    => 'number',
 				'default' => 120,
 				'placeholder' => 120,
+				'custom_attributes' => array(
+					'min' => 30,
+					'max' => 999999999,
+				),
 				'desc_tip' => true,
 				'description'   => __( 'Defines how long the user can use the checkout link to pay for the order.', 'woo-pagseguro-rm' ),
 			),
@@ -319,12 +326,37 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'label'   => __( 'Enable Credit Card for Transparente Checkout', 'woo-pagseguro-rm' ),
 				'default' => 'yes',
 			),
-			'no_interest_installments_min_value'            => array(
-				'title'   => __( 'Minimum parcel value for installments without interest', 'woo-pagseguro-rm' ),
-				'type'    => 'text',
-				'desc_tip' => false,
-				'description' => __( 'If you specify this value, the promotion rules saved on PagSeguro will be ignored. Please leave if blank if you don\'t want to offer installments without interest (make sure you don\'t have any active promotion on PagSeguro).', 'woo-pagseguro-rm' ),
-				'default' => '',
+			'cc_installment_options' => array(
+				'title' => __( 'Opções de Parcelamento', \RM_PagSeguro\Connect::DOMAIN ),
+				'type'  => 'select',
+				'desc'  => '',
+				'default' => 'external',
+				'options' => array(
+					'external' => __( 'Obedecer configurações da conta PagBank (padrão)', \RM_PagSeguro\Connect::DOMAIN ),
+					'fixed'  => __( 'Até X parcelas sem juros', \RM_PagSeguro\Connect::DOMAIN ),
+					'min_total'  => __( 'Até X parcelas sem juros dependendo do valor da parcela', \RM_PagSeguro\Connect::DOMAIN ),
+				),
+			),
+			'cc_installment_options_fixed' => array(
+				'title' => __( 'Número de Parcelas sem Juros', \RM_PagSeguro\Connect::DOMAIN ),
+				'type'  => 'number',
+				'desc'  => '',
+				'default' => 3,
+				'custom_attributes' => array(
+					'min' => 1,
+					'max' => 18,
+				)
+			),
+			'cc_installments_options_min_total' => array(
+				'title' => __( 'Valor Mínimo da Parcela sem Juros', \RM_PagSeguro\Connect::DOMAIN ),
+				'type'  => 'number',
+				'description'  => __('Valor inteiro sem decimais. Exemplo: 10 para R$ 10,00 <br/><small>Neste exemplo, um pedido de R$100 poderá ser parcelado em 10x sem juros.<br/>Taxa padrão de juros: 2,99% a.m (consulte valor atualizado).</small>', \RM_PagSeguro\Connect::DOMAIN ),
+				//        'desc_tip' => true,
+				'default' => 50,
+				'custom_attributes' => array(
+					'min' => 5,
+					'max' => 99999,
+				)
 			),
 			'tc_transfer'          => array(
 				'title'   => __( 'Bank Transfer', 'woo-pagseguro-rm' ),

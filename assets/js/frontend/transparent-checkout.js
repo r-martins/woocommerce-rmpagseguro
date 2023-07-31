@@ -271,9 +271,19 @@
 				if ( 'error' !== brand ) {
 
 					var totalAmount = parseFloat($( 'body #pagseguro-payment-form' ).data( 'cart_total' ));
-					var noInterestInstallmentsMaxParcels = wc_pagseguro_params.no_interest_installments_min_value != null
-						? parseFloat(wc_pagseguro_params.no_interest_installments_min_value)
-						: null;
+					var noInterestInstallmentsMaxParcels = null;
+					switch (wc_pagseguro_params.cc_installment_options) {
+						case 'fixed':
+							noInterestInstallmentsMaxParcels = wc_pagseguro_params.cc_installment_options_fixed;
+							break;
+						case 'min_total':
+							noInterestInstallmentsMaxParcels = totalAmount/wc_pagseguro_params.cc_installments_options_min_total;
+							noInterestInstallmentsMaxParcels = Math.floor(noInterestInstallmentsMaxParcels);
+							break;
+						default:
+							noInterestInstallmentsMaxParcels = 0;
+
+					}
 
 					var params = {
 						amount: totalAmount,
@@ -309,7 +319,7 @@
 						}
 						// otherwise, calculates and sends the qty of parcels without interest
 						else if ( totalAmount >= noInterestInstallmentsMaxParcels ) {
-							params.maxInstallmentNoInterest = Math.floor( totalAmount / noInterestInstallmentsMaxParcels );
+							params.maxInstallmentNoInterest = noInterestInstallmentsMaxParcels;
 						}
 					}
 
