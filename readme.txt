@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.2
-Stable tag: 3.14.0
+Stable tag: 3.15.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -271,6 +271,14 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.15.0 - 31/Jul/2023 =
+* Melhoria: agora é possível escolher entre 3 opções diferentes de configuração de parcelamento:
+1. Obedecer regras configuradas na conta/painel PagSeguro (promoções salvas)
+2. Assumir até X parcelas sem juros (configurável)
+3. Definir valor mínimo da parcela sem juros. Ou seja, dependendo do valor da parcela, o lojista assume os juros.
+* Melhoria: agora é possível definir quais meios de pagamentoe estarão disponíveis se o cliente for redirecionado para o PagSeguro.
+
 = 3.14.0 - 11/Jul/2023 =
 * Melhoria: agora é possível definir o título do meio de pagamento "Outras" quando o modo transparente é habilitado em conjunto com o modo redirect. (Sugerido por Vagner)
 
