@@ -112,6 +112,22 @@
 		hideOrShowMinTotalOptions().call($('#woocommerce_pagseguro_cc_installment_options'));
 		/*endregion*/
 
+		//region redirect methods hide or show
+		function hideOrShowRedirectOptions() {
+			return function () {
+				$('#woocommerce_pagseguro_redirect_methods').closest('tr').hide();
+				if (($('#woocommerce_pagseguro_tc_redirect').is(':visible') && $('#woocommerce_pagseguro_tc_redirect').is(':checked'))
+					|| $('#woocommerce_pagseguro_method').val() == 'redirect')
+					$('#woocommerce_pagseguro_redirect_methods').closest('tr').show();
+			};
+		}
+
+		$('#woocommerce_pagseguro_method').change(hideOrShowRedirectOptions());
+		$('#woocommerce_pagseguro_tc_redirect').change(hideOrShowRedirectOptions());
+		hideOrShowRedirectOptions().call();
+		//endregion
+
+
 
 		//max installments no interest
 		function hideOrShowFixedOptions() {

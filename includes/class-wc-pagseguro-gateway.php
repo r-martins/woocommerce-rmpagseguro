@@ -253,6 +253,17 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 					'transparent' => __( 'Transparent Checkout (recommended)', 'woo-pagseguro-rm' ),
 				),
 			),
+			'redirect_methods' => array(
+				'title' 		=> __( 'Redirect Methods', 'woo-pagseguro-rm' ),
+				'type' 			=> 'multiselect',
+				'description' 	=> __( 'Select the payment methods that will be displayed when customer goes to PagSeguro', 'woo-pagseguro-rm' ),
+				'default' 		=> array( 'CREDIT_CARD', 'BOLETO', 'PIX'),
+				'options' 		=> array(
+					'CREDIT_CARD' 	=> __( 'Credit Card', 'woo-pagseguro-rm' ),
+					'BOLETO' 		=> __( 'Boleto', 'woo-pagseguro-rm' ),
+					'PIX' 			=> __( 'Pix', 'woo-pagseguro-rm' ),
+				),
+			),
 			'redirect_max_age' => array(
 				'title'   => __( 'Redirect Expiry (minutes)', 'woo-pagseguro-rm' ),
 				'type'    => 'number',

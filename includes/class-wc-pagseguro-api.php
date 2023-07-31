@@ -618,6 +618,7 @@ class WC_PagSeguro_API {
 			default:
 				$post['senderCPF'] = (string)$xml->sender->documents->document->value;
 		}
+		$post['acceptPaymentMethodGroup'] = implode(',', $this->gateway->get_option('redirect_methods', array()));
 		$post = $this->convert_encoding($post);
 		return $post;
 
