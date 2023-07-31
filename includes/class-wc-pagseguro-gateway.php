@@ -338,18 +338,18 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'default' => 'yes',
 			),
 			'cc_installment_options' => array(
-				'title' => __( 'Opções de Parcelamento', \RM_PagSeguro\Connect::DOMAIN ),
+				'title' => __( 'Opções de Parcelamento', 'woo-pagseguro-rm' ),
 				'type'  => 'select',
 				'desc'  => '',
 				'default' => 'external',
 				'options' => array(
-					'external' => __( 'Obedecer configurações da conta PagBank (padrão)', \RM_PagSeguro\Connect::DOMAIN ),
-					'fixed'  => __( 'Até X parcelas sem juros', \RM_PagSeguro\Connect::DOMAIN ),
-					'min_total'  => __( 'Até X parcelas sem juros dependendo do valor da parcela', \RM_PagSeguro\Connect::DOMAIN ),
+					'external' => __( 'Obedecer configurações da conta PagBank (padrão)', 'woo-pagseguro-rm' ),
+					'fixed'  => __( 'Até X parcelas sem juros', 'woo-pagseguro-rm' ),
+					'min_total'  => __( 'Até X parcelas sem juros dependendo do valor da parcela', 'woo-pagseguro-rm' ),
 				),
 			),
 			'cc_installment_options_fixed' => array(
-				'title' => __( 'Número de Parcelas sem Juros', \RM_PagSeguro\Connect::DOMAIN ),
+				'title' => __( 'Número de Parcelas sem Juros', 'woo-pagseguro-rm' ),
 				'type'  => 'number',
 				'desc'  => '',
 				'default' => 3,
@@ -359,9 +359,9 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				)
 			),
 			'cc_installments_options_min_total' => array(
-				'title' => __( 'Valor Mínimo da Parcela sem Juros', \RM_PagSeguro\Connect::DOMAIN ),
+				'title' => __( 'Valor Mínimo da Parcela sem Juros', 'woo-pagseguro-rm' ),
 				'type'  => 'number',
-				'description'  => __('Valor inteiro sem decimais. Exemplo: 10 para R$ 10,00 <br/><small>Neste exemplo, um pedido de R$100 poderá ser parcelado em 10x sem juros.<br/>Taxa padrão de juros: 2,99% a.m (consulte valor atualizado).</small>', \RM_PagSeguro\Connect::DOMAIN ),
+				'description'  => __('Valor inteiro sem decimais. Exemplo: 10 para R$ 10,00 <br/><small>Neste exemplo, um pedido de R$100 poderá ser parcelado em 10x sem juros.<br/>Taxa padrão de juros: 2,99% a.m (consulte valor atualizado).</small>', 'woo-pagseguro-rm' ),
 				//        'desc_tip' => true,
 				'default' => 50,
 				'custom_attributes' => array(
