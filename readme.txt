@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.2
-Stable tag: 3.15.1
+Stable tag: 3.15.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -271,6 +271,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+
+= 3.15.2 - 3/Ago/2023 =
+* Correção/compatibilidade: em versões antigas do Wordpress, um erro de <Forbidden> era exibido na finalização do pedido, mesmo com as credenciais corretas. O problema ocorria por causa de um bug no wordpress, mas contornamos por aqui. Reportado por Paulo da IdeiaFocus.
 
 = 3.15.1 - 31/Jul/2023 =
 * Correção de erro fatal na instalação do plugin (classe RM_PagSeguro\Connect nao encontrada)

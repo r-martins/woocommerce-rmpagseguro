@@ -619,7 +619,6 @@ class WC_PagSeguro_API {
 				$post['senderCPF'] = (string)$xml->sender->documents->document->value;
 		}
 		$post['acceptPaymentMethodGroup'] = implode(',', $this->gateway->get_option('redirect_methods', array()));
-		$post = $this->convert_encoding($post);
 		return $post;
 
 	}
@@ -792,7 +791,6 @@ class WC_PagSeguro_API {
 			$post['billingAddressPostalCode'] = (string)$xml->creditCard->billingAddress->postalCode;
 
 		}
-		$post = $this->convert_encoding($post);
 		return $post;
 	}
 
@@ -1114,8 +1112,7 @@ class WC_PagSeguro_API {
 	 */
 	public function get_custom_headers()
 	{
-		$headers  =  'Content-Type: application/x-www-form-urlencoded; charset=ISO-8859-1';
-		$headers .= PHP_EOL . 'Platform: WooCommerce';
+		$headers = 'Platform: WooCommerce';
 		$headers .= PHP_EOL . 'Platform-Version: ' . get_bloginfo('version');
 		$headers .= PHP_EOL . 'Module-Version:' . WC_PAGSEGURO_VERSION;
 
@@ -1149,19 +1146,6 @@ class WC_PagSeguro_API {
 		}
 	}
 
-	/**
-	 * Convert data sent to PagSeguro to ISO-8859-1
-	 * @param $data
-	 *
-	 * @return mixed
-	 */
-	public function convert_encoding($data)
-	{
-		foreach ($data as $k => $v) {
-			$data[$k] = utf8_decode($v);
-		}
-		return $data;
-	}
 
 	/**
 	 * Return Customer's IP v4 or '' if unsuccessful
@@ -1204,3 +1188,5 @@ class WC_PagSeguro_API {
 		return $senderIp;
 	}
 }
+
+
