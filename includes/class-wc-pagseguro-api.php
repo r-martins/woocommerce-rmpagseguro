@@ -556,9 +556,11 @@ class WC_PagSeguro_API {
 			$xml->add_notification_url( WC()->api_request_url( 'WC_PagSeguro_Gateway' ) );
 		}
 
-		$xml->add_max_uses( 1 );
 		$maxAge = $this->gateway->get_option( 'redirect_max_age', 120 );
 		$xml->add_max_age( $maxAge );
+
+		$maxUses = $this->gateway->get_option( 'redirect_max_uses', 3 );
+		$xml->add_max_uses( $maxUses );
 
 		// Filter the XML.
 		$xml = apply_filters( 'woocommerce_pagseguro_checkout_xml', $xml, $order );

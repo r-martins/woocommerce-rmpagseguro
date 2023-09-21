@@ -12,10 +12,12 @@
 			var fields  = $( '#woocommerce_pagseguro_tc_credit' ).closest( '.form-table' ),
 				heading = fields.prev( 'h3' );
 
-			if ('redirect' === method) {
+			if ('redirect' === method || $( '#woocommerce_pagseguro_tc_redirect' ).is( ':checked' )) {
 				$( '#woocommerce_pagseguro_redirect_max_age' ).closest( 'tr' ).show();
+				$( '#woocommerce_pagseguro_redirect_max_uses' ).closest( 'tr' ).show();
 			} else {
 				$( '#woocommerce_pagseguro_redirect_max_age' ).closest( 'tr' ).hide();
+				$( '#woocommerce_pagseguro_redirect_max_uses' ).closest( 'tr' ).hide();
 			}
 
 			if ( 'transparent' === method ) {
@@ -87,6 +89,11 @@
 		$( 'body' ).on( 'change', '#woocommerce_pagseguro_method', function () {
 			pagSeguroSwitchTCOptions( $( this ).val() );
 		}).change();
+
+		$( 'body' ).on( 'change', '#woocommerce_pagseguro_tc_redirect', function () {
+			pagSeguroSwitchTCOptions( $( '#woocommerce_pagseguro_method' ).val() );
+		}).change();
+
 
 		pagSeguroSwitchOptions( $( '#woocommerce_pagseguro_tc_ticket' ).is( ':checked' ) );
 		$( 'body' ).on( 'change', '#woocommerce_pagseguro_tc_ticket', function () {

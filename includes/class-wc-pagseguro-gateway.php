@@ -276,6 +276,18 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				'desc_tip' => true,
 				'description'   => __( 'Defines how long the user can use the checkout link to pay for the order.', 'woo-pagseguro-rm' ),
 			),
+			'redirect_max_uses' => array(
+				'title'   => __( 'Redirect Max Uses', 'woo-pagseguro-rm' ),
+				'type'    => 'number',
+				'default' => 3,
+				'placeholder' => '',
+				'custom_attributes' => array(
+					'min' => 1,
+					'max' => 999,
+				),
+				'desc_tip' => false,
+				'description'   => __( 'Limits the number of times the user can use the same link to pay for the order.', 'woo-pagseguro-rm' ),
+			),
 			//modified by Ricardo Martins
 			'sandbox'              => array(
 				'title'       => __( 'PagSeguro Sandbox', 'woo-pagseguro-rm' ),
