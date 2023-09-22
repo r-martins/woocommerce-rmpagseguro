@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly, martins56
 Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
-Tested up to: 6.2
-Stable tag: 3.15.2
+Tested up to: 6.3
+Stable tag: 3.16.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -272,6 +272,11 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 
 == Changelog ==
 
+
+= 3.16.0 - 21/Set/2023 =
+* Agora, ao usar o Redirect você pode especificar quantas vezes o link de pagamento poderá ser usado. Se configurado com valor 1 evitará que uma notificação atrasada de uma outra tentativa sem sucesso altere o status de um pedido em processamento erroneamente. (Sugerido por Fabio Oliveira)
+* Troca do logo por um mais recente em melhor resolução.
+* Testado com WooCommerce 8.2 e WordPress 6.3.
 
 = 3.15.2 - 3/Ago/2023 =
 * Correção/compatibilidade: em versões antigas do Wordpress, um erro de <Forbidden> era exibido na finalização do pedido, mesmo com as credenciais corretas. O problema ocorria por causa de um bug no wordpress, mas contornamos por aqui. Reportado por Paulo da IdeiaFocus.
