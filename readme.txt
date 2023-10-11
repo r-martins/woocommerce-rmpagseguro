@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.3
-Stable tag: 3.16.1
+Stable tag: 3.16.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -272,6 +272,11 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 
 == Changelog ==
 
+= 3.16.2 - 10/Out/2023 =
+* Corrigido problema com o logotipo que aparecia muito grande em alguns checkouts/temas (Reportado por Lucca).
+
+= 3.16.1 - 09/Out/2023 =
+* Adicionamos um pequeno banner na área de configurações convidando você a conhecer nosso novo plugin.
 
 = 3.16.0 - 21/Set/2023 =
 * Agora, ao usar o Redirect você pode especificar quantas vezes o link de pagamento poderá ser usado. Se configurado com valor 1 evitará que uma notificação atrasada de uma outra tentativa sem sucesso altere o status de um pedido em processamento erroneamente. (Sugerido por Fabio Oliveira)
