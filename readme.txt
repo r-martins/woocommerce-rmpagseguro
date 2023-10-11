@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/r-martins
 Tags: woocommerce, pagseguro, payment
 Requires at least: 4.0
 Tested up to: 6.3
-Stable tag: 3.16.2
+Stable tag: 3.16.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -271,6 +271,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.16.3 - 11/Out/2023 =
+* Re-correção do problema com logotipo que aparecia muito grande. Desta vez redimensionamos o svg pra facilitar e precisar de menos ajustes. (por Leonardo)
 
 = 3.16.2 - 10/Out/2023 =
 * Corrigido problema com o logotipo que aparecia muito grande em alguns checkouts/temas (Reportado por Lucca).
