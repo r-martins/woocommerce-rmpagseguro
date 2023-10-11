@@ -78,7 +78,6 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 			add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 3 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'checkout_scripts' ) );
 		}
-		add_action( 'wp_enqueue_scripts', array( $this, 'common_checkout_css' ) );
 	}
 
 	/**
@@ -176,16 +175,6 @@ class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
 				);
 			}
 		}
-	}
-
-	public function common_checkout_css()
-	{
-		if ( ! $this->is_available())
-			return;
-
-		$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_style( 'pagseguro-checkout-common', plugins_url( 'assets/css/frontend/common' . $suffix . '.css', plugin_dir_path( __FILE__ ) ), array(), WC_PAGSEGURO_VERSION );
-
 	}
 
 	/**
