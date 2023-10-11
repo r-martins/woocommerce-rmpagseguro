@@ -1,0 +1,8 @@
+label[for="payment_method_pagseguro"]{
+	display: flex;
+}
+label[for="payment_method_pagseguro"] img{
+	margin-left: 5px;
+	width: 50%;
+	max-width: 120px;
+}
