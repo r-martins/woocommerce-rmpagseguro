@@ -90,7 +90,9 @@ class WC_PagSeguro_API {
 	 */
 	protected function get_payment_url( $token ) {
 		//modified by Ricardo Martins
-		return 'https://' . $this->get_environment() . 'pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $token;
+		$url = 'https://' . $this->get_environment() . 'pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $token;
+		return sanitize_url($url);
+
 	}
 
 	/**

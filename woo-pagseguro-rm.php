@@ -34,7 +34,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Plugin constants.
-define( 'WC_PAGSEGURO_VERSION', '3.16.3' );
+define( 'WC_PAGSEGURO_VERSION', '3.16.4' );
 define( 'WC_PAGSEGURO_PLUGIN_FILE', __FILE__ );
 
 if ( ! class_exists( 'WC_PagSeguro' ) ) {
