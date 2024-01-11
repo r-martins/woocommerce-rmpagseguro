@@ -12,33 +12,32 @@ Adiciona PagSeguro aos meios de pagamento WooCommerce
 
 == Description ==
 
-https://www.youtube.com/watch?v=eN_WaK-1SQc
+### Considere usar o novo plugin!
+**A nova geração de nossa integração está [disponível aqui](https://wordpress.org/plugins/pagbank-connect/).**
+
+[![Nova versão](assets/banner-novo.gif)](https://wordpress.org/plugins/pagbank-connect/)
+
+Esta versão utiliza uma API do PagSeguro que será descontinuada no futuro e não será mantida pelo autor.
+
+---
 
 Veja o [passo a passo de instalação](https://pagseguro.ricardomartins.net.br/woocommerce/wizard.html) para WooCommerce
 
-### Add PagSeguro gateway to WooCommerce. ###
-
-This plugin adds PagSeguro gateway to WooCommerce.
-
-Please notice that WooCommerce must be installed and active.
-
-= Contribute =
-
-You can contribute to the source code in our [GitHub](https://github.com/r-martins/woocommerce-rmpagseguro/) page.
-
-### Descrição em Português: ###
+### Adicionar PagSeguro ao WooCommerce ###
 
 Adicione o PagSeguro como método de pagamento em sua loja WooCommerce.
 
 [PagSeguro](https://pagseguro.uol.com.br/) é um método de pagamento brasileiro oferecido pela UOL.
 
-Este plugin foi desenvolvido a partir da [documentação oficial do PagSeguro](https://pagseguro.uol.com.br/v2/guia-de-integracao/visao-geral.html) e utiliza a última versão da API de pagamentos.
+Este plugin foi desenvolvido a partir da [documentação oficial do PagSeguro](https://pagseguro.uol.com.br/v2/guia-de-integracao/visao-geral.html) e utiliza uma versão depreciada da API de pagamentos (legado).
+
+Para usar as novas APIs, utilize a [Nova Geração de nossa integração](https://wordpress.org/plugins/pagbank-connect/).
 
 ### Descontos nas taxas ###
 
 Graças a uma parceria com o PagSeguro, as transações realizadas por este módulo, possuem [condições especiais junto ao PagSeguro](https://pagseguro.ricardomartins.net.br/compare.html). 
 
-Ao usar nossa integração, você não pagará mais a taxa de intermediação do PagSeguro (tipicamente R$0,40/pedido aprovado) e passará a pagar uma taxa de transação menor que a taxa oficial (tipicamente 4,99% para recebimento em 14 dias ou 3,99% para recebimento em 30 dias).
+Ao usar nossa integração, você não pagará mais a taxa de intermediação do PagSeguro (tipicamente R$0,40/pedido aprovado) e passará a pagar uma taxa de transação menor que a taxa oficial (que é 4,99% para recebimento em 14 dias ou 3,99% para recebimento em 30 dias).
 
 Caso sua conta PagSeguro possua uma taxa ou condição negociada melhor que a nossa, e seu faturamento seja superior a R$20 mil/mês, [entre em contato](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new) conosco antes de usar nossa integração.
 
@@ -60,7 +59,7 @@ Compatível com versões posteriores ao WooCommerce 3.0.
 
 Este plugin também é compatível com o [WooCommerce Extra Checkout Fields for Brazil](http://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil/), desta forma é possível enviar os campos de "CPF", "número do endereço" e "bairro" (para o Checkout Transparente é obrigatório o uso deste plugin).
 
-Estamos sempre trabalhando para garantir melhores funcionalidades e máxima compatibilidade. Se mesmo assim tiver problemas, não hesite em [entrar em contato conosco](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new).
+Novas funcionalidades somente serão adicionadas à [nova geração da nossa integração](https://wordpress.org/plugins/pagbank-connect/), mas se encontrar problemas ou erros nesta, [entre em contato conosco](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new).
 
 = Instalação =
 
@@ -247,7 +246,7 @@ Com a nossa integração não é necessário autorização para utilizar o mesmo
 
 = Funciona com o Sandbox do PagSeguro? =
 
-Sim, funciona e basta você ativar isso nas opções do plugin, além de configurar o seu [e-mail e token de testes](https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html)".
+Sim, funciona. O difícil é conseguir fazer a Sandbox do PagSeguro funcionar. Considere usar a nova versão da nossa integração, que usa a nova api.
 
 = O total do pedido no WooCommerce é diferente do enviado para o PagSeguro, como eu resolvo isso? =
 
@@ -259,7 +258,7 @@ Não é necessário configurar qualquer URL para "Notificação de transação" 
 
 = Mais dúvidas relacionadas ao funcionamento do plugin? =
 
-Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre em contato conosco](https://pagsegurotransparente.zendesk.com/hc/request) com o link arquivo de log (ative ele nas opções do plugin e tente fazer uma compra, depois vá até WooCommerce > Status do Sistema, selecione o log do *pagseguro* e copie os dados, depois crie um link usando o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com)), desta forma fica mais rápido para fazer o diagnóstico.
+Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre em contato conosco](https://pagsegurotransparente.zendesk.com/hc/pt-br/requests/new) com o link arquivo de log (ative ele nas opções do plugin e tente fazer uma compra, depois vá até WooCommerce > Status do Sistema, selecione o log do *pagseguro* e copie os dados, depois crie um link usando o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com)), desta forma fica mais rápido para fazer o diagnóstico.
 
 == Screenshots ==
 
@@ -271,6 +270,10 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.16.5 - 11/Jan/2024 =
+* Atualização do readme.txt para direcionar você para a nova geração da integração.
+
 = 3.16.4 - 28/Nov/2023=
 * Adicionado suporte WP 6.4.1
 
