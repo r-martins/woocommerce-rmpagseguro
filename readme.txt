@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly, martins56
 Donate link: https://github.com/sponsors/r-martins
 Tags: pagseguro,pagbank,payment,pagbank,pagamento,woocommerce
 Requires at least: 4.0
-Tested up to: 6.4.1
-Stable tag: 3.16.5
+Tested up to: 6.5
+Stable tag: 3.16.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
