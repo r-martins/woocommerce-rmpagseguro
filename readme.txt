@@ -1,31 +1,31 @@
 === Módulo PagSeguro ===
 Contributors: claudiosanches, Gabriel Reguly, martins56
 Donate link: https://github.com/sponsors/r-martins
-Tags: woocommerce, pagseguro, payment
+Tags: pagseguro,pagbank,payment,pagbank,pagamento,woocommerce
 Requires at least: 4.0
 Tested up to: 6.4.1
 Stable tag: 3.16.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adiciona PagSeguro aos meios de pagamento WooCommerce
+Adiciona PagSeguro aos meios de pagamento WooCommerce com taxas especiais de parceiro (ex: 3,15% no crédito).
 
 == Description ==
 
-### Considere usar o novo plugin!
-**A nova geração de nossa integração está [disponível aqui](https://wordpress.org/plugins/pagbank-connect/).**
+### Considere usar o novo plugin para vender mais! 🚀
+👉 **A nova geração de nossa integração está [disponível aqui](https://wordpress.org/plugins/pagbank-connect/).** 👈
 
-[![Nova versão](assets/banner-novo.gif)](https://wordpress.org/plugins/pagbank-connect/)
+Ela pede menos informações ao consumidor, e tem recursos como PIX transparente, Autenticação 3Ds (aumenta a taxa de aprovação e reduz chargebacks), Recorrência, e muito mais.
 
-Esta versão utiliza uma API do PagSeguro que será descontinuada no futuro e não será mantida pelo autor.
+Esta versão utiliza uma API do PagSeguro que será descontinuada no futuro por eles.
 
 ---
 
 Veja o [passo a passo de instalação](https://pagseguro.ricardomartins.net.br/woocommerce/wizard.html) para WooCommerce
 
-### Adicionar PagSeguro ao WooCommerce ###
+### Adicionar PagSeguro (PagBank) ao WooCommerce ###
 
-Adicione o PagSeguro como método de pagamento em sua loja WooCommerce.
+Adicione o PagSeguro (PagBank) como método de pagamento em sua loja WooCommerce.
 
 [PagSeguro](https://pagseguro.uol.com.br/) é um método de pagamento brasileiro oferecido pela UOL.
 
