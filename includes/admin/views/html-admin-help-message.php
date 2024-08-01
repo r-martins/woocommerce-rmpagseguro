@@ -20,6 +20,6 @@ if ( apply_filters( 'woocommerce_pagseguro_help_message', true ) ) : ?>
         </p>
 	</div>
 	<div class="woo-connect">
-		<p><a href="https://pagseguro.ricardomartins.net.br/woocommerce.html?utm_source=wooadmin&utm_media=banner&utm_campaign=bannerlegado" target="_blank"><img src="<?php echo plugins_url( 'assets/images/upgrade-to-connect.gif',  WC_PAGSEGURO_PLUGIN_FILE );?>" width="540" height="75" border="0" title="Saiba mais sobre a nova geração de nosso plugin PagBank."/></a></p>
+		<p><a href="https://pagseguro.ricardomartins.net.br/woocommerce.html?utm_source=wooadmin&utm_media=banner&utm_campaign=bannerlegado" target="_blank"><img src="<?php echo plugins_url( 'assets/images/upgrade-to-connect.gif',  WC_PAGSEGURO_PLUGIN_FILE );?>" width="540" height="100" border="0" title="Saiba mais sobre a nova geração de nosso plugin PagBank."/></a></p>
 	</div>
 <?php endif;

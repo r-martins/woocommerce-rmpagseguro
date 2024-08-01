@@ -15,6 +15,25 @@ if ( ! defined( 'ABSPATH' ) ) {
  * WooCommerce PagSeguro gateway.
  */
 class WC_PagSeguro_Gateway extends WC_Payment_Gateway {
+	public $email;
+	public $public_key;
+	public $sandbox_email;
+	public $sandbox_public_key;
+	public $method;
+	public $tc_credit;
+	public $tc_transfer;
+	public $tc_ticket;
+	public $tc_ticket_message;
+	public $tc_redirect;
+	public $tc_redirect_title;
+	public $invoice_prefix;
+	public $hides_when_is_outside_brazil;
+	public $sandbox;
+	public $debug;
+	public $stcmirror;
+	public $send_only_total;
+	public $log;
+	public $api;
 
 	/**
 	 * Constructor for the gateway.
