@@ -3,8 +3,8 @@ Contributors: claudiosanches, Gabriel Reguly, martins56
 Donate link: https://github.com/sponsors/r-martins
 Tags: pagseguro,pagbank,payment,pagbank,pagamento,woocommerce
 Requires at least: 4.0
-Tested up to: 6.5
-Stable tag: 3.16.6
+Tested up to: 6.6
+Stable tag: 3.16.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -270,6 +270,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, [entre
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 3.16.7 - 1/Aug/2024 =
+* Corrigido Warnings de propriedades dinâmicas em versões mais novas do PHP / Troca do banner convidando para usar o plugin novo
 
 = 3.16.5 - 11/Jan/2024 =
 * Atualização do readme.txt para direcionar você para a nova geração da integração.
